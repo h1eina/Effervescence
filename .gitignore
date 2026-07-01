@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+._*
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS / misc
+Thumbs.db
+
+# Stray screenshots in project root
+/Screenshot*.png

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#160a24"/>
+      <stop offset="55%" stop-color="#1f1033"/>
+      <stop offset="100%" stop-color="#0d0616"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#f3d38a" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#ed9db4" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#160a24" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="txt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f6e6c2"/>
+      <stop offset="45%" stop-color="#f3d38a"/>
+      <stop offset="80%" stop-color="#ed9db4"/>
+      <stop offset="100%" stop-color="#a68bff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <circle cx="980" cy="150" r="70" fill="none" stroke="url(#txt)" stroke-width="2" opacity="0.5"/>
+  <circle cx="1080" cy="90" r="18" fill="#f3d38a" opacity="0.6"/>
+  <circle cx="150" cy="500" r="30" fill="#ed9db4" opacity="0.4"/>
+  <circle cx="90" cy="420" r="12" fill="#a68bff" opacity="0.6"/>
+  <text x="600" y="270" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="44" fill="#ed9db4" letter-spacing="6">LIVE YOUR</text>
+  <text x="600" y="380" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="120" fill="url(#txt)">Effervescence</text>
+  <text x="600" y="460" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="30" fill="#cdbfe0">Promoting authenticity, self-love, and self-expression through poetry and art</text>
+  <text x="600" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#a394b8" letter-spacing="4">MARIE-PAUL DUWAI-SOWA</text>
+</svg>

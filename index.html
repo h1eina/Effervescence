@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2a0b46" />
+
+  <title>Live Your Effervescence — Poetry & Art by Marie-Paul Duwai-Sowa</title>
+  <meta name="description" content="Live Your Effervescence is the poetry and art movement of award-winning poet Marie-Paul Duwai-Sowa, promoting authenticity, self-love, and self-expression through poetry and visual art." />
+  <meta name="author" content="Marie-Paul Duwai-Sowa" />
+  <meta name="keywords" content="Live Your Effervescence, Marie-Paul Duwai-Sowa, poetry, spoken word, visual poetry, Black is Beautiful, Afrovescence, self-love, self-expression, authenticity, Hamilton poet, Sierra Leone poet" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Live Your Effervescence — Poetry & Art by Marie-Paul Duwai-Sowa" />
+  <meta property="og:description" content="Promoting authenticity, self-love, and self-expression through poetry and art. The creative home of award-winning poet Marie-Paul Duwai-Sowa." />
+  <meta property="og:site_name" content="Live Your Effervescence" />
+  <meta property="og:image" content="assets/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Live Your Effervescence" />
+  <meta name="twitter:description" content="Promoting authenticity, self-love, and self-expression through poetry and art." />
+  <meta name="twitter:image" content="assets/og-image.svg" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="canonical" href="https://liveyoureffervescence.com/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..600&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Marie-Paul Duwai-Sowa",
+    "jobTitle": "Poet, Artist & Founder of Live Your Effervescence",
+    "description": "Award-winning poet, artist, and human rights advocate; founder of Live Your Effervescence, a motivational lifestyle brand uplifting individuals through poetry and visual art.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hamilton",
+      "addressRegion": "Ontario",
+      "addressCountry": "Canada"
+    },
+    "sameAs": [
+      "https://www.instagram.com/liveyoureffervescence/",
+      "https://linktr.ee/liveyoureffervescence"
+    ],
+    "worksFor": {
+      "@type": "Brand",
+      "name": "Live Your Effervescence",
+      "slogan": "Promoting authenticity, self-love, and self-expression through poetry and art."
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__word">effervescence</span>
+      <span class="preloader__sub">let it rise</span>
+    </div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Bubble canvas background -->
+  <canvas class="fx-canvas" id="fxCanvas" aria-hidden="true"></canvas>
+  <div class="aurora" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#hero">Skip to content</a>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__brand" aria-label="Live Your Effervescence — home">
+      <span class="nav__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26" fill="none">
+          <circle cx="16" cy="16" r="9" stroke="currentColor" stroke-width="1.4"/>
+          <circle cx="23" cy="10" r="2.6" fill="currentColor"/>
+          <circle cx="9" cy="23" r="1.8" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="nav__name">Live Your <em>Effervescence</em></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#manifesto">Creed</a>
+      <a href="#poem">The Poem</a>
+      <a href="#about">Marie-Paul</a>
+      <a href="#work">Productions</a>
+      <a href="#connect">Connect</a>
+    </nav>
+
+    <a href="#connect" class="btn btn--ghost nav__cta">Work with me</a>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="#manifesto">Creed</a>
+      <a href="#poem">The Poem</a>
+      <a href="#about">Marie-Paul</a>
+      <a href="#work">Productions</a>
+      <a href="#connect">Connect</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <p class="hero__eyebrow reveal" data-reveal>A poetry &amp; art movement</p>
+        <h1 class="hero__title">
+          <span class="line reveal" data-reveal>Live Your</span>
+          <span class="line line--display reveal" data-reveal data-delay="120">Effervescence</span>
+        </h1>
+        <p class="hero__tagline reveal" data-reveal data-delay="240">
+          Promoting authenticity, self-love, and self-expression
+          <br class="hide-mobile" /> through poetry and art.
+        </p>
+        <div class="hero__actions reveal" data-reveal data-delay="360">
+          <a href="#poem" class="btn btn--gold magnetic">Experience the poem</a>
+          <a href="#work" class="btn btn--ghost magnetic">See the productions</a>
+        </div>
+      </div>
+
+      <a href="#manifesto" class="scroll-cue" aria-label="Scroll down">
+        <span class="scroll-cue__dot"></span>
+        <span class="scroll-cue__label">scroll</span>
+      </a>
+    </section>
+
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__group">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span class="marquee__group" aria-hidden="true">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ===================== MANIFESTO ===================== -->
+    <section class="section manifesto" id="manifesto">
+      <div class="container">
+        <p class="section__kicker reveal" data-reveal>The Creed</p>
+        <h2 class="section__title reveal" data-reveal>
+          Effervescence is the courage to rise —
+          <span class="grad-text">bright, unbottled, and fully yourself.</span>
+        </h2>
+
+        <div class="pillars">
+          <article class="pillar reveal" data-reveal tabindex="0">
+            <span class="pillar__num">01</span>
+            <h3>Authenticity</h3>
+            <p>The freedom to be exactly who you are — youth that drips like gold, dared not be sold, kept precious and free.</p>
+          </article>
+          <article class="pillar reveal" data-reveal data-delay="120" tabindex="0">
+            <span class="pillar__num">02</span>
+            <h3>Self-Love</h3>
+            <p>The quiet return to yourself. Restoring the effervescence that never left — you simply have to stop letting it drown.</p>
+          </article>
+          <article class="pillar reveal" data-reveal data-delay="240" tabindex="0">
+            <span class="pillar__num">03</span>
+            <h3>Self-Expression</h3>
+            <p>Poetry and visual art as living language — a way to feel free again, to feel alive, to dance like the winged beings in the sky.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== THE POEM ===================== -->
+    <section class="section poem" id="poem">
+      <div class="poem__ambience" aria-hidden="true"></div>
+      <div class="container container--narrow">
+        <p class="section__kicker reveal" data-reveal>The Visual Poetry Experience</p>
+        <h2 class="poem__title reveal" data-reveal>Effervescence</h2>
+        <p class="poem__byline reveal" data-reveal>an award-winning original poem by Marie-Paul Duwai-Sowa</p>
+
+        <div class="poem__body" id="poemBody">
+          <p class="stanza"><span class="pl">Effervescent</span><span class="pl">A captured essence</span><span class="pl">Stuck in a bottle</span><span class="pl">Sent off to sea</span><span class="pl">I question everyday</span><span class="pl">When will it be returned to me?</span></p>
+
+          <p class="stanza"><span class="pl">I was once effervescent</span><span class="pl">When youth dripped off me</span><span class="pl">Like gold so rare</span><span class="pl">It could have been sold</span><span class="pl">But dared not be</span></p>
+
+          <p class="stanza"><span class="pl">It was too precious</span><span class="pl">It kept me free</span><span class="pl">Then my freedom was taken,</span><span class="pl">Stripped away from me</span><span class="pl">I became a shell of what I used to be</span><span class="pl">I became still</span><span class="pl">I became recluse</span><span class="pl">I had become everything I never wanted to be,</span><span class="pl">But if only then I knew</span></p>
+
+          <p class="stanza"><span class="pl">Now I sit alone</span><span class="pl">Staring longingly outside my window</span><span class="pl">Reminiscing my youth</span><span class="pl">I am not living it</span><span class="pl">As I had always promised I would</span><span class="pl">I promised myself that nothing would ever change me</span><span class="pl">I would remain curious and carefree</span><span class="pl">Adventurous and wild</span><span class="pl">Tamed by no wind</span><span class="pl">Docile by no mile</span><span class="pl">But suddenly life changed</span><span class="pl">Responsibilities came</span><span class="pl">Ones I could not control</span><span class="pl">Others I bothered not to</span><span class="pl">Who else would take on the roles I was taught to?</span><span class="pl">The more I sit back and think</span><span class="pl">The more it hurts</span><span class="pl">I worked and worked and worked</span><span class="pl">Taking no time to discover myself</span><span class="pl">To find out who I was</span><span class="pl">To find out what I did best</span></p>
+
+          <p class="stanza stanza--accent"><span class="pl">I left no room for effervescence</span></p>
+
+          <p class="stanza"><span class="pl">So, when I sit alone and ask</span><span class="pl">When will it be returned to me,</span><span class="pl">I have realised, it is simply up to me</span></p>
+
+          <p class="stanza"><span class="pl">Do I want my life to be evergreen?</span><span class="pl">Do I want it to drip with gold?</span><span class="pl">With incomparable experiences new and old?</span></p>
+
+          <p class="stanza stanza--yes"><span class="pl">Yes, yes, yes</span></p>
+
+          <p class="stanza"><span class="pl">I want to feel free again</span><span class="pl">I want to feel alive</span><span class="pl">I want to be able to dance like the winged beings in the sky</span></p>
+
+          <p class="stanza stanza--finale"><span class="pl">I want to restore my effervescence</span><span class="pl">Although it never left</span><span class="pl">I believed it was taken,</span><span class="pl">but I was the one that had let it drown.</span></p>
+        </div>
+
+        <div class="poem__cta reveal" data-reveal>
+          <a href="https://youtu.be/6tFfppjnRlQ" target="_blank" rel="noopener" class="btn btn--gold magnetic" data-video="6tFfppjnRlQ" data-video-title="Effervescence — The Visual Poetry Experience">Watch the visual reading</a>
+          <a href="https://www.hpl.ca/sites/default/files/17p_1st_Effervescence.pdf" target="_blank" rel="noopener" class="btn btn--ghost magnetic">Read at Hamilton Public Library</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section about" id="about">
+      <div class="container about__grid">
+        <div class="about__portrait reveal" data-reveal>
+          <div class="portrait">
+            <div class="portrait__frame">
+              <img class="portrait__img" src="assets/marie-paul.png" alt="Marie-Paul Duwai-Sowa, poet and founder of Live Your Effervescence, wearing a gold head wrap and richly patterned garments" loading="lazy" />
+              <span class="portrait__caption">Marie-Paul<br/>Duwai-Sowa</span>
+            </div>
+            <div class="portrait__ring" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="about__content">
+          <p class="section__kicker reveal" data-reveal>The Poet</p>
+          <h2 class="section__title reveal" data-reveal>Marie-Paul Duwai-Sowa</h2>
+          <p class="about__role reveal" data-reveal>Poet · Artist · Founder &amp; CEO of Effervescence</p>
+
+          <p class="about__lead reveal" data-reveal>
+            Marie-Paul is an award-winning poet and artist based in Hamilton, Ontario, and the
+            founder of <em>Live Your Effervescence</em> — a motivational lifestyle brand devoted to
+            inspiring and uplifting individuals through poetry and visual art.
+          </p>
+          <p class="about__text reveal" data-reveal>
+            An aspiring human rights lawyer studying Law at the University of Sussex and Human Rights
+            at Wilfrid Laurier University, she channels a passion for advocacy and self-expression
+            into unique poetic and artistic experiences that inspire, uplift, and empower. Her work
+            invites people to reclaim their authenticity — to remember the gold they are made of.
+          </p>
+
+          <ul class="about__facts reveal" data-reveal>
+            <li><strong>Award-winning</strong> original poet</li>
+            <li><strong>Human rights</strong> advocate</li>
+            <li><strong>SU Education Officer</strong> 2025–2026</li>
+            <li><strong>Hamilton, ON</strong> · Sierra Leonean roots</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WORK / PRODUCTIONS ===================== -->
+    <section class="section work" id="work">
+      <div class="container">
+        <p class="section__kicker reveal" data-reveal>Effervescence Productions</p>
+        <h2 class="section__title reveal" data-reveal>Projects &amp; performances</h2>
+
+        <div class="work__grid">
+          <article class="card card--video reveal" data-reveal>
+            <span class="card__play" aria-hidden="true"></span>
+            <div class="card__tag">Visual Poetry · Film</div>
+            <h3 class="card__title">Effervescence — The Visual Poetry Experience</h3>
+            <p class="card__desc">A cinematic visual reading of the award-winning original poem “Effervescence.” Shot by <span class="nowrap">stynoshots_filmz</span>.</p>
+            <a class="card__link" href="https://youtu.be/6tFfppjnRlQ" target="_blank" rel="noopener" data-video="6tFfppjnRlQ" data-video-title="Effervescence — The Visual Poetry Experience">Watch the film <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card reveal" data-reveal data-delay="100">
+            <div class="card__tag">Collection · Publication</div>
+            <h3 class="card__title">Black is Beautiful</h3>
+            <p class="card__desc">A visual and poetry collection celebrating Black identity, beauty, and the fullness of self.</p>
+            <a class="card__link" href="https://issuu.com/liveyoureffervescence" target="_blank" rel="noopener">Read the collection <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card card--video reveal" data-reveal data-delay="200">
+            <span class="card__play" aria-hidden="true"></span>
+            <div class="card__tag">First Reading · Film</div>
+            <h3 class="card__title">The First Official Reading</h3>
+            <p class="card__desc">Marie-Paul’s first official reading of her original poem “Effervescence” — where it all began.</p>
+            <a class="card__link" href="https://www.youtube.com/watch?v=Med_pWTau1c" target="_blank" rel="noopener" data-video="Med_pWTau1c" data-video-title="The First Official Reading of Effervescence">Watch the reading <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card card--video reveal" data-reveal data-delay="300">
+            <span class="card__play" aria-hidden="true"></span>
+            <div class="card__tag">Talk · Live</div>
+            <h3 class="card__title">Harnessing Your Child’s Special Talent</h3>
+            <p class="card__desc">A live conversation on nurturing creativity and self-belief in young people.</p>
+            <a class="card__link" href="https://www.youtube.com/watch?v=P5CqF8RfmWo" target="_blank" rel="noopener" data-video="P5CqF8RfmWo" data-video-title="Harnessing Your Child’s Special Talent">Watch the talk <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card card--wide reveal" data-reveal>
+            <div class="card__tag">Published Poem</div>
+            <h3 class="card__title">Effervescence at Hamilton Public Library</h3>
+            <p class="card__desc">The original poem “Effervescence,” featured among local poets by the Hamilton Public Library. Read the piece that started the movement.</p>
+            <a class="card__link" href="https://www.hpl.ca/sites/default/files/17p_1st_Effervescence.pdf" target="_blank" rel="noopener">Read the poem <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== QUOTE ===================== -->
+    <section class="section pullquote">
+      <div class="container container--narrow">
+        <blockquote class="reveal" data-reveal>
+          “I want to restore my effervescence — although it never left.
+          I believed it was taken, but I was the one that had let it drown.”
+          <cite>— Marie-Paul Duwai-Sowa, <span>Effervescence</span></cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ===================== CONNECT / CONTACT ===================== -->
+    <section class="section connect" id="connect">
+      <div class="container connect__grid">
+        <div class="connect__intro">
+          <p class="section__kicker reveal" data-reveal>Connect</p>
+          <h2 class="section__title reveal" data-reveal>Let’s create something<br/> that <span class="grad-text">rises.</span></h2>
+          <p class="connect__text reveal" data-reveal>
+            For readings, collaborations, commissions, workshops, and speaking engagements —
+            reach out. Marie-Paul would love to hear from you.
+          </p>
+
+          <ul class="connect__channels reveal" data-reveal>
+            <li>
+              <a href="mailto:liveyoureffervescence@gmail.com">
+                <span class="ch__label">Email</span>
+                <span class="ch__value">liveyoureffervescence@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/liveyoureffervescence/" target="_blank" rel="noopener">
+                <span class="ch__label">Instagram</span>
+                <span class="ch__value">@liveyoureffervescence</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://linktr.ee/liveyoureffervescence" target="_blank" rel="noopener">
+                <span class="ch__label">Everything else</span>
+                <span class="ch__value">linktr.ee/liveyoureffervescence</span>
+              </a>
+            </li>
+            <li>
+              <span class="ch__static">
+                <span class="ch__label">Based in</span>
+                <span class="ch__value">Hamilton, Ontario · Canada</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="connect__form reveal" data-reveal id="contactForm" novalidate>
+          <div class="field">
+            <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder=" " />
+            <label for="cf-name">Your name</label>
+          </div>
+          <div class="field">
+            <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder=" " />
+            <label for="cf-email">Your email</label>
+          </div>
+          <div class="field field--select">
+            <label for="cf-subject" class="field__label--static">Reason for reaching out</label>
+            <select id="cf-subject" name="subject">
+              <option value="Collaboration">Collaboration</option>
+              <option value="Booking / Reading">Booking / Reading</option>
+              <option value="Commission">Commission</option>
+              <option value="Workshop / Talk">Workshop / Talk</option>
+              <option value="Just saying hello">Just saying hello</option>
+            </select>
+          </div>
+          <div class="field">
+            <textarea id="cf-message" name="message" rows="4" required placeholder=" "></textarea>
+            <label for="cf-message">Your message</label>
+          </div>
+          <button type="submit" class="btn btn--gold btn--block magnetic">Send message</button>
+          <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <span class="footer__logo">Live Your <em>Effervescence</em></span>
+        <p>Promoting authenticity, self-love, and self-expression through poetry and art.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#manifesto">Creed</a>
+        <a href="#poem">The Poem</a>
+        <a href="#about">Marie-Paul</a>
+        <a href="#work">Productions</a>
+        <a href="#connect">Connect</a>
+      </nav>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/liveyoureffervescence/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="https://linktr.ee/liveyoureffervescence" target="_blank" rel="noopener" aria-label="Linktree">Linktree</a>
+        <a href="mailto:liveyoureffervescence@gmail.com" aria-label="Email">Email</a>
+      </div>
+    </div>
+    <div class="footer__base container">
+      <span>© <span id="year"></span> Live Your Effervescence · Marie-Paul Duwai-Sowa</span>
+      <span class="footer__made">Let it rise. ✦</span>
+    </div>
+  </footer>
+
+  <!-- Video lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close video">&times;</button>
+    <div class="lightbox__stage">
+      <p class="lightbox__title" id="lightboxTitle"></p>
+      <div class="lightbox__frame" id="lightboxFrame"></div>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+      <path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
