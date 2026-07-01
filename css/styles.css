@@ -258,7 +258,7 @@ body::before {
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ---------- Manifesto ---------- */
-.manifesto .section__title { max-width: 24ch; margin-bottom: 3.5rem; }
+.creed .section__title { max-width: 24ch; margin-bottom: 3.5rem; }
 .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
 .pillar {
   padding: 2.2rem 1.8rem; border-radius: var(--radius);
