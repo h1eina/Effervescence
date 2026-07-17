@@ -224,6 +224,57 @@
     sections.forEach((s) => spy.observe(s));
   }
 
+  /* ---------- Poems flip-book ---------- */
+  const book = $(".book");
+  if (book) {
+    const tabs = $$(".book__tab", book);
+    const pages = $$(".page", book);
+    const prev = $("#pagePrev");
+    const next = $("#pageNext");
+    const num = $("#pageNum");
+    let idx = 0;
+    const show = (i) => {
+      idx = Math.max(0, Math.min(pages.length - 1, i));
+      pages.forEach((p, n) => {
+        const active = n === idx;
+        p.classList.toggle("is-active", active);
+        if (active) p.removeAttribute("hidden");
+        else p.setAttribute("hidden", "");
+      });
+      tabs.forEach((t, n) => {
+        const active = n === idx;
+        t.classList.toggle("is-active", active);
+        t.setAttribute("aria-selected", String(active));
+      });
+      if (num) num.textContent = String(idx + 1);
+      if (prev) prev.disabled = idx === 0;
+      if (next) next.disabled = idx === pages.length - 1;
+    };
+    tabs.forEach((t, n) => t.addEventListener("click", () => show(n)));
+    if (prev) prev.addEventListener("click", () => show(idx - 1));
+    if (next) next.addEventListener("click", () => show(idx + 1));
+    show(0);
+  }
+
+  /* ---------- Community sign-up (client-side) ---------- */
+  const communityForm = $("#communityForm");
+  if (communityForm) {
+    communityForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const note = $("#communityNote");
+      const email = $("#communityEmail").value.trim();
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!valid) {
+        note.textContent = "Please enter a valid email address.";
+        note.classList.add("is-error");
+        return;
+      }
+      note.classList.remove("is-error");
+      note.textContent = "Welcome to the House of Effervescence ✦ You’re on the list.";
+      communityForm.reset();
+    });
+  }
+
   /* =========================================================
      BUBBLE CANVAS — the effervescence
      ========================================================= */

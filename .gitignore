@@ -14,3 +14,6 @@ Thumbs.db
 
 # Stray screenshots in project root
 /Screenshot*.png
+
+# Private design brief (do not publish)
+/MARIE-PAUL.com.pdf
