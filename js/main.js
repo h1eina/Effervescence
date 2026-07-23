@@ -229,23 +229,34 @@
   const giscusMount = $("#giscusMount");
   const commentsFallback = $("#commentsFallback");
   if (comments && giscusMount && commentsFallback) {
+    let giscusReady = false;
     const showFallback = () => {
+      if (giscusReady) return;
       comments.classList.add("is-fallback");
       commentsFallback.hidden = false;
     };
-    // If giscus posts an error (or never mounts a frame), offer the Discussion link.
+    const hideFallback = () => {
+      giscusReady = true;
+      comments.classList.remove("is-fallback");
+      commentsFallback.hidden = true;
+    };
     window.addEventListener("message", (e) => {
       if (e.origin !== "https://giscus.app") return;
       try {
         const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
-        if (data && data.giscus && data.giscus.error) showFallback();
+        if (!data || !data.giscus) return;
+        if (data.giscus.error) showFallback();
+        // Successful resize / load messages mean the widget is alive.
+        if (data.giscus.resizeHeight || data.giscus.discussion) hideFallback();
       } catch (_) { /* ignore */ }
     });
+    // Only fall back if the iframe never appears and an error string is present.
     setTimeout(() => {
-      const frame = giscusMount.querySelector("iframe.giscus-frame");
-      const errored = /giscus is not installed|Error/i.test(giscusMount.textContent || "");
-      if (!frame || errored) showFallback();
-    }, 3500);
+      const frame = giscusMount.querySelector("iframe");
+      if (frame) { hideFallback(); return; }
+      const errored = /giscus is not installed|An error occurred/i.test(giscusMount.textContent || "");
+      if (errored) showFallback();
+    }, 5000);
   }
 
   /* ---------- Hero slideshow (moving images) ---------- */
