@@ -322,13 +322,19 @@
   }
 
   /* =========================================================
-     BUBBLE CANVAS — the effervescence
+     BUTTERFLY CANVAS — slow fluttering wings
      ========================================================= */
   const canvas = $("#fxCanvas");
   if (canvas && !prefersReduced) {
     const ctx = canvas.getContext("2d");
-    let w, h, dpr, bubbles = [], raf, mouse = { x: -9999, y: -9999 };
-    const palette = ["255,215,106", "255,147,189", "189,136,255", "92,240,216", "255,125,107"];
+    let w, h, dpr, butterflies = [], raf, mouse = { x: -9999, y: -9999 };
+    const palette = [
+      ["255,215,106", "255,147,189"],
+      ["255,147,189", "189,136,255"],
+      ["189,136,255", "92,240,216"],
+      ["255,125,107", "255,215,106"],
+      ["92,240,216", "255,147,189"],
+    ];
 
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -336,62 +342,139 @@
       h = canvas.height = Math.floor(innerHeight * dpr);
       canvas.style.width = innerWidth + "px";
       canvas.style.height = innerHeight + "px";
-      const count = Math.round(Math.min(70, (innerWidth * innerHeight) / 26000));
-      bubbles = Array.from({ length: count }, makeBubble);
+      const count = Math.round(Math.min(18, Math.max(8, (innerWidth * innerHeight) / 90000)));
+      butterflies = Array.from({ length: count }, makeButterfly);
     };
 
-    function makeBubble(_, i) {
-      const r = (Math.random() * 26 + 4) * dpr;
+    function makeButterfly() {
+      const scale = (Math.random() * 0.55 + 0.45) * dpr;
+      const colors = palette[(Math.random() * palette.length) | 0];
       return {
         x: Math.random() * w,
-        y: Math.random() * h + (i !== undefined ? 0 : h),
-        r,
-        speed: (Math.random() * 0.4 + 0.15) * dpr,
-        drift: Math.random() * 0.6 - 0.3,
-        phase: Math.random() * Math.PI * 2,
-        alpha: Math.random() * 0.35 + 0.1,
-        color: palette[(Math.random() * palette.length) | 0],
+        y: Math.random() * h,
+        scale,
+        // Slow drift — mostly rising with a soft lateral wander
+        vx: (Math.random() * 0.25 - 0.12) * dpr,
+        vy: -(Math.random() * 0.18 + 0.08) * dpr,
+        flap: Math.random() * Math.PI * 2,
+        flapSpeed: 0.04 + Math.random() * 0.03, // slow flutter
+        wobble: Math.random() * Math.PI * 2,
+        wobbleSpeed: 0.008 + Math.random() * 0.01,
+        angle: (Math.random() * 0.5 - 0.25),
+        alpha: 0.28 + Math.random() * 0.35,
+        colors,
       };
+    }
+
+    function drawButterfly(b) {
+      const wingOpen = 0.35 + Math.abs(Math.sin(b.flap)) * 0.65; // 0.35–1.0
+      const s = b.scale * 14;
+
+      ctx.save();
+      ctx.translate(b.x, b.y);
+      ctx.rotate(b.angle + Math.sin(b.wobble) * 0.18);
+      ctx.globalAlpha = b.alpha;
+
+      // Soft glow behind the butterfly
+      const glow = ctx.createRadialGradient(0, 0, 0, 0, 0, s * 2.2);
+      glow.addColorStop(0, `rgba(${b.colors[0]},0.22)`);
+      glow.addColorStop(1, `rgba(${b.colors[1]},0)`);
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(0, 0, s * 2.2, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Body
+      ctx.fillStyle = `rgba(255,246,239,0.85)`;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, s * 0.12, s * 0.72, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Antennae
+      ctx.strokeStyle = `rgba(255,246,239,0.55)`;
+      ctx.lineWidth = Math.max(1, s * 0.06);
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(0, -s * 0.55);
+      ctx.quadraticCurveTo(-s * 0.15, -s * 1.05, -s * 0.35, -s * 1.15);
+      ctx.moveTo(0, -s * 0.55);
+      ctx.quadraticCurveTo(s * 0.15, -s * 1.05, s * 0.35, -s * 1.15);
+      ctx.stroke();
+
+      const drawWingPair = (side) => {
+        ctx.save();
+        ctx.scale(side * wingOpen, 1);
+
+        // Upper wing
+        const ug = ctx.createLinearGradient(0, -s, s * 1.4, s * 0.2);
+        ug.addColorStop(0, `rgba(${b.colors[0]},0.85)`);
+        ug.addColorStop(1, `rgba(${b.colors[1]},0.55)`);
+        ctx.fillStyle = ug;
+        ctx.beginPath();
+        ctx.moveTo(0, -s * 0.1);
+        ctx.bezierCurveTo(s * 0.3, -s * 1.15, s * 1.35, -s * 1.05, s * 1.25, -s * 0.15);
+        ctx.bezierCurveTo(s * 1.05, s * 0.15, s * 0.35, s * 0.2, 0, s * 0.05);
+        ctx.closePath();
+        ctx.fill();
+
+        // Lower wing
+        const lg = ctx.createLinearGradient(0, 0, s * 1.1, s);
+        lg.addColorStop(0, `rgba(${b.colors[1]},0.75)`);
+        lg.addColorStop(1, `rgba(${b.colors[0]},0.4)`);
+        ctx.fillStyle = lg;
+        ctx.beginPath();
+        ctx.moveTo(0, s * 0.05);
+        ctx.bezierCurveTo(s * 0.35, s * 0.15, s * 1.05, s * 0.35, s * 0.95, s * 0.85);
+        ctx.bezierCurveTo(s * 0.55, s * 1.15, s * 0.15, s * 0.7, 0, s * 0.35);
+        ctx.closePath();
+        ctx.fill();
+
+        // Delicate wing veins
+        ctx.strokeStyle = `rgba(255,255,255,0.28)`;
+        ctx.lineWidth = Math.max(0.6, s * 0.04);
+        ctx.beginPath();
+        ctx.moveTo(0, -s * 0.05);
+        ctx.quadraticCurveTo(s * 0.55, -s * 0.55, s * 1.05, -s * 0.35);
+        ctx.moveTo(0, s * 0.15);
+        ctx.quadraticCurveTo(s * 0.45, s * 0.45, s * 0.8, s * 0.75);
+        ctx.stroke();
+
+        ctx.restore();
+      };
+
+      drawWingPair(1);
+      drawWingPair(-1);
+
+      ctx.restore();
     }
 
     function draw() {
       ctx.clearRect(0, 0, w, h);
-      for (const b of bubbles) {
-        b.phase += 0.01;
-        b.y -= b.speed;
-        b.x += Math.sin(b.phase) * b.drift;
+      for (const b of butterflies) {
+        b.flap += b.flapSpeed;
+        b.wobble += b.wobbleSpeed;
+        b.x += b.vx + Math.sin(b.wobble) * 0.35 * dpr;
+        b.y += b.vy + Math.cos(b.wobble * 0.7) * 0.2 * dpr;
+        b.angle += Math.sin(b.wobble) * 0.002;
 
-        // gentle repulsion from cursor
+        // Gentle cursor avoidance
         const dx = b.x - mouse.x * dpr;
         const dy = b.y - mouse.y * dpr;
         const dist = Math.hypot(dx, dy);
-        const reach = 120 * dpr;
-        if (dist < reach) {
-          const f = (1 - dist / reach) * 1.6;
-          b.x += (dx / (dist || 1)) * f;
-          b.y += (dy / (dist || 1)) * f;
+        const reach = 140 * dpr;
+        if (dist < reach && dist > 0.001) {
+          const f = (1 - dist / reach) * 1.1;
+          b.x += (dx / dist) * f;
+          b.y += (dy / dist) * f;
         }
 
-        if (b.y + b.r < 0) { Object.assign(b, makeBubble()); b.y = h + b.r; }
+        // Wrap softly around the viewport
+        if (b.y < -40 * dpr) { b.y = h + 30 * dpr; b.x = Math.random() * w; }
+        if (b.y > h + 40 * dpr) { b.y = -30 * dpr; b.x = Math.random() * w; }
+        if (b.x < -40 * dpr) b.x = w + 30 * dpr;
+        if (b.x > w + 40 * dpr) b.x = -30 * dpr;
 
-        const grad = ctx.createRadialGradient(
-          b.x - b.r * 0.3, b.y - b.r * 0.3, b.r * 0.1,
-          b.x, b.y, b.r
-        );
-        grad.addColorStop(0, `rgba(255,255,255,${b.alpha * 0.9})`);
-        grad.addColorStop(0.4, `rgba(${b.color},${b.alpha * 0.5})`);
-        grad.addColorStop(1, `rgba(${b.color},0)`);
-        ctx.beginPath();
-        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
-
-        // rim highlight
-        ctx.beginPath();
-        ctx.arc(b.x, b.y, b.r * 0.96, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(255,255,255,${b.alpha * 0.35})`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
+        drawButterfly(b);
       }
       raf = requestAnimationFrame(draw);
     }
