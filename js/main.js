@@ -224,6 +224,30 @@
     sections.forEach((s) => spy.observe(s));
   }
 
+  /* ---------- Giscus comments fallback ---------- */
+  const comments = $("#comments");
+  const giscusMount = $("#giscusMount");
+  const commentsFallback = $("#commentsFallback");
+  if (comments && giscusMount && commentsFallback) {
+    const showFallback = () => {
+      comments.classList.add("is-fallback");
+      commentsFallback.hidden = false;
+    };
+    // If giscus posts an error (or never mounts a frame), offer the Discussion link.
+    window.addEventListener("message", (e) => {
+      if (e.origin !== "https://giscus.app") return;
+      try {
+        const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+        if (data && data.giscus && data.giscus.error) showFallback();
+      } catch (_) { /* ignore */ }
+    });
+    setTimeout(() => {
+      const frame = giscusMount.querySelector("iframe.giscus-frame");
+      const errored = /giscus is not installed|Error/i.test(giscusMount.textContent || "");
+      if (!frame || errored) showFallback();
+    }, 3500);
+  }
+
   /* ---------- Hero slideshow (moving images) ---------- */
   const slides = $$(".hero__slide");
   if (slides.length > 1 && !prefersReduced) {

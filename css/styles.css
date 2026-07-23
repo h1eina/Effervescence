@@ -639,6 +639,13 @@ body::before {
 .comments__sub { color: var(--muted); font-size: 0.95rem; margin: 0.4rem 0 1.4rem; }
 .comments__box { min-height: 60px; }
 .comments__box .gsc-comment-box, .comments__box iframe.giscus-frame { width: 100%; }
+.comments__fallback {
+  margin-top: 1.2rem; padding: 1.4rem 1.6rem; border-radius: 14px; text-align: center;
+  border: 1px dashed rgba(243,211,138,0.35); background: rgba(243,211,138,0.05);
+}
+.comments__fallback[hidden] { display: none !important; }
+.comments__fallback p { color: var(--mist); font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.1rem; }
+.comments.is-fallback .comments__box { display: none; }
 
 /* ---------- Workshops ---------- */
 .workshops__intro { color: var(--mist); font-family: var(--font-serif); font-size: 1.2rem; max-width: 52ch; margin: 1rem 0 2.6rem; }
