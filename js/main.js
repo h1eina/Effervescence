@@ -224,6 +224,17 @@
     sections.forEach((s) => spy.observe(s));
   }
 
+  /* ---------- Hero slideshow (moving images) ---------- */
+  const slides = $$(".hero__slide");
+  if (slides.length > 1 && !prefersReduced) {
+    let si = 0;
+    setInterval(() => {
+      slides[si].classList.remove("is-active");
+      si = (si + 1) % slides.length;
+      slides[si].classList.add("is-active");
+    }, 4200);
+  }
+
   /* ---------- Poems flip-book ---------- */
   const book = $(".book");
   if (book) {

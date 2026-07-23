@@ -17,3 +17,9 @@ Thumbs.db
 
 # Private design brief (do not publish)
 /MARIE-PAUL.com.pdf
+
+# Large source dump (keep local only)
+/drive-download-*/
+/MARIE-PAUL.com.pdf
+
+*.zip

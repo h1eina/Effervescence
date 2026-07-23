@@ -123,20 +123,31 @@
     <!-- ===================== HERO ===================== -->
     <section class="hero" id="hero">
       <div class="hero__glow" aria-hidden="true"></div>
-      <div class="hero__inner">
-        <p class="hero__eyebrow reveal" data-reveal>Marie-Paul Duwai-Sowa</p>
-        <h1 class="hero__title">
-          <span class="line reveal" data-reveal>Live Your</span>
-          <span class="line line--display reveal" data-reveal data-delay="120">Effervescence</span>
-        </h1>
-        <p class="hero__roles reveal" data-reveal data-delay="220">Award-Winning Poet <span aria-hidden="true">·</span> Performer <span aria-hidden="true">·</span> Artist</p>
-        <p class="hero__tagline reveal" data-reveal data-delay="300">
-          Promoting authenticity, self-love, and self-expression
-          <br class="hide-mobile" /> through poetry and art.
-        </p>
-        <div class="hero__actions reveal" data-reveal data-delay="380">
-          <a href="#poems" class="btn btn--gold magnetic">Read the poems</a>
-          <a href="#experiences" class="btn btn--ghost magnetic">Live experiences</a>
+      <div class="hero__layout">
+        <div class="hero__visual reveal" data-reveal aria-hidden="false">
+          <div class="hero__slideshow" id="heroSlideshow">
+            <img class="hero__slide is-active" src="assets/hero/hero-1.jpg" alt="Marie-Paul Duwai-Sowa in a denim jacket and black turtleneck" width="1920" height="1280" />
+            <img class="hero__slide" src="assets/hero/hero-2.jpg" alt="Marie-Paul Duwai-Sowa in a teal headwrap and gold jewelry" width="2000" height="3000" />
+            <img class="hero__slide" src="assets/hero/hero-3.jpg" alt="Marie-Paul Duwai-Sowa seated in a blue velvet chair in vibrant teal and orange attire" width="2000" height="3000" />
+          </div>
+          <div class="hero__sunburst" aria-hidden="true"></div>
+        </div>
+
+        <div class="hero__inner">
+          <p class="hero__eyebrow reveal" data-reveal>Live Your Effervescence</p>
+          <h1 class="hero__title">
+            <span class="line line--name reveal" data-reveal>MARIE-PAUL</span>
+          </h1>
+          <p class="hero__award reveal" data-reveal data-delay="120">Award-Winning</p>
+          <p class="hero__roles reveal" data-reveal data-delay="220">Poet <span aria-hidden="true">·</span> Performer <span aria-hidden="true">·</span> Artist</p>
+          <p class="hero__tagline reveal" data-reveal data-delay="300">
+            Promoting authenticity, self-love, and self-expression
+            <br class="hide-mobile" /> through poetry and art.
+          </p>
+          <div class="hero__actions reveal" data-reveal data-delay="380">
+            <a href="#poems" class="btn btn--gold magnetic">Read the poems</a>
+            <a href="#experiences" class="btn btn--ghost magnetic">Live experiences</a>
+          </div>
         </div>
       </div>
 
@@ -304,7 +315,7 @@
         <div class="about__portrait reveal" data-reveal>
           <div class="portrait">
             <div class="portrait__frame">
-              <img class="portrait__img" src="assets/marie-paul.png" alt="Marie-Paul Duwai-Sowa, poet and founder of Live Your Effervescence, wearing a gold head wrap and richly patterned garments" loading="lazy" />
+              <img class="portrait__img" src="assets/about-marie-paul.jpg" alt="Marie-Paul Duwai-Sowa, award-winning poet and artist, wearing a teal headwrap and gold jewelry" loading="lazy" />
               <span class="portrait__caption">Marie-Paul<br/>Duwai-Sowa</span>
             </div>
             <div class="portrait__ring" aria-hidden="true"></div>
@@ -343,6 +354,21 @@
       <div class="container">
         <p class="section__kicker reveal" data-reveal>Live Experiences</p>
         <h2 class="section__title reveal" data-reveal>Performances &amp; readings</h2>
+
+        <div class="perf-gallery reveal" data-reveal>
+          <figure class="perf-gallery__item">
+            <img src="assets/experiences/performance-lohifa.jpg" alt="Marie-Paul performing a poem at the LOHIFA campaign charge" loading="lazy" />
+            <figcaption>Campaign Charge · LOHIFA</figcaption>
+          </figure>
+          <figure class="perf-gallery__item">
+            <img src="assets/experiences/performance-gempower.jpg" alt="Marie-Paul performing Reclaiming Our Wings in a yellow dress at a gallery event" loading="lazy" />
+            <figcaption>The Effervescence Experience</figcaption>
+          </figure>
+          <figure class="perf-gallery__item">
+            <img src="assets/experiences/performance-black-health.jpg" alt="Marie-Paul speaking at the Black Health Community Advisory Table" loading="lazy" />
+            <figcaption>Black Health Community</figcaption>
+          </figure>
+        </div>
 
         <div class="work__grid">
           <article class="card card--video reveal" data-reveal>
@@ -386,27 +412,30 @@
         <h2 class="section__title reveal" data-reveal>Our Productions</h2>
         <p class="house__est reveal" data-reveal>Founded by Marie-Paul <span aria-hidden="true">·</span> <strong>EST. 2024</strong></p>
 
-        <div class="work__grid house__grid">
-          <article class="card card--spread reveal" data-reveal>
-            <div class="card__tag">Visual &amp; Poetry Collection</div>
-            <h3 class="card__title">Black is Beautiful</h3>
-            <p class="card__desc">A visual and poetry collection celebrating Black identity, beauty, and the fullness of self.</p>
-            <a class="card__link" href="https://issuu.com/liveyoureffervescence" target="_blank" rel="noopener">Click to view full spread <span aria-hidden="true">→</span></a>
-          </article>
+        <div class="productions">
+          <a class="spread reveal" data-reveal href="https://issuu.com/liveyoureffervescence" target="_blank" rel="noopener">
+            <div class="spread__cover">
+              <img src="assets/productions/black-is-presence.jpg" alt="Afrovescence Vol. 02 cover — Black is Presence, photography by Diego Mora, poetry by Marie-Paul Duwai-Sowa" loading="lazy" />
+              <span class="spread__cta">Click to view full spread</span>
+            </div>
+            <h3 class="spread__title">Black is Presence</h3>
+          </a>
 
-          <article class="card card--spread reveal" data-reveal data-delay="120">
-            <div class="card__tag">Collection</div>
-            <h3 class="card__title">Black is Presence</h3>
-            <p class="card__desc">A companion spread — presence, power, and the beauty of simply being seen.</p>
-            <a class="card__link" href="https://issuu.com/liveyoureffervescence" target="_blank" rel="noopener">Click to view full spread <span aria-hidden="true">→</span></a>
-          </article>
+          <a class="spread reveal" data-reveal data-delay="120" href="https://issuu.com/liveyoureffervescence" target="_blank" rel="noopener">
+            <div class="spread__cover">
+              <img src="assets/productions/black-is-beautiful.png" alt="Afrovescence Vol. 01 cover — Black is Beautiful, photography by Bachir Miloudi, poetry by Marie-Paul Duwai-Sowa" loading="lazy" />
+              <span class="spread__cta">Click to view full spread</span>
+            </div>
+            <h3 class="spread__title">Black is Beautiful</h3>
+          </a>
 
-          <article class="card card--spread reveal" data-reveal data-delay="240">
-            <div class="card__tag">Community Project</div>
-            <h3 class="card__title">Black is Precious</h3>
-            <p class="card__desc">Our latest project. Explore the spread, then share your reflections in the comments below.</p>
-            <a class="card__link" href="https://www.instagram.com/liveyoureffervescence/" target="_blank" rel="noopener">View the project <span aria-hidden="true">→</span></a>
-          </article>
+          <a class="spread reveal" data-reveal data-delay="240" href="https://www.instagram.com/liveyoureffervescence/" target="_blank" rel="noopener">
+            <div class="spread__cover">
+              <img src="assets/productions/black-is-precious.jpg" alt="Black is Precious — Marie-Paul Duwai-Sowa in a pink headwrap holding a wooden vessel" loading="lazy" />
+              <span class="spread__cta">View the project</span>
+            </div>
+            <h3 class="spread__title">Black is Precious</h3>
+          </a>
         </div>
 
         <!-- Comments for the Black is Precious project -->
@@ -490,32 +519,98 @@
 
         <div class="shop__grid">
           <article class="product reveal" data-reveal>
-            <div class="product__media product__media--book" aria-hidden="true"><span>Effervescence</span></div>
+            <div class="product__media">
+              <img src="assets/shop/never-lose-black.png" alt="Black t-shirt with Never Lose Your Effervescence design" loading="lazy" />
+            </div>
             <div class="product__body">
-              <h3 class="product__title">Effervescence — Poetry Collection</h3>
-              <p class="product__desc">A printed collection of Marie-Paul’s poems, written out to be read and returned to.</p>
+              <h3 class="product__title">Never Lose Your Effervescence</h3>
+              <p class="product__desc">Black tee — a wearable reminder to keep what’s yours.</p>
               <span class="product__badge">Coming soon</span>
             </div>
           </article>
 
-          <article class="product reveal" data-reveal data-delay="120">
-            <div class="product__media product__media--print" aria-hidden="true"><span>✦</span></div>
+          <article class="product reveal" data-reveal data-delay="80">
+            <div class="product__media">
+              <img src="assets/shop/never-lose-white.png" alt="White t-shirt with Never Lose Your Effervescence design" loading="lazy" />
+            </div>
             <div class="product__body">
-              <h3 class="product__title">Poem Prints</h3>
-              <p class="product__desc">Signature lines as fine-art prints — a piece of the poetry for your wall.</p>
+              <h3 class="product__title">Never Lose Your Effervescence</h3>
+              <p class="product__desc">White tee — the same line, a different light.</p>
+              <span class="product__badge">Coming soon</span>
+            </div>
+          </article>
+
+          <article class="product reveal" data-reveal data-delay="160">
+            <div class="product__media">
+              <img src="assets/shop/adventurous-wild-black.png" alt="Black t-shirt with Adventurous and Wild design" loading="lazy" />
+            </div>
+            <div class="product__body">
+              <h3 class="product__title">Adventurous &amp; Wild</h3>
+              <p class="product__desc">Tamed by no wind. Docile by no mile.</p>
               <span class="product__badge">Coming soon</span>
             </div>
           </article>
 
           <article class="product reveal" data-reveal data-delay="240">
-            <div class="product__media product__media--merch" aria-hidden="true"><span>❋</span></div>
+            <div class="product__media">
+              <img src="assets/shop/adventurous-wild-white.png" alt="White t-shirt with Adventurous and Wild design" loading="lazy" />
+            </div>
             <div class="product__body">
-              <h3 class="product__title">House of Effervescence</h3>
-              <p class="product__desc">Wearable reminders to live effervescently — apparel &amp; accessories.</p>
+              <h3 class="product__title">Adventurous &amp; Wild</h3>
+              <p class="product__desc">The white edition of the creed you wear.</p>
+              <span class="product__badge">Coming soon</span>
+            </div>
+          </article>
+
+          <article class="product reveal" data-reveal>
+            <div class="product__media">
+              <img src="assets/shop/effervescent-black.png" alt="Black t-shirt with I am Effervescent design" loading="lazy" />
+            </div>
+            <div class="product__body">
+              <h3 class="product__title">I am Effervescent</h3>
+              <p class="product__desc">A simple declaration — worn loud.</p>
+              <span class="product__badge">Coming soon</span>
+            </div>
+          </article>
+
+          <article class="product reveal" data-reveal data-delay="80">
+            <div class="product__media">
+              <img src="assets/shop/dance-sky-black.png" alt="Black t-shirt with Dance in the Sky design" loading="lazy" />
+            </div>
+            <div class="product__body">
+              <h3 class="product__title">Dance in the Sky</h3>
+              <p class="product__desc">For the winged beings — and those becoming them.</p>
+              <span class="product__badge">Coming soon</span>
+            </div>
+          </article>
+
+          <article class="product reveal" data-reveal data-delay="160">
+            <div class="product__media">
+              <img src="assets/shop/wild-free-black.png" alt="Black t-shirt with Wild and Free design" loading="lazy" />
+            </div>
+            <div class="product__body">
+              <h3 class="product__title">Wild &amp; Free</h3>
+              <p class="product__desc">A piece of the poem, made to move with you.</p>
+              <span class="product__badge">Coming soon</span>
+            </div>
+          </article>
+
+          <article class="product reveal" data-reveal data-delay="240">
+            <div class="product__media">
+              <img src="assets/shop/dancing-birds-white.png" alt="White t-shirt with Dancing Birds design" loading="lazy" />
+            </div>
+            <div class="product__body">
+              <h3 class="product__title">Dancing Birds</h3>
+              <p class="product__desc">Light, lyrical, and ready to rise.</p>
               <span class="product__badge">Coming soon</span>
             </div>
           </article>
         </div>
+
+        <figure class="shop__lifestyle reveal" data-reveal>
+          <img src="assets/shop/lifestyle-group.jpg" alt="Models wearing Effervescence apparel outdoors — I am Effervescent, Never Lose Your Effervescence, and Adventurous and Wild" loading="lazy" />
+          <figcaption>Wear your effervescence. Photography by Stynoshots.</figcaption>
+        </figure>
       </div>
     </section>
 
