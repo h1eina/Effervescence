@@ -107,24 +107,23 @@ body {
 .deck-arrow--prev { left: 0.85rem; }
 .deck-arrow--next { right: 0.85rem; }
 .deck-dots {
-  position: fixed; right: 1.1rem; top: 50%; transform: translateY(-50%);
-  z-index: 90; display: flex; flex-direction: column; gap: 0.55rem; padding: 0.7rem 0.55rem;
+  position: fixed; left: 50%; bottom: 0.85rem; top: auto; right: auto;
+  transform: translateX(-50%);
+  z-index: 90; display: flex; flex-direction: row; gap: 0.55rem; padding: 0.45rem 0.7rem;
   border-radius: 999px; background: rgba(13,6,22,0.35); border: 1px solid var(--line);
   backdrop-filter: blur(10px);
 }
 .deck-dots button {
   width: 6px; height: 6px; border-radius: 50%; border: 0; padding: 0;
   background: rgba(255,255,255,0.28); cursor: pointer;
-  transition: transform 0.3s var(--ease), background 0.3s var(--ease), height 0.3s var(--ease);
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease), width 0.3s var(--ease);
 }
 .deck-dots button.is-active {
-  background: var(--gold); height: 16px; border-radius: 999px;
+  background: var(--gold); width: 16px; height: 6px; border-radius: 999px;
 }
 .deck-dots button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 @media (max-width: 900px) {
   .deck-arrow { display: none; }
-  .deck-dots { right: auto; left: 50%; top: auto; bottom: 0.85rem; transform: translateX(-50%); flex-direction: row; padding: 0.45rem 0.7rem; }
-  .deck-dots button.is-active { height: 6px; width: 16px; }
   .panel.section { padding-inline: var(--gutter); }
 }
 @media (prefers-reduced-motion: reduce) {
