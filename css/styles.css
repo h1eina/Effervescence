@@ -549,15 +549,6 @@ body::before {
 .nav__links a.is-active { color: var(--gold-soft); }
 .nav__links a.is-active::after { width: 100%; }
 
-/* ---------- Pull quote ---------- */
-.pullquote { text-align: center; }
-.pullquote blockquote {
-  font-family: var(--font-display); font-weight: 300; font-style: italic;
-  font-size: clamp(1.6rem, 4.4vw, 3rem); line-height: 1.28; color: var(--cream);
-}
-.pullquote cite { display: block; margin-top: 1.6rem; font-family: var(--font-sans); font-style: normal; font-size: 0.9rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
-.pullquote cite span { color: var(--rose); }
-
 /* ---------- Connect ---------- */
 .connect__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
 .connect__text { color: var(--mist); font-family: var(--font-serif); font-size: 1.2rem; margin: 1.4rem 0 2rem; max-width: 44ch; }
