@@ -121,54 +121,50 @@
     </nav>
   </div>
 
-  <main>
+  <main class="deck" id="deck" tabindex="0" aria-label="Site pages — use arrows, dots, or scroll to move one section at a time">
+    <div class="deck__track" id="deckTrack">
     <!-- ===================== HERO ===================== -->
-    <section class="hero" id="hero">
+    <section class="panel hero" id="hero">
       <div class="hero__glow" aria-hidden="true"></div>
-      <div class="hero__layout">
-        <div class="hero__visual reveal" data-reveal aria-hidden="false">
-          <div class="hero__slideshow" id="heroSlideshow">
-            <img class="hero__slide is-active" src="assets/hero/hero-1.jpg" alt="Marie-Paul Duwai-Sowa in a denim jacket and black turtleneck" width="1920" height="1280" />
-            <img class="hero__slide" src="assets/hero/hero-2.jpg" alt="Marie-Paul Duwai-Sowa in a teal headwrap and gold jewelry" width="2000" height="3000" />
-            <img class="hero__slide" src="assets/hero/hero-3.jpg" alt="Marie-Paul Duwai-Sowa seated in a blue velvet chair in vibrant teal and orange attire" width="2000" height="3000" />
+      <div class="hero__stage">
+        <div class="hero__layout">
+          <div class="hero__visual reveal" data-reveal>
+            <div class="hero__slideshow" id="heroSlideshow">
+              <img class="hero__slide is-active" src="assets/hero/hero-1.jpg" alt="Marie-Paul Duwai-Sowa in a denim jacket and black turtleneck" width="1920" height="1280" />
+              <img class="hero__slide" src="assets/hero/hero-2.jpg" alt="Marie-Paul Duwai-Sowa in a teal headwrap and gold jewelry" width="2000" height="3000" />
+              <img class="hero__slide" src="assets/hero/hero-3.jpg" alt="Marie-Paul Duwai-Sowa seated in a blue velvet chair in vibrant teal and orange attire" width="2000" height="3000" />
+            </div>
           </div>
-          <div class="hero__sunburst" aria-hidden="true"></div>
-        </div>
 
-        <div class="hero__inner">
-          <p class="hero__eyebrow reveal" data-reveal>Live Your Effervescence</p>
-          <h1 class="hero__title">
-            <span class="line line--name reveal" data-reveal>MARIE-PAUL</span>
-          </h1>
-          <p class="hero__award reveal" data-reveal data-delay="120">Award-Winning</p>
-          <p class="hero__roles reveal" data-reveal data-delay="220">Poet <span aria-hidden="true">·</span> Performer <span aria-hidden="true">·</span> Artist</p>
-          <p class="hero__tagline reveal" data-reveal data-delay="300">
-            Promoting authenticity, self-love, and self-expression
-            <br class="hide-mobile" /> through poetry and art.
-          </p>
-          <div class="hero__actions reveal" data-reveal data-delay="380">
-            <a href="#about" class="btn btn--gold magnetic">Meet the artist</a>
-            <a href="#poems" class="btn btn--ghost magnetic">Read the poems</a>
+          <div class="hero__inner">
+            <p class="hero__eyebrow reveal" data-reveal>Live Your Effervescence</p>
+            <h1 class="hero__title">
+              <span class="line line--name reveal" data-reveal>MARIE-PAUL</span>
+            </h1>
+            <p class="hero__award reveal" data-reveal data-delay="120">Award-Winning</p>
+            <p class="hero__roles reveal" data-reveal data-delay="220">Poet <span aria-hidden="true">·</span> Performer <span aria-hidden="true">·</span> Artist</p>
+            <p class="hero__tagline reveal" data-reveal data-delay="300">
+              Promoting authenticity, self-love, and self-expression
+              <br class="hide-mobile" /> through poetry and art.
+            </p>
+            <div class="hero__actions reveal" data-reveal data-delay="380">
+              <a href="#about" class="btn btn--gold magnetic">Meet the artist</a>
+              <a href="#poems" class="btn btn--ghost magnetic">Read the poems</a>
+            </div>
           </div>
         </div>
       </div>
 
-      <a href="#about" class="scroll-cue" aria-label="Scroll down">
-        <span class="scroll-cue__dot"></span>
-        <span class="scroll-cue__label">scroll</span>
-      </a>
+      <div class="marquee hero__marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span class="marquee__group">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee__group" aria-hidden="true">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </div>
+      </div>
     </section>
 
-    <!-- ===================== MARQUEE ===================== -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span class="marquee__group">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span class="marquee__group" aria-hidden="true">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      </div>
-    </div>
-
     <!-- ===================== ABOUT ===================== -->
-    <section class="section about" id="about">
+    <section class="panel section about" id="about">
       <div class="container about__grid">
         <div class="about__portrait reveal" data-reveal>
           <div class="portrait">
@@ -208,7 +204,7 @@
     </section>
 
     <!-- ===================== MANIFESTO ===================== -->
-    <section class="section creed" id="creed">
+    <section class="panel section creed" id="creed">
       <div class="container">
         <p class="section__kicker reveal" data-reveal>The Creed</p>
         <h2 class="section__title reveal" data-reveal>
@@ -237,7 +233,7 @@
     </section>
 
     <!-- ===================== THE POEM ===================== -->
-    <section class="section poem" id="poem">
+    <section class="panel section poem" id="poem">
       <div class="poem__ambience" aria-hidden="true"></div>
       <div class="container container--narrow">
         <p class="section__kicker reveal" data-reveal>The Visual Poetry Experience</p>
@@ -274,7 +270,7 @@
     </section>
 
     <!-- ===================== POEMS (flip-book) ===================== -->
-    <section class="section poems" id="poems">
+    <section class="panel section poems" id="poems">
       <div class="container">
         <p class="section__kicker reveal" data-reveal>Poems</p>
         <h2 class="section__title reveal" data-reveal>The Collection</h2>
@@ -352,7 +348,7 @@
     </section>
 
     <!-- ===================== LIVE EXPERIENCES ===================== -->
-    <section class="section work" id="experiences">
+    <section class="panel section work" id="experiences">
       <div class="container">
         <p class="section__kicker reveal" data-reveal>Live Experiences</p>
         <h2 class="section__title reveal" data-reveal>Performances &amp; readings</h2>
@@ -408,7 +404,7 @@
     </section>
 
     <!-- ===================== HOUSE OF EFFERVESCENCE ===================== -->
-    <section class="section house" id="house">
+    <section class="panel section house" id="house">
       <div class="container">
         <p class="section__kicker reveal" data-reveal>House of Effervescence</p>
         <h2 class="section__title reveal" data-reveal>Our Productions</h2>
@@ -473,7 +469,7 @@
     </section>
 
     <!-- ===================== QUOTE ===================== -->
-    <section class="section pullquote">
+    <section class="panel section pullquote" id="pullquote">
       <div class="container container--narrow">
         <blockquote class="reveal" data-reveal>
           “I want to restore my effervescence — although it never left.
@@ -484,7 +480,7 @@
     </section>
 
     <!-- ===================== WORKSHOPS ===================== -->
-    <section class="section workshops" id="workshops">
+    <section class="panel section workshops" id="workshops">
       <div class="container">
         <p class="section__kicker reveal" data-reveal>Workshops</p>
         <h2 class="section__title reveal" data-reveal>Workshops &amp; creative facilitation</h2>
@@ -516,7 +512,7 @@
     </section>
 
     <!-- ===================== SHOP ===================== -->
-    <section class="section shop" id="shop">
+    <section class="panel section shop" id="shop">
       <div class="container">
         <p class="section__kicker reveal" data-reveal>Shop</p>
         <h2 class="section__title reveal" data-reveal>Take a little effervescence home</h2>
@@ -620,7 +616,7 @@
     </section>
 
     <!-- ===================== COMMUNITY ===================== -->
-    <section class="section community" id="community">
+    <section class="panel section community" id="community">
       <div class="container container--narrow community__inner">
         <p class="section__kicker reveal" data-reveal>Embrace Your Effervescence</p>
         <h2 class="section__title reveal" data-reveal>Join our <span class="grad-text">community</span></h2>
@@ -634,7 +630,7 @@
     </section>
 
     <!-- ===================== CONNECT / CONTACT ===================== -->
-    <section class="section connect" id="connect">
+    <section class="panel section connect" id="connect">
       <div class="container connect__grid">
         <div class="connect__intro">
           <p class="section__kicker reveal" data-reveal>Connect</p>
@@ -699,37 +695,49 @@
           <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
         </form>
       </div>
+
+      <!-- Footer lives on the final page -->
+      <footer class="footer">
+        <div class="container footer__grid">
+          <div class="footer__brand">
+            <span class="footer__logo">Live Your <em>Effervescence</em></span>
+            <p>Promoting authenticity, self-love, and self-expression through poetry and art.</p>
+          </div>
+          <nav class="footer__nav" aria-label="Footer">
+            <a href="#about">About the Artist</a>
+            <a href="#creed">Creed</a>
+            <a href="#poems">Poems</a>
+            <a href="#experiences">Live Experiences</a>
+            <a href="#house">House of Effervescence</a>
+            <a href="#workshops">Workshops</a>
+            <a href="#shop">Shop</a>
+            <a href="#connect">Connect</a>
+          </nav>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/liveyoureffervescence/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            <a href="https://linktr.ee/liveyoureffervescence" target="_blank" rel="noopener" aria-label="Linktree">Linktree</a>
+            <a href="mailto:liveyoureffervescence@gmail.com" aria-label="Email">Email</a>
+          </div>
+        </div>
+        <div class="footer__base container">
+          <span>© <span id="year"></span> Live Your Effervescence · Founded by Marie-Paul Duwai-Sowa · EST. 2024</span>
+          <span class="footer__made">Let it rise. ✦</span>
+        </div>
+      </footer>
     </section>
+    </div><!-- /.deck__track -->
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__brand">
-        <span class="footer__logo">Live Your <em>Effervescence</em></span>
-        <p>Promoting authenticity, self-love, and self-expression through poetry and art.</p>
-      </div>
-            <nav class="footer__nav" aria-label="Footer">
-        <a href="#about">About the Artist</a>
-        <a href="#creed">Creed</a>
-        <a href="#poems">Poems</a>
-        <a href="#experiences">Live Experiences</a>
-        <a href="#house">House of Effervescence</a>
-        <a href="#workshops">Workshops</a>
-        <a href="#shop">Shop</a>
-        <a href="#connect">Connect</a>
-      </nav>
-      <div class="footer__social">
-        <a href="https://www.instagram.com/liveyoureffervescence/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-        <a href="https://linktr.ee/liveyoureffervescence" target="_blank" rel="noopener" aria-label="Linktree">Linktree</a>
-        <a href="mailto:liveyoureffervescence@gmail.com" aria-label="Email">Email</a>
-      </div>
-    </div>
-    <div class="footer__base container">
-      <span>© <span id="year"></span> Live Your Effervescence · Founded by Marie-Paul Duwai-Sowa · EST. 2024</span>
-      <span class="footer__made">Let it rise. ✦</span>
-    </div>
-  </footer>
+  <!-- Horizontal page controls -->
+  <div class="deck-controls" aria-hidden="false">
+    <button class="deck-arrow deck-arrow--prev" id="deckPrev" aria-label="Previous section">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="deck-arrow deck-arrow--next" id="deckNext" aria-label="Next section">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <div class="deck-dots" id="deckDots" aria-label="Section indicators"></div>
 
   <!-- Video lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
@@ -740,10 +748,10 @@
     </div>
   </div>
 
-  <!-- Back to top -->
-  <button class="to-top" id="toTop" aria-label="Back to top">
+  <!-- Back to first page -->
+  <button class="to-top" id="toTop" aria-label="Back to start">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
-      <path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </button>
 
