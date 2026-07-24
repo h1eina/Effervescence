@@ -559,7 +559,7 @@
     };
 
     function makeButterfly() {
-      const scale = (Math.random() * 0.55 + 0.45) * dpr;
+      const scale = (Math.random() * 0.7 + 0.7) * dpr;
       const colors = palette[(Math.random() * palette.length) | 0];
       return {
         x: Math.random() * w,
@@ -573,14 +573,14 @@
         wobble: Math.random() * Math.PI * 2,
         wobbleSpeed: 0.008 + Math.random() * 0.01,
         angle: (Math.random() * 0.5 - 0.25),
-        alpha: 0.28 + Math.random() * 0.35,
+        alpha: 0.38 + Math.random() * 0.35,
         colors,
       };
     }
 
     function drawButterfly(b) {
       const wingOpen = 0.35 + Math.abs(Math.sin(b.flap)) * 0.65; // 0.35–1.0
-      const s = b.scale * 14;
+      const s = b.scale * 20;
 
       ctx.save();
       ctx.translate(b.x, b.y);
@@ -589,7 +589,7 @@
 
       // Soft glow behind the butterfly
       const glow = ctx.createRadialGradient(0, 0, 0, 0, 0, s * 2.2);
-      glow.addColorStop(0, `rgba(${b.colors[0]},0.22)`);
+      glow.addColorStop(0, `rgba(${b.colors[0]},0.28)`);
       glow.addColorStop(1, `rgba(${b.colors[1]},0)`);
       ctx.fillStyle = glow;
       ctx.beginPath();
@@ -597,13 +597,13 @@
       ctx.fill();
 
       // Body
-      ctx.fillStyle = `rgba(255,246,239,0.85)`;
+      ctx.fillStyle = `rgba(42,11,70,0.72)`;
       ctx.beginPath();
       ctx.ellipse(0, 0, s * 0.12, s * 0.72, 0, 0, Math.PI * 2);
       ctx.fill();
 
       // Antennae
-      ctx.strokeStyle = `rgba(255,246,239,0.55)`;
+      ctx.strokeStyle = `rgba(42,11,70,0.55)`;
       ctx.lineWidth = Math.max(1, s * 0.06);
       ctx.lineCap = "round";
       ctx.beginPath();
@@ -619,8 +619,8 @@
 
         // Upper wing
         const ug = ctx.createLinearGradient(0, -s, s * 1.4, s * 0.2);
-        ug.addColorStop(0, `rgba(${b.colors[0]},0.85)`);
-        ug.addColorStop(1, `rgba(${b.colors[1]},0.55)`);
+        ug.addColorStop(0, `rgba(${b.colors[0]},0.9)`);
+        ug.addColorStop(1, `rgba(${b.colors[1]},0.62)`);
         ctx.fillStyle = ug;
         ctx.beginPath();
         ctx.moveTo(0, -s * 0.1);
@@ -631,8 +631,8 @@
 
         // Lower wing
         const lg = ctx.createLinearGradient(0, 0, s * 1.1, s);
-        lg.addColorStop(0, `rgba(${b.colors[1]},0.75)`);
-        lg.addColorStop(1, `rgba(${b.colors[0]},0.4)`);
+        lg.addColorStop(0, `rgba(${b.colors[1]},0.8)`);
+        lg.addColorStop(1, `rgba(${b.colors[0]},0.45)`);
         ctx.fillStyle = lg;
         ctx.beginPath();
         ctx.moveTo(0, s * 0.05);
@@ -642,7 +642,7 @@
         ctx.fill();
 
         // Delicate wing veins
-        ctx.strokeStyle = `rgba(255,255,255,0.28)`;
+        ctx.strokeStyle = `rgba(255,255,255,0.45)`;
         ctx.lineWidth = Math.max(0.6, s * 0.04);
         ctx.beginPath();
         ctx.moveTo(0, -s * 0.05);
