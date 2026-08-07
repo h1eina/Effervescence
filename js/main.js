@@ -10,12 +10,6 @@
   const $ = (s, ctx = document) => ctx.querySelector(s);
   const $$ = (s, ctx = document) => Array.from(ctx.querySelectorAll(s));
 
-  /* ---------- Preloader ---------- */
-  window.addEventListener("load", () => {
-    const pre = $("#preloader");
-    if (pre) setTimeout(() => pre.classList.add("is-done"), 1100);
-  });
-
   /* ---------- Year ---------- */
   const yearEl = $("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
