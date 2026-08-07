@@ -82,7 +82,12 @@
     panel.scrollTo({ top: 0, behavior: "auto" });
     applyTransform(instant);
     updateDeckUI();
-    if (panel.id) history.replaceState(null, "", "#" + panel.id);
+    // Keep the home URL clean — no #hero on first load or when returning home
+    if (panel.id === "hero") {
+      history.replaceState(null, "", location.pathname + location.search);
+    } else if (panel.id) {
+      history.replaceState(null, "", "#" + panel.id);
+    }
   };
 
   const lockGesture = () => {
