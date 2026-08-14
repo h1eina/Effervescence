@@ -364,15 +364,46 @@
   }
 
   /* ---------- Contact form (client-side, no backend) ---------- */
+  const CONTACT_EMAIL = "mariepaul.poet@gmail.com";
+
+  // Each reason pre-fills its own prompt so the message arrives with the details
+  // Marie-Paul needs to reply straight away.
+  const REASON_TEMPLATES = {
+    "Booking / Performance":
+      "Hello Marie-Paul,\n\nI would love to book you for a performance.\n\nEvent: \nDate: \nLocation: \nAudience: \nLength of set: \n",
+    "Collaboration / Publication":
+      "Hello Marie-Paul,\n\nI have a collaboration in mind and would love to work with you.\n\nProject: \nMy role / organisation: \nTimeline: \n",
+    "Press / Speaking Engagement":
+      "Hello Marie-Paul,\n\nI would like to invite you to speak or feature your work.\n\nOutlet or event: \nDate: \nTopic: \nDeadline: \n",
+    "Workshop":
+      "Hello Marie-Paul,\n\nI would like to enquire about a workshop.\n\nGroup or school: \nAge range: \nNumber of participants: \nPreferred dates: \n",
+    "Just Saying Hello":
+      "Hello Marie-Paul,\n\nI just wanted to say ",
+  };
+
   const form = $("#contactForm");
   if (form) {
+    const reason = $("#cf-subject");
+    const messageField = $("#cf-message");
+
+    if (reason && messageField) {
+      const applyTemplate = () => {
+        const current = messageField.value.trim();
+        const isTemplate = Object.values(REASON_TEMPLATES).some((t) => t.trim() === current);
+        if (current && !isTemplate) return; // never overwrite something the visitor typed
+        messageField.value = REASON_TEMPLATES[reason.value] || "";
+      };
+      applyTemplate();
+      reason.addEventListener("change", applyTemplate);
+    }
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const note = $("#formNote");
       const name = $("#cf-name").value.trim();
       const email = $("#cf-email").value.trim();
-      const subject = $("#cf-subject").value;
-      const message = $("#cf-message").value.trim();
+      const subject = reason ? reason.value : "Enquiry";
+      const message = messageField.value.trim();
       const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
       if (!name || !validEmail || !message) {
@@ -381,12 +412,50 @@
         return;
       }
       note.classList.remove("is-error");
-      // Opens the visitor's email client addressed to the brand inbox.
-      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-      const to = "liveyoureffervescence@gmail.com";
-      window.location.href = `mailto:${to}?subject=${encodeURIComponent("[LYE] " + subject + " — " + name)}&body=${body}`;
+      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})\nSent from marie-paul.com · ${subject}`);
+      const mailSubject = encodeURIComponent(`${subject} — ${name}`);
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${mailSubject}&body=${body}`;
       note.textContent = "Opening your email app… thank you for reaching out ✦";
       form.reset();
+      if (reason && messageField) messageField.value = REASON_TEMPLATES[reason.value] || "";
+    });
+  }
+
+  /* ---------- Magazine spread viewer ---------- */
+  const mag = $("#mag");
+  if (mag) {
+    const magClose = $("#magClose");
+    const magCover = $("#magCover");
+    const magMeta = $("#magMeta");
+    const magTitle = $("#magTitle");
+    const magDesc = $("#magDesc");
+    const magCta = $("#magCta");
+    let magReturnFocus = null;
+
+    const openMag = (el) => {
+      magReturnFocus = el;
+      magCover.src = el.dataset.spreadCover || "";
+      magCover.alt = el.dataset.spreadTitle ? el.dataset.spreadTitle + " — cover" : "";
+      magMeta.textContent = el.dataset.spreadMeta || "";
+      magTitle.textContent = el.dataset.spreadTitle || "";
+      magDesc.textContent = el.dataset.spreadDesc || "";
+      magCta.href = el.dataset.spreadHref || "#";
+      magCta.textContent = el.dataset.spreadCta || "Read the full spread";
+      mag.classList.add("is-open");
+      mag.setAttribute("aria-hidden", "false");
+      magClose.focus();
+    };
+    const closeMag = () => {
+      mag.classList.remove("is-open");
+      mag.setAttribute("aria-hidden", "true");
+      if (magReturnFocus) magReturnFocus.focus();
+    };
+
+    $$("[data-spread-title]").forEach((el) => el.addEventListener("click", () => openMag(el)));
+    magClose.addEventListener("click", closeMag);
+    mag.addEventListener("click", (e) => { if (e.target === mag) closeMag(); });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mag.classList.contains("is-open")) closeMag();
     });
   }
 
@@ -527,7 +596,7 @@
         return;
       }
       note.classList.remove("is-error");
-      note.textContent = "Welcome to the House of Effervescence ✦ You’re on the list.";
+      note.textContent = "You’re subscribed to Marie-Paul’s Musings ✦";
       communityForm.reset();
     });
   }
