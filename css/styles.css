@@ -149,8 +149,7 @@ body::before {
   z-index: -3;
 }
 
-/* ---------- Aurora + canvas layers ---------- */
-.fx-canvas { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+/* ---------- Aurora ---------- */
 .aurora {
   position: fixed; inset: -20%; z-index: -2; pointer-events: none;
   background:
@@ -686,8 +685,9 @@ body::before {
 
 /* ---------- Magazine spreads (Our Productions) ---------- */
 .productions {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1.2rem, 3vw, 2.2rem);
-  margin-top: 0.5rem; max-width: 600px;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.6rem, 4vw, 3.2rem);
+  margin-top: 0.5rem; width: 100%;
 }
 .spread {
   display: block; text-decoration: none; color: inherit;
@@ -702,7 +702,10 @@ body::before {
   transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
 }
 .spread:hover .spread__cover { transform: translateY(-6px); box-shadow: 0 34px 70px -28px rgba(0,0,0,0.85); }
-.spread__cover img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; }
+.spread__cover img {
+  width: 100%; height: min(48vh, 440px); object-fit: cover; object-position: center 12%;
+  display: block;
+}
 .spread__cta {
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.92);
   background: rgba(255,255,255,0.94); color: #1a0a24; padding: 0.7rem 1.1rem; border-radius: 10px;
@@ -713,7 +716,7 @@ body::before {
 .spread:hover .spread__cta { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 .spread__title {
   display: block;
-  font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; text-align: center;
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(1.25rem, 2vw, 1.55rem); text-align: center;
   margin-top: 1rem; color: var(--cream);
 }
 
@@ -833,7 +836,11 @@ body::before {
 /* Our Productions */
 .house__est { color: var(--gold-soft); font-family: var(--font-serif); font-style: italic; font-size: 1.15rem; margin: 0.6rem 0 0.8rem; letter-spacing: 0.04em; }
 .house__est strong { font-style: normal; letter-spacing: 0.2em; color: var(--gold); }
-.productions__intro { color: var(--mist); font-family: var(--font-serif); font-size: 1.15rem; max-width: 56ch; margin-bottom: 2.2rem; }
+.productions__intro {
+  color: var(--mist); font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 1.7vw, 1.22rem); line-height: 1.55;
+  max-width: none; width: 100%; margin: 0 0 2rem;
+}
 .productions__intro em { color: var(--gold-soft); font-style: italic; }
 
 /* ---------- Comments ---------- */
@@ -1078,7 +1085,8 @@ body::before {
   .work__grid { grid-template-columns: repeat(2, 1fr); }
   .card { grid-column: span 1; }
   .card--wide { grid-column: span 2; }
-  .productions { grid-template-columns: repeat(2, 1fr); max-width: none; }
+  .productions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .spread__cover img { height: min(40vh, 360px); }
   .perf-gallery { grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
   .workshops__grid, .shop__grid { grid-template-columns: repeat(2, 1fr); }
   .connect__grid { grid-template-columns: 1fr; }
@@ -1099,7 +1107,8 @@ body::before {
   .about__facts { grid-template-columns: 1fr; }
   .hero__title .line--name { letter-spacing: 0.01em; }
   .workshops__grid, .shop__grid { grid-template-columns: 1fr; }
-  .productions { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .productions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .spread__cover img { height: auto; aspect-ratio: 2/3; }
   .perf-gallery { grid-template-columns: 1fr; }
   .work__grid--pair { grid-template-columns: 1fr; }
   .follow__list a { width: 100%; }
