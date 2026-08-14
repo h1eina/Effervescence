@@ -51,7 +51,7 @@
       });
     }
     const id = panels[pageIndex] && panels[pageIndex].id;
-    $$(".nav__links a, .footer__nav a").forEach((a) => {
+    $$(".nav__links a, .nav__cta, .footer__nav a").forEach((a) => {
       a.classList.toggle("is-active", a.getAttribute("href") === "#" + id);
     });
   };
