@@ -814,7 +814,7 @@ body::before {
 .book__counter { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.12em; }
 
 /* ---------- House of Effervescence (the movement) ---------- */
-.house { text-align: left; }
+.house { text-align: center; }
 .house__ambience {
   position: absolute; inset: 0; pointer-events: none; z-index: 0;
   background:
@@ -822,7 +822,7 @@ body::before {
     radial-gradient(55% 45% at 18% 82%, rgba(212,90,138,0.10), transparent 62%),
     radial-gradient(55% 45% at 84% 78%, rgba(139,92,199,0.12), transparent 62%);
 }
-.house__inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; }
+.house__inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
 .house__founded {
   font-family: var(--font-serif); font-style: italic; color: var(--mist);
   font-size: 1.05rem; letter-spacing: 0.04em;
@@ -860,7 +860,7 @@ body::before {
   color: var(--cream); margin: clamp(1.2rem, 2.6vh, 1.9rem) 0 1rem;
 }
 .house .pillars { text-align: left; width: 100%; gap: 1.3rem; }
-.house__actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-start; margin-top: 1.6rem; }
+.house__actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1.6rem; }
 
 /* Our Productions */
 .house__est { color: var(--gold-deep); font-family: var(--font-serif); font-style: italic; font-size: 1.15rem; margin: 0.6rem 0 0.8rem; letter-spacing: 0.04em; }
