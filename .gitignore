@@ -24,3 +24,6 @@ Thumbs.db
 /Marie-Paul Website/
 
 *.zip
+
+# Cloudflare Wrangler local cache
+.wrangler/
