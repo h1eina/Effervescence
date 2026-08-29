@@ -500,10 +500,18 @@ body::before {
 }
 @keyframes floaty { to { transform: translateY(-10px) rotate(0.5deg); } }
 .about__role { color: var(--gold); font-size: 0.95rem; letter-spacing: 0.05em; margin: 0.6rem 0 1.6rem; }
-.about__lead { font-family: var(--font-serif); font-size: 1.3rem; color: var(--cream); margin-bottom: 1.2rem; line-height: 1.5; }
-.about__lead em { color: var(--gold-soft); font-style: italic; }
+.about__lead,
+.about__text {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--cream);
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+.about__lead em,
+.about__text em { color: var(--gold-soft); font-style: italic; }
 .about__content .section__title { margin-bottom: 1.65rem; }
-.about__text { color: var(--mist); margin-bottom: 2rem; }
+.about__text { margin-bottom: 2rem; }
 .about__facts { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
 .about__facts li {
   padding: 0.9rem 1.1rem; border: 1px solid rgba(143, 100, 16, 0.22); border-radius: 12px;
