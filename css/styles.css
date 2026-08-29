@@ -28,10 +28,11 @@
   --mist: #3f2a58;
   --muted: #56436d;
   --line: rgba(42, 11, 70, 0.14);
-  --card: #ffffff;
+  --card: #fff8ee;
   --card-wash: #fff8ee;
-  --card-line: rgba(42, 11, 70, 0.12);
-  --shadow-card: 0 18px 44px -18px rgba(42, 11, 70, 0.22), 0 2px 8px -3px rgba(42, 11, 70, 0.08);
+  --card-line: rgba(42, 11, 70, 0.08);
+  --shadow-card: 0 16px 38px -18px rgba(42, 11, 70, 0.18), 0 2px 8px -4px rgba(42, 11, 70, 0.06);
+  --radius-card: 22px;
 
   /* Typography — one serif for voice, one sans for the interface */
   --font-display: "Fraunces", Georgia, serif;
@@ -412,9 +413,10 @@ body::before {
 /* ---------- Pillars (House of Effervescence) ---------- */
 .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
 .pillar {
-  padding: 2.2rem 1.8rem; border-radius: var(--radius);
-  background: var(--card); border: 1px solid var(--card-line);
+  padding: 2.2rem 1.8rem; border-radius: var(--radius-card); text-align: left;
+  background: var(--card-wash); border: 1px solid var(--card-line);
   box-shadow: var(--shadow-card); position: relative; overflow: hidden;
+  display: flex; flex-direction: column; gap: 0.7rem;
   transition: transform 0.5s var(--ease), border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
 }
 .pillar::before {
@@ -424,9 +426,9 @@ body::before {
 }
 .pillar:hover, .pillar:focus-visible { transform: translateY(-6px); border-color: rgba(143, 100, 16, 0.35); box-shadow: 0 22px 50px -16px rgba(42, 11, 70, 0.28); outline: none; }
 .pillar:hover::before, .pillar:focus-visible::before { opacity: 1; }
-.pillar__num { font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); letter-spacing: 0.2em; }
-.pillar h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.7rem; margin: 0.8rem 0 0.7rem; }
-.pillar p { color: var(--mist); font-size: 0.98rem; position: relative; }
+.pillar__num { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; color: var(--gold-deep); letter-spacing: 0.18em; }
+.pillar h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; line-height: 1.15; margin: 0; color: var(--cream); }
+.pillar p { color: var(--mist); font-family: var(--font-sans); font-size: 1rem; line-height: 1.55; position: relative; }
 
 /* ---------- The Poem ---------- */
 .poem { text-align: center; overflow: hidden; }
@@ -516,10 +518,10 @@ body::before {
 .work__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; }
 .card {
   grid-column: span 2;
-  padding: 2rem; border-radius: var(--radius);
-  background: var(--card); border: 1px solid var(--card-line);
+  padding: 2.2rem 1.8rem; border-radius: var(--radius-card); text-align: left;
+  background: var(--card-wash); border: 1px solid var(--card-line);
   box-shadow: var(--shadow-card); position: relative; overflow: hidden;
-  display: flex; flex-direction: column; gap: 0.8rem; min-height: 220px;
+  display: flex; flex-direction: column; gap: 0.7rem; min-height: 0;
   transition: transform 0.5s var(--ease), border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
 }
 .card--wide { grid-column: span 4; }
@@ -529,10 +531,10 @@ body::before {
 }
 .card:hover { transform: translateY(-6px); border-color: rgba(143, 100, 16, 0.35); box-shadow: 0 24px 52px -16px rgba(42, 11, 70, 0.28); }
 .card:hover::after { opacity: 1; }
-.card__tag { font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); }
-.card__title { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; line-height: 1.15; }
-.card__desc { color: var(--mist); font-size: 0.96rem; flex: 1; }
-.card__link { color: var(--gold-deep); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em; display: inline-flex; gap: 0.4rem; transition: gap 0.3s var(--ease), color 0.3s; align-self: flex-start; }
+.card__tag { font-family: var(--font-sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-deep); }
+.card__title { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; line-height: 1.15; color: var(--cream); }
+.card__desc { color: var(--mist); font-family: var(--font-sans); font-size: 1rem; line-height: 1.55; flex: 1; }
+.card__link { color: var(--gold-deep); font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em; display: inline-flex; gap: 0.4rem; margin-top: 0.4rem; transition: gap 0.3s var(--ease), color 0.3s; align-self: flex-start; }
 .card__link:hover { gap: 0.9rem; color: var(--rose-deep); }
 
 /* Video card play badge */
@@ -602,8 +604,8 @@ body::before {
 
 /* Form */
 .connect__form {
-  padding: clamp(1.6rem, 4vw, 2.4rem); border-radius: var(--radius);
-  background: var(--card); border: 1px solid var(--card-line);
+  padding: 2.2rem 1.8rem; border-radius: var(--radius-card);
+  background: var(--card-wash); border: 1px solid var(--card-line);
   display: grid; gap: 1.2rem; box-shadow: var(--shadow-card);
 }
 .field { position: relative; }
@@ -759,7 +761,7 @@ body::before {
 
 /* ---------- Poems flip-book ---------- */
 .poems__intro { color: var(--mist); font-family: var(--font-serif); font-size: 1.2rem; max-width: 48ch; margin: 1rem 0 2.6rem; }
-.book { border: 1px solid var(--card-line); border-radius: var(--radius); overflow: hidden; background: var(--card); box-shadow: var(--shadow-card); }
+.book { border: 1px solid var(--card-line); border-radius: var(--radius-card); overflow: hidden; background: var(--card-wash); box-shadow: var(--shadow-card); }
 .book__tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0.9rem; border-bottom: 1px solid var(--card-line); }
 .book__tab {
   border: 1px solid var(--card-line); background: var(--paper); color: var(--mist);
@@ -840,10 +842,7 @@ body::before {
   font-family: var(--font-display); font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.85rem);
   color: var(--cream); margin: clamp(1.2rem, 2.6vh, 1.9rem) 0 1rem;
 }
-.house .pillars { text-align: left; width: 100%; gap: 1.1rem; }
-.house .pillar { padding: 1.5rem 1.4rem; }
-.house .pillar h3 { font-size: 1.3rem; }
-.house .pillar p { font-size: 0.92rem; }
+.house .pillars { text-align: left; width: 100%; gap: 1.3rem; }
 .house__actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1.6rem; }
 
 /* Our Productions */
@@ -857,7 +856,7 @@ body::before {
 .productions__intro em { color: var(--gold-soft); font-style: italic; }
 
 /* ---------- Comments ---------- */
-.comments { margin-top: 3.2rem; padding: clamp(1.4rem, 4vw, 2.4rem); border: 1px solid var(--card-line); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow-card); }
+.comments { margin-top: 3.2rem; padding: 2.2rem 1.8rem; border: 1px solid var(--card-line); border-radius: var(--radius-card); background: var(--card-wash); box-shadow: var(--shadow-card); text-align: left; }
 .comments__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.4rem, 3.4vw, 2rem); color: var(--gold-deep); }
 .comments__sub { color: var(--muted); font-size: 0.95rem; margin: 0.4rem 0 1.4rem; }
 .comments__box { min-height: 60px; }
@@ -874,7 +873,7 @@ body::before {
 .workshops__intro { color: var(--mist); font-family: var(--font-serif); font-size: 1.2rem; max-width: 52ch; margin: 1rem 0 2.6rem; }
 .workshops__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
 .wcard {
-  padding: 2.2rem 1.8rem; border-radius: var(--radius);
+  padding: 2.2rem 1.8rem; border-radius: var(--radius-card); text-align: left;
   background: var(--card-wash); border: 1px solid var(--card-line);
   box-shadow: var(--shadow-card);
   display: flex; flex-direction: column; gap: 0.7rem;
@@ -882,8 +881,8 @@ body::before {
 }
 .wcard:hover { transform: translateY(-6px); border-color: rgba(143, 100, 16, 0.35); box-shadow: 0 24px 52px -16px rgba(42, 11, 70, 0.28); }
 .wcard__icon { font-size: 1.8rem; color: var(--gold-deep); line-height: 1; }
-.wcard__title { font-family: var(--font-display); font-weight: 500; font-size: 1.45rem; line-height: 1.15; }
-.wcard__desc { color: var(--mist); font-size: 1rem; line-height: 1.55; flex: 1; }
+.wcard__title { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; line-height: 1.15; color: var(--cream); }
+.wcard__desc { color: var(--mist); font-family: var(--font-sans); font-size: 1rem; line-height: 1.55; flex: 1; }
 .wcard .card__link { margin-top: 0.4rem; }
 
 /* ---------- Shop ---------- */
@@ -914,7 +913,7 @@ body::before {
 .shop__join a:hover { gap: 0.9rem; color: var(--rose-deep); }
 .shop__intro { color: var(--mist); font-family: var(--font-serif); font-size: 1.2rem; max-width: 56ch; margin-top: 0.9rem; }
 .shop__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
-.product { border: 1px solid var(--card-line); border-radius: var(--radius); overflow: hidden; background: var(--card); box-shadow: var(--shadow-card); transition: transform 0.5s var(--ease), border-color 0.5s var(--ease), box-shadow 0.5s var(--ease); }
+.product { border: 1px solid var(--card-line); border-radius: var(--radius-card); overflow: hidden; background: var(--card-wash); box-shadow: var(--shadow-card); text-align: left; transition: transform 0.5s var(--ease), border-color 0.5s var(--ease), box-shadow 0.5s var(--ease); }
 .product:hover { transform: translateY(-6px); border-color: rgba(143, 100, 16, 0.35); box-shadow: 0 24px 52px -16px rgba(42, 11, 70, 0.28); }
 .product__media {
   aspect-ratio: 4/5; position: relative; overflow: hidden;
@@ -928,16 +927,16 @@ body::before {
 .product:hover .product__media img { transform: scale(1.03); }
 .product__img--alt { opacity: 0; }
 .product:hover .product__img--alt, .product:focus-within .product__img--alt { opacity: 1; }
-.product__body { padding: 1.6rem; display: flex; flex-direction: column; gap: 0.5rem; }
-.product__title { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; }
-.product__desc { color: var(--mist); font-size: 0.94rem; }
+.product__body { padding: 1.8rem 1.8rem 2rem; display: flex; flex-direction: column; gap: 0.55rem; }
+.product__title { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; line-height: 1.15; color: var(--cream); }
+.product__desc { color: var(--mist); font-family: var(--font-sans); font-size: 1rem; line-height: 1.55; }
 .product__meta { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; }
 .product__badge { align-self: flex-start; margin-top: 0.4rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-deep); border: 1px solid rgba(143, 100, 16, 0.35); padding: 0.35rem 0.8rem; border-radius: 999px; }
 
 /* ---------- Newsletter: Marie-Paul's Musings ---------- */
 .musings {
-  margin-top: 2.2rem; padding: clamp(1.4rem, 3.4vw, 2rem); border-radius: var(--radius);
-  border: 1px solid rgba(143, 100, 16, 0.22);
+  margin-top: 2.2rem; padding: 2.2rem 1.8rem; border-radius: var(--radius-card); text-align: left;
+  border: 1px solid var(--card-line);
   background: var(--card-wash); box-shadow: var(--shadow-card);
 }
 .musings__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-deep); }
@@ -1033,9 +1032,7 @@ body::before {
 
 /* Two smaller cards under the performance films */
 .work__grid--pair { grid-template-columns: repeat(2, 1fr); max-width: 900px; }
-.card--sm { grid-column: span 1; min-height: 0; padding: 1.3rem 1.5rem; gap: 0.5rem; }
-.card--sm .card__title { font-size: 1.2rem; }
-.card--sm .card__desc { font-size: 0.9rem; }
+.card--sm { grid-column: span 1; min-height: 0; padding: 2.2rem 1.8rem; gap: 0.7rem; }
 .card--sm .card__play { width: 34px; height: 34px; top: 1.1rem; right: 1.1rem; }
 .card--sm .card__play::before { border-left-width: 9px; border-top-width: 5.5px; border-bottom-width: 5.5px; }
 
