@@ -996,6 +996,7 @@ body::before {
   margin-bottom: 1.2rem; max-width: 16ch;
 }
 .vpx__lead { font-family: var(--font-serif); font-size: 1.12rem; color: var(--cream); line-height: 1.55; }
+.vpx__lead em { color: var(--gold-soft); font-style: italic; }
 .vpx__text {
   font-family: var(--font-serif);
   color: var(--cream);
