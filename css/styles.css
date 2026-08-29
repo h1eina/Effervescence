@@ -429,7 +429,7 @@ body::before {
 .pillar:hover::before, .pillar:focus-visible::before { opacity: 1; }
 .pillar__num { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; color: var(--gold-deep); letter-spacing: 0.18em; }
 .pillar h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; line-height: 1.15; margin: 0; color: var(--cream); }
-.pillar p { color: var(--mist); font-family: var(--font-sans); font-size: 1rem; line-height: 1.55; position: relative; }
+.pillar p { color: var(--mist); font-family: var(--font-serif); font-size: 1rem; line-height: 1.55; position: relative; }
 
 /* ---------- The Poem ---------- */
 .poem { text-align: left; overflow: hidden; }
@@ -543,7 +543,7 @@ body::before {
 .card:hover::after { opacity: 1; }
 .card__tag { font-family: var(--font-sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-deep); }
 .card__title { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; line-height: 1.15; color: var(--cream); }
-.card__desc { color: var(--mist); font-family: var(--font-sans); font-size: 1rem; line-height: 1.55; flex: 1; }
+.card__desc { color: var(--mist); font-family: var(--font-serif); font-size: 1rem; line-height: 1.55; flex: 1; }
 .card__link { color: var(--gold-deep); font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em; display: inline-flex; gap: 0.4rem; margin-top: 0.4rem; transition: gap 0.3s var(--ease), color 0.3s; align-self: flex-start; }
 .card__link:hover { gap: 0.9rem; color: var(--rose-deep); }
 
@@ -875,7 +875,7 @@ body::before {
 /* ---------- Comments ---------- */
 .comments { margin-top: 3.2rem; padding: 2.2rem 1.8rem; border: 1px solid var(--card-line); border-radius: var(--radius-card); background: var(--card-wash); box-shadow: var(--shadow-card); text-align: left; }
 .comments__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.4rem, 3.4vw, 2rem); color: var(--gold-deep); }
-.comments__sub { color: var(--muted); font-size: 0.95rem; margin: 0.4rem 0 1.4rem; }
+.comments__sub { color: var(--muted); font-family: var(--font-serif); font-size: 0.95rem; margin: 0.4rem 0 1.4rem; line-height: 1.5; }
 .comments__box { min-height: 60px; }
 .comments__box .gsc-comment-box, .comments__box iframe.giscus-frame { width: 100%; }
 .comments__fallback {
@@ -899,7 +899,7 @@ body::before {
 .wcard:hover { transform: translateY(-6px); border-color: rgba(143, 100, 16, 0.35); box-shadow: 0 24px 52px -16px rgba(42, 11, 70, 0.28); }
 .wcard__icon { font-size: 1.8rem; color: var(--gold-deep); line-height: 1; }
 .wcard__title { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; line-height: 1.15; color: var(--cream); }
-.wcard__desc { color: var(--mist); font-family: var(--font-sans); font-size: 1rem; line-height: 1.55; flex: 1; }
+.wcard__desc { color: var(--mist); font-family: var(--font-serif); font-size: 1rem; line-height: 1.55; flex: 1; }
 .wcard .card__link { margin-top: 0.4rem; }
 
 /* ---------- Shop ---------- */
@@ -946,7 +946,7 @@ body::before {
 .product:hover .product__img--alt, .product:focus-within .product__img--alt { opacity: 1; }
 .product__body { padding: 1.8rem 1.8rem 2rem; display: flex; flex-direction: column; gap: 0.55rem; }
 .product__title { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; line-height: 1.15; color: var(--cream); }
-.product__desc { color: var(--mist); font-family: var(--font-sans); font-size: 1rem; line-height: 1.55; }
+.product__desc { color: var(--mist); font-family: var(--font-serif); font-size: 1rem; line-height: 1.55; }
 .product__meta { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; }
 .product__badge { align-self: flex-start; margin-top: 0.4rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-deep); border: 1px solid rgba(143, 100, 16, 0.35); padding: 0.35rem 0.8rem; border-radius: 999px; }
 
@@ -996,8 +996,19 @@ body::before {
   margin-bottom: 1.2rem; max-width: 16ch;
 }
 .vpx__lead { font-family: var(--font-serif); font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--cream); line-height: 1.55; }
-.vpx__text { color: var(--mist); margin-top: 0.9rem; font-size: 0.98rem; }
-.vpx__text a { color: var(--gold-deep); border-bottom: 1px solid rgba(212,146,31,0.4); }
+.vpx__text {
+  font-family: var(--font-serif);
+  color: var(--cream);
+  margin-top: 0.9rem;
+  font-size: clamp(1rem, 1.7vw, 1.12rem);
+  line-height: 1.55;
+}
+.vpx__text a {
+  color: var(--gold-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  border-bottom: none;
+}
 .vpx__text a:hover { color: var(--rose-deep); }
 .vpx__actions { margin-top: 1.6rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
 
