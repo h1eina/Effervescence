@@ -36,6 +36,9 @@
   // Ignore leftover trackpad inertia after a page change until the gesture goes quiet
   const GESTURE_IDLE_MS = 420;
   const WHEEL_THRESHOLD = 28;
+  // After you reach the end of a page, a little extra intent turns it
+  const FLOW_EDGE_THRESHOLD = 72;
+  const isSnap = (p) => !p || p.classList.contains("hero");
 
   const updateDeckUI = () => {
     if (!panels.length) return;
@@ -72,16 +75,45 @@
     }
   };
 
-  const goToPage = (i, instant) => {
+  const updateFlowHint = (panel) => {
+    if (!panel || isSnap(panel)) {
+      panel && panel.classList.remove("has-more");
+      return;
+    }
+    const more = panel.scrollHeight > panel.clientHeight + 8 &&
+      panel.scrollTop + panel.clientHeight < panel.scrollHeight - 10;
+    panel.classList.toggle("has-more", more);
+  };
+
+  const panelCanScroll = (panel, dy) => {
+    if (!panel || isSnap(panel)) return false;
+    if (panel.scrollHeight <= panel.clientHeight + 2) return false;
+    const atTop = panel.scrollTop <= 2;
+    const atBottom = panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 2;
+    if (dy > 0 && !atBottom) return true;
+    if (dy < 0 && !atTop) return true;
+    return false;
+  };
+
+  const goToPage = (i, instant, opts) => {
     if (!track || !panels.length) return;
     const next = clampIndex(i);
-    if (next === pageIndex && !instant) return;
+    const align = opts && opts.align;
+    if (next === pageIndex && !instant && !align) return;
 
+    const changed = next !== pageIndex;
     pageIndex = next;
     const panel = panels[pageIndex];
-    panel.scrollTo({ top: 0, behavior: "auto" });
+    if (changed) {
+      if (!isSnap(panel) && align === "end") {
+        panel.scrollTo({ top: panel.scrollHeight, behavior: "auto" });
+      } else {
+        panel.scrollTo({ top: 0, behavior: "auto" });
+      }
+    }
     applyTransform(instant);
     updateDeckUI();
+    updateFlowHint(panel);
     // Keep the home URL clean — no #hero on first load or when returning home
     if (panel.id === "hero") {
       history.replaceState(null, "", location.pathname + location.search);
@@ -114,7 +146,7 @@
   const goPrev = () => {
     if (isAnimating || pageIndex <= 0) return;
     lockGesture();
-    goToPage(pageIndex - 1);
+    goToPage(pageIndex - 1, false, { align: "end" });
   };
 
   if (deck && track && panels.length) {
@@ -144,7 +176,7 @@
       goToPage(0);
     });
 
-    // Wheel / trackpad: accumulate until threshold, then exactly ONE page
+    // Wheel / trackpad: scroll the page first; at an edge, a little more turns it
     let accumX = 0;
     let accumY = 0;
 
@@ -185,10 +217,12 @@
         return;
       }
 
-      // Tall pages / nested scroll areas: allow vertical scroll until an edge
-      if (absY >= absX && canScrollFurther(e.target, dy)) {
+      // Content pages: let the page scroll until it reaches an edge
+      if (!isSnap(panel) && absY >= absX &&
+          (canScrollFurther(e.target, dy) || panelCanScroll(panel, dy))) {
         accumX = 0;
         accumY = 0;
+        window.requestAnimationFrame(() => updateFlowHint(panel));
         return;
       }
 
@@ -200,11 +234,13 @@
       if (e.deltaMode === 1) scale = 16;
       else if (e.deltaMode === 2) scale = deck.clientHeight;
 
+      const need = isSnap(panel) || absX > absY ? WHEEL_THRESHOLD : FLOW_EDGE_THRESHOLD;
+
       // Prefer the dominant axis so diagonal flicks don't double-fire
       if (absX > absY) {
         accumX += dx * scale;
         accumY = 0;
-        if (Math.abs(accumX) < WHEEL_THRESHOLD) return;
+        if (Math.abs(accumX) < need) return;
         const dir = accumX > 0 ? 1 : -1;
         accumX = 0;
         if (dir > 0) goNext();
@@ -212,7 +248,7 @@
       } else {
         accumY += dy * scale;
         accumX = 0;
-        if (Math.abs(accumY) < WHEEL_THRESHOLD) return;
+        if (Math.abs(accumY) < need) return;
         const dir = accumY > 0 ? 1 : -1;
         accumY = 0;
         if (dir > 0) goNext();
@@ -222,7 +258,14 @@
 
     deck.addEventListener("wheel", onWheel, { passive: false });
 
-    // Touch: one swipe = one page
+    panels.forEach((p) => {
+      if (isSnap(p)) return;
+      p.addEventListener("scroll", () => {
+        if (p === panels[pageIndex]) updateFlowHint(p);
+      }, { passive: true });
+    });
+
+    // Touch: vertical swipe scrolls a page, then turns it at the edge; sideways always pages
     let touchX = 0;
     let touchY = 0;
     let touching = false;
@@ -236,17 +279,41 @@
       if (!touching || !e.changedTouches[0]) return;
       touching = false;
       if (isAnimating || gestureLocked) return;
+      const panel = panels[pageIndex];
       const dx = e.changedTouches[0].clientX - touchX;
       const dy = e.changedTouches[0].clientY - touchY;
-      if (Math.abs(dx) < 56 || Math.abs(dx) <= Math.abs(dy)) return;
-      if (dx < 0) goNext();
+      if (Math.abs(dx) >= 56 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) goNext();
+        else goPrev();
+        return;
+      }
+      if (Math.abs(dy) < 80) return;
+      // Finger up (dy < 0) is a downward read; only page if the page is done
+      const scrollDir = dy < 0 ? 1 : -1;
+      if (!isSnap(panel) && panelCanScroll(panel, scrollDir)) return;
+      if (dy < 0) goNext();
       else goPrev();
     }, { passive: true });
 
+    const scrollPanelOrPage = (dir) => {
+      const panel = panels[pageIndex];
+      if (!isSnap(panel) && panelCanScroll(panel, dir)) {
+        panel.scrollBy({
+          top: Math.round(panel.clientHeight * 0.72) * dir,
+          behavior: prefersReduced ? "auto" : "smooth",
+        });
+        return;
+      }
+      if (dir > 0) goNext();
+      else goPrev();
+    };
+
     document.addEventListener("keydown", (e) => {
       if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
-      if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); goNext(); }
-      if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); goPrev(); }
+      if (e.key === "ArrowRight") { e.preventDefault(); goNext(); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); goPrev(); }
+      if (e.key === "ArrowDown" || e.key === "PageDown") { e.preventDefault(); scrollPanelOrPage(1); }
+      if (e.key === "ArrowUp" || e.key === "PageUp") { e.preventDefault(); scrollPanelOrPage(-1); }
       if (e.key === "Home") { e.preventDefault(); lockGesture(); goToPage(0); }
       if (e.key === "End") { e.preventDefault(); lockGesture(); goToPage(panels.length - 1); }
     });
@@ -270,7 +337,11 @@
     const hashId = (location.hash || "").replace(/^#/, "");
     const startIdx = hashId ? panels.findIndex((p) => p.id === hashId) : 0;
     goToPage(startIdx >= 0 ? startIdx : 0, true);
-    window.addEventListener("resize", () => goToPage(pageIndex, true));
+    window.addEventListener("resize", () => {
+      applyTransform(true);
+      updateDeckUI();
+      updateFlowHint(panels[pageIndex]);
+    });
   }
 
   /* ---------- Mobile menu ---------- */
