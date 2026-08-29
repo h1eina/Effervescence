@@ -36,8 +36,6 @@
   // Ignore leftover trackpad inertia after a page change until the gesture goes quiet
   const GESTURE_IDLE_MS = 420;
   const WHEEL_THRESHOLD = 28;
-  // After you reach the end of a page, a little extra intent turns it
-  const FLOW_EDGE_THRESHOLD = 120;
   const isSnap = (p) => !p || p.classList.contains("hero");
 
   const updateDeckUI = () => {
@@ -206,47 +204,38 @@
         return;
       }
 
-      // Content pages: let the page scroll until it reaches an edge
-      if (!isSnap(panel) && absY >= absX &&
-          (canScrollFurther(e.target, dy) || panelCanScroll(panel, dy))) {
+      // Vertical motion only ever scrolls this page — it never turns it
+      if (absY >= absX) {
+        if (!isSnap(panel) && (canScrollFurther(e.target, dy) || panelCanScroll(panel, dy))) {
+          accumX = 0;
+          accumY = 0;
+          return;
+        }
+        e.preventDefault();
         accumX = 0;
         accumY = 0;
         return;
       }
 
-      // Page change — never let the browser scroll the deck
+      // Sideways only: one page at a time
       e.preventDefault();
 
-      // Normalize delta across pixel / line / page modes (mouse wheels vs trackpads)
       let scale = 1;
       if (e.deltaMode === 1) scale = 16;
       else if (e.deltaMode === 2) scale = deck.clientHeight;
 
-      const need = isSnap(panel) || absX > absY ? WHEEL_THRESHOLD : FLOW_EDGE_THRESHOLD;
-
-      // Prefer the dominant axis so diagonal flicks don't double-fire
-      if (absX > absY) {
-        accumX += dx * scale;
-        accumY = 0;
-        if (Math.abs(accumX) < need) return;
-        const dir = accumX > 0 ? 1 : -1;
-        accumX = 0;
-        if (dir > 0) goNext();
-        else goPrev();
-      } else {
-        accumY += dy * scale;
-        accumX = 0;
-        if (Math.abs(accumY) < need) return;
-        const dir = accumY > 0 ? 1 : -1;
-        accumY = 0;
-        if (dir > 0) goNext();
-        else goPrev();
-      }
+      accumX += dx * scale;
+      accumY = 0;
+      if (Math.abs(accumX) < WHEEL_THRESHOLD) return;
+      const dir = accumX > 0 ? 1 : -1;
+      accumX = 0;
+      if (dir > 0) goNext();
+      else goPrev();
     };
 
     deck.addEventListener("wheel", onWheel, { passive: false });
 
-    // Touch: vertical swipe scrolls a page, then turns it at the edge; sideways always pages
+    // Touch: sideways swipe turns the page; vertical swipe only scrolls
     let touchX = 0;
     let touchY = 0;
     let touching = false;
@@ -260,41 +249,28 @@
       if (!touching || !e.changedTouches[0]) return;
       touching = false;
       if (isAnimating || gestureLocked) return;
-      const panel = panels[pageIndex];
       const dx = e.changedTouches[0].clientX - touchX;
       const dy = e.changedTouches[0].clientY - touchY;
-      if (Math.abs(dx) >= 56 && Math.abs(dx) > Math.abs(dy)) {
-        if (dx < 0) goNext();
-        else goPrev();
-        return;
-      }
-      if (Math.abs(dy) < 80) return;
-      // Finger up (dy < 0) is a downward read; only page if the page is done
-      const scrollDir = dy < 0 ? 1 : -1;
-      if (!isSnap(panel) && panelCanScroll(panel, scrollDir)) return;
-      if (dy < 0) goNext();
+      if (Math.abs(dx) < 56 || Math.abs(dx) <= Math.abs(dy)) return;
+      if (dx < 0) goNext();
       else goPrev();
     }, { passive: true });
 
-    const scrollPanelOrPage = (dir) => {
+    const scrollPanel = (dir) => {
       const panel = panels[pageIndex];
-      if (!isSnap(panel) && panelCanScroll(panel, dir)) {
-        panel.scrollBy({
-          top: Math.round(panel.clientHeight * 0.72) * dir,
-          behavior: prefersReduced ? "auto" : "smooth",
-        });
-        return;
-      }
-      if (dir > 0) goNext();
-      else goPrev();
+      if (isSnap(panel) || !panelCanScroll(panel, dir)) return;
+      panel.scrollBy({
+        top: Math.round(panel.clientHeight * 0.72) * dir,
+        behavior: prefersReduced ? "auto" : "smooth",
+      });
     };
 
     document.addEventListener("keydown", (e) => {
       if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
       if (e.key === "ArrowRight") { e.preventDefault(); goNext(); }
       if (e.key === "ArrowLeft") { e.preventDefault(); goPrev(); }
-      if (e.key === "ArrowDown" || e.key === "PageDown") { e.preventDefault(); scrollPanelOrPage(1); }
-      if (e.key === "ArrowUp" || e.key === "PageUp") { e.preventDefault(); scrollPanelOrPage(-1); }
+      if (e.key === "ArrowDown" || e.key === "PageDown") { e.preventDefault(); scrollPanel(1); }
+      if (e.key === "ArrowUp" || e.key === "PageUp") { e.preventDefault(); scrollPanel(-1); }
       if (e.key === "Home") { e.preventDefault(); lockGesture(); goToPage(0); }
       if (e.key === "End") { e.preventDefault(); lockGesture(); goToPage(panels.length - 1); }
     });
