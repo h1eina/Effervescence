@@ -100,20 +100,14 @@ body {
 .panel.section {
   padding: calc(5.5rem + env(safe-area-inset-top, 0px))
     clamp(4rem, 6vw, 5.5rem)
-    calc(5.5rem + env(safe-area-inset-bottom, 0px) + 14vh);
+    calc(6rem + env(safe-area-inset-bottom, 0px));
 }
-/* Soft fade when a page still has a little more below */
-.panel.section.has-more::after {
-  content: "";
-  position: sticky;
-  bottom: 0;
-  display: block;
-  height: 4.5rem;
-  margin-top: -4.5rem;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(252, 251, 253, 0), var(--paper) 78%);
-  z-index: 3;
+.chapter {
+  position: relative;
+  margin-top: clamp(3.2rem, 7vh, 5rem);
+  padding-top: clamp(2.8rem, 6vh, 4.2rem);
 }
+.house > .chapter { text-align: left; width: 100%; }
 .deck-controls { position: fixed; inset: 0; pointer-events: none; z-index: 90; }
 .deck-arrow {
   pointer-events: auto; position: absolute; top: 50%; transform: translateY(-50%);
@@ -437,8 +431,8 @@ body::before {
 /* ---------- The Poem ---------- */
 .poem { text-align: center; overflow: hidden; }
 .poem__ambience {
-  position: absolute; inset: 0; z-index: -1;
-  background: radial-gradient(60% 55% at 50% 38%, rgba(116,35,166,0.5), rgba(176,47,120,0.28) 58%, transparent 78%);
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(55% 50% at 80% 10%, rgba(139, 92, 199, 0.08), transparent 70%);
 }
 .poem .section__kicker { justify-content: center; }
 .poem .section__kicker::before { display: none; }
@@ -923,16 +917,16 @@ body::before {
 .product { border: 1px solid var(--card-line); border-radius: var(--radius); overflow: hidden; background: var(--card); box-shadow: var(--shadow-card); transition: transform 0.5s var(--ease), border-color 0.5s var(--ease), box-shadow 0.5s var(--ease); }
 .product:hover { transform: translateY(-6px); border-color: rgba(143, 100, 16, 0.35); box-shadow: 0 24px 52px -16px rgba(42, 11, 70, 0.28); }
 .product__media {
-  aspect-ratio: 1/1; display: grid; place-items: center; position: relative; overflow: hidden;
-  background: linear-gradient(160deg, #f4efe8, #e8dfd4);
+  aspect-ratio: 4/5; position: relative; overflow: hidden;
+  background: #efe8dc;
 }
-.product__media img { width: 100%; height: 100%; object-fit: contain; padding: 0.6rem; transition: transform 0.6s var(--ease); }
-.product:hover .product__media img { transform: scale(1.04); }
-/* Colourway swap: the alternate tee sits on top and fades in on hover/focus */
-.product__img--alt {
-  position: absolute; inset: 0; opacity: 0;
-  transition: opacity 0.5s var(--ease), transform 0.6s var(--ease);
+.product__media img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center 12%;
+  transition: opacity 0.45s var(--ease), transform 0.6s var(--ease);
 }
+.product:hover .product__media img { transform: scale(1.03); }
+.product__img--alt { opacity: 0; }
 .product:hover .product__img--alt, .product:focus-within .product__img--alt { opacity: 1; }
 .product__body { padding: 1.6rem; display: flex; flex-direction: column; gap: 0.5rem; }
 .product__title { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; }

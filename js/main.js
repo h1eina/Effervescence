@@ -37,7 +37,7 @@
   const GESTURE_IDLE_MS = 420;
   const WHEEL_THRESHOLD = 28;
   // After you reach the end of a page, a little extra intent turns it
-  const FLOW_EDGE_THRESHOLD = 72;
+  const FLOW_EDGE_THRESHOLD = 120;
   const isSnap = (p) => !p || p.classList.contains("hero");
 
   const updateDeckUI = () => {
@@ -75,16 +75,6 @@
     }
   };
 
-  const updateFlowHint = (panel) => {
-    if (!panel || isSnap(panel)) {
-      panel && panel.classList.remove("has-more");
-      return;
-    }
-    const more = panel.scrollHeight > panel.clientHeight + 8 &&
-      panel.scrollTop + panel.clientHeight < panel.scrollHeight - 10;
-    panel.classList.toggle("has-more", more);
-  };
-
   const panelCanScroll = (panel, dy) => {
     if (!panel || isSnap(panel)) return false;
     if (panel.scrollHeight <= panel.clientHeight + 2) return false;
@@ -113,7 +103,6 @@
     }
     applyTransform(instant);
     updateDeckUI();
-    updateFlowHint(panel);
     // Keep the home URL clean — no #hero on first load or when returning home
     if (panel.id === "hero") {
       history.replaceState(null, "", location.pathname + location.search);
@@ -222,7 +211,6 @@
           (canScrollFurther(e.target, dy) || panelCanScroll(panel, dy))) {
         accumX = 0;
         accumY = 0;
-        window.requestAnimationFrame(() => updateFlowHint(panel));
         return;
       }
 
@@ -257,13 +245,6 @@
     };
 
     deck.addEventListener("wheel", onWheel, { passive: false });
-
-    panels.forEach((p) => {
-      if (isSnap(p)) return;
-      p.addEventListener("scroll", () => {
-        if (p === panels[pageIndex]) updateFlowHint(p);
-      }, { passive: true });
-    });
 
     // Touch: vertical swipe scrolls a page, then turns it at the edge; sideways always pages
     let touchX = 0;
@@ -318,16 +299,40 @@
       if (e.key === "End") { e.preventDefault(); lockGesture(); goToPage(panels.length - 1); }
     });
 
+    const panelIndexFor = (el) => {
+      if (!el) return -1;
+      const panel = el.classList.contains("panel") ? el : el.closest(".panel");
+      return panels.indexOf(panel);
+    };
+
+    const scrollPanelTo = (panel, el, instant) => {
+      if (!panel || !el || el === panel) return;
+      const top = el.getBoundingClientRect().top - panel.getBoundingClientRect().top + panel.scrollTop - 96;
+      panel.scrollTo({ top: Math.max(0, top), behavior: instant || prefersReduced ? "auto" : "smooth" });
+    };
+
+    const goToId = (id, instant) => {
+      const el = document.getElementById(id);
+      const idx = panelIndexFor(el);
+      if (idx < 0) return false;
+      const panel = panels[idx];
+      const inner = el !== panel;
+      goToPage(idx, instant, inner ? { align: "start" } : undefined);
+      if (inner) {
+        window.requestAnimationFrame(() => scrollPanelTo(panel, el, instant));
+      }
+      return true;
+    };
+
     $$('a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {
         const id = a.getAttribute("href").slice(1);
         if (!id) return;
-        const idx = panels.findIndex((p) => p.id === id);
-        if (idx >= 0) {
+        if (panelIndexFor(document.getElementById(id)) >= 0) {
           e.preventDefault();
           if (!isAnimating) {
             lockGesture();
-            goToPage(idx);
+            goToId(id);
           }
           setMenu(false);
         }
@@ -335,12 +340,10 @@
     });
 
     const hashId = (location.hash || "").replace(/^#/, "");
-    const startIdx = hashId ? panels.findIndex((p) => p.id === hashId) : 0;
-    goToPage(startIdx >= 0 ? startIdx : 0, true);
+    if (!hashId || !goToId(hashId, true)) goToPage(0, true);
     window.addEventListener("resize", () => {
       applyTransform(true);
       updateDeckUI();
-      updateFlowHint(panels[pageIndex]);
     });
   }
 
