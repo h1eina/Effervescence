@@ -717,8 +717,13 @@ body::before {
 }
 .spread:hover .spread__cover { transform: translateY(-6px); box-shadow: 0 34px 70px -28px rgba(0,0,0,0.85); }
 .spread__cover img {
-  width: 100%; height: min(48vh, 440px); object-fit: cover; object-position: center 12%;
+  width: 100%;
+  height: auto;
+  max-height: min(72vh, 720px);
+  object-fit: contain;
+  object-position: center;
   display: block;
+  background: #111;
 }
 .spread__cta {
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.92);
@@ -1053,7 +1058,15 @@ body::before {
 .mag.is-open .mag__book { transform: none; }
 .mag__page { position: relative; }
 .mag__page--left { background: #1a1020; }
-.mag__page--left img { width: 100%; height: 100%; max-height: 84vh; object-fit: cover; display: block; }
+.mag__page--left img {
+  width: 100%;
+  height: auto;
+  max-height: 84vh;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: #1a1020;
+}
 .mag__spine { background: linear-gradient(90deg, rgba(0,0,0,0.22), rgba(0,0,0,0.06)); }
 .mag__page--right {
   padding: clamp(1.6rem, 4vw, 3rem); display: flex; flex-direction: column;
@@ -1097,7 +1110,7 @@ body::before {
   .card { grid-column: span 1; }
   .card--wide { grid-column: span 2; }
   .productions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .spread__cover img { height: min(40vh, 360px); }
+  .spread__cover img { max-height: min(56vh, 560px); }
   .perf-gallery { grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
   .workshops__grid, .shop__grid { grid-template-columns: repeat(2, 1fr); }
   .connect__grid { grid-template-columns: 1fr; }
@@ -1119,7 +1132,7 @@ body::before {
   .hero__title .line--name { letter-spacing: 0.01em; }
   .workshops__grid, .shop__grid { grid-template-columns: 1fr; }
   .productions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-  .spread__cover img { height: auto; aspect-ratio: 2/3; }
+  .spread__cover img { height: auto; max-height: none; }
   .perf-gallery { grid-template-columns: 1fr; }
   .work__grid--pair { grid-template-columns: 1fr; }
   .follow__list a { width: 100%; }
