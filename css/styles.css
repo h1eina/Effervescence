@@ -107,6 +107,7 @@ body {
   position: relative;
   margin-top: clamp(3.2rem, 7vh, 5rem);
   padding-top: clamp(2.8rem, 6vh, 4.2rem);
+  text-align: left;
 }
 .house > .chapter { text-align: left; width: 100%; }
 .deck-controls { position: fixed; inset: 0; pointer-events: none; z-index: 90; }
@@ -365,7 +366,7 @@ body::before {
 .hero__award {
   font-family: var(--font-serif); font-style: italic;
   font-size: clamp(1.45rem, 2.8vw, 2.05rem); color: #ffeab3;
-  margin-bottom: 0.45rem; text-align: center;
+  margin-bottom: 0.45rem; text-align: left;
 }
 .hero__tagline {
   font-family: var(--font-serif);
@@ -431,12 +432,12 @@ body::before {
 .pillar p { color: var(--mist); font-family: var(--font-sans); font-size: 1rem; line-height: 1.55; position: relative; }
 
 /* ---------- The Poem ---------- */
-.poem { text-align: center; overflow: hidden; }
+.poem { text-align: left; overflow: hidden; }
 .poem__ambience {
   position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background: radial-gradient(55% 50% at 80% 10%, rgba(139, 92, 199, 0.08), transparent 70%);
 }
-.poem .section__kicker { justify-content: center; }
+.poem .section__kicker { justify-content: flex-start; }
 .poem .section__kicker::before { display: none; }
 .poem__title {
   font-family: var(--font-display); font-weight: 300; font-style: italic;
@@ -460,7 +461,7 @@ body::before {
   background: linear-gradient(100deg, var(--gold), var(--rose)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
 .stanza--finale .pl { color: var(--gold-soft); }
-.poem__cta { margin-top: 3rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.poem__cta { margin-top: 3rem; display: flex; gap: 1rem; justify-content: flex-start; flex-wrap: wrap; }
 
 /* ---------- About ---------- */
 .about__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
@@ -620,8 +621,9 @@ body::before {
   outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(243,211,138,0.14);
 }
 
-/* Select: label sits above (native selects vertically center their value) */
-.field--select { display: flex; flex-direction: column; gap: 0.45rem; }
+/* Select / static labels: sit above the control (native selects vertically center their value) */
+.field--select,
+.field--static { display: flex; flex-direction: column; gap: 0.45rem; }
 .field--select select {
   padding: 0.9rem 2.6rem 0.9rem 1rem; cursor: pointer;
   background-image:
@@ -631,6 +633,7 @@ body::before {
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
 }
+.field--static textarea { padding: 0.9rem 1rem; min-height: 140px; }
 .field--select option { background: #fff; color: var(--cream); }
 .field label {
   position: absolute; left: 1rem; top: 0.95rem; color: var(--muted); font-size: 1rem;
@@ -645,7 +648,7 @@ body::before {
   font-size: 0.72rem; color: var(--gold); letter-spacing: 0.16em;
   text-transform: uppercase; padding-left: 0.15rem;
 }
-.form__note { font-size: 0.9rem; color: var(--teal); min-height: 1.2em; text-align: center; }
+.form__note { font-size: 0.9rem; color: var(--teal); min-height: 1.2em; text-align: left; }
 .form__note.is-error { color: var(--rose-deep); }
 
 /* ---------- Footer ---------- */
@@ -670,7 +673,7 @@ body::before {
   font-size: clamp(1.05rem, 1.9vw, 1.5rem);
   font-weight: 700;
   letter-spacing: 0.26em; text-transform: uppercase;
-  color: #fff6ef; margin-bottom: 2rem; text-align: center;
+  color: #fff6ef; margin-bottom: 2rem; text-align: left;
   text-shadow: 0 2px 18px rgba(0,0,0,0.45);
 }
 .hero__roles span { color: var(--gold-bright); margin: 0 0.5rem; font-weight: 400; }
@@ -694,7 +697,7 @@ body::before {
   position: absolute; left: 0; right: 0; bottom: 0; padding: 2.2rem 0.9rem 0.85rem;
   background: linear-gradient(transparent, rgba(10,4,18,0.55) 45%, rgba(10,4,18,0.92));
   font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: #ffeab3;
-  text-align: center; text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+  text-align: left; text-shadow: 0 1px 8px rgba(0,0,0,0.6);
 }
 
 /* ---------- Magazine spreads (Our Productions) ---------- */
@@ -706,7 +709,7 @@ body::before {
 .spread {
   display: block; text-decoration: none; color: inherit;
   background: none; border: 0; padding: 0; width: 100%; cursor: pointer;
-  font: inherit; text-align: center;
+  font: inherit; text-align: left;
 }
 .spread:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; border-radius: 16px; }
 .spread__cover { display: block; }
@@ -735,7 +738,7 @@ body::before {
 .spread:hover .spread__cta { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 .spread__title {
   display: block;
-  font-family: var(--font-display); font-weight: 500; font-size: clamp(1.25rem, 2vw, 1.55rem); text-align: center;
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(1.25rem, 2vw, 1.55rem); text-align: left;
   margin-top: 1rem; color: var(--cream);
 }
 
@@ -802,7 +805,7 @@ body::before {
 .book__counter { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.12em; }
 
 /* ---------- House of Effervescence (the movement) ---------- */
-.house { text-align: center; }
+.house { text-align: left; }
 .house__ambience {
   position: absolute; inset: 0; pointer-events: none; z-index: 0;
   background:
@@ -810,7 +813,7 @@ body::before {
     radial-gradient(55% 45% at 18% 82%, rgba(212,90,138,0.10), transparent 62%),
     radial-gradient(55% 45% at 84% 78%, rgba(139,92,199,0.12), transparent 62%);
 }
-.house__inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+.house__inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; }
 .house__founded {
   font-family: var(--font-serif); font-style: italic; color: var(--mist);
   font-size: 1.05rem; letter-spacing: 0.04em;
@@ -848,7 +851,7 @@ body::before {
   color: var(--cream); margin: clamp(1.2rem, 2.6vh, 1.9rem) 0 1rem;
 }
 .house .pillars { text-align: left; width: 100%; gap: 1.3rem; }
-.house__actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1.6rem; }
+.house__actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-start; margin-top: 1.6rem; }
 
 /* Our Productions */
 .house__est { color: var(--gold-deep); font-family: var(--font-serif); font-style: italic; font-size: 1.15rem; margin: 0.6rem 0 0.8rem; letter-spacing: 0.04em; }
@@ -867,7 +870,7 @@ body::before {
 .comments__box { min-height: 60px; }
 .comments__box .gsc-comment-box, .comments__box iframe.giscus-frame { width: 100%; }
 .comments__fallback {
-  margin-top: 1.2rem; padding: 1.4rem 1.6rem; border-radius: 14px; text-align: center;
+  margin-top: 1.2rem; padding: 1.4rem 1.6rem; border-radius: 14px; text-align: left;
   border: 1px dashed rgba(243,211,138,0.35); background: rgba(243,211,138,0.05);
 }
 .comments__fallback[hidden] { display: none !important; }
@@ -902,8 +905,8 @@ body::before {
   background: linear-gradient(180deg, rgba(14,6,26,0.28) 0%, rgba(14,6,26,0.42) 55%, rgba(14,6,26,0.5) 100%);
 }
 .shop__banner-title {
-  position: absolute; inset: 0; z-index: 1; display: grid; place-items: center;
-  text-align: center; padding-inline: 1rem;
+  position: absolute; inset: 0; z-index: 1; display: grid; place-items: end start;
+  text-align: left; padding: 1.4rem 1.2rem;
   font-family: var(--font-sans); font-weight: 300; color: #fff;
   font-size: clamp(1.5rem, 5.2vw, 3.6rem); letter-spacing: 0.14em; text-transform: uppercase;
   text-shadow: 0 4px 30px rgba(0,0,0,0.45);
@@ -964,7 +967,7 @@ body::before {
 .follow__list a:hover { border-color: var(--gold); color: var(--gold-deep); transform: translateY(-2px); }
 .follow__list svg { color: var(--gold-deep); flex: 0 0 auto; }
 
-.community__form { display: flex; gap: 0.6rem; width: 100%; max-width: 460px; flex-wrap: wrap; justify-content: center; }
+.community__form { display: flex; gap: 0.6rem; width: 100%; max-width: 460px; flex-wrap: wrap; justify-content: flex-start; }
 .community__form input {
   flex: 1; min-width: 200px; padding: 1rem 1.2rem; border-radius: 999px; background: rgba(255,255,255,0.9);
   border: 1px solid var(--line); color: var(--cream); font-family: var(--font-sans); font-size: 1rem;
@@ -1010,13 +1013,13 @@ body::before {
 .vpx__film:hover .vpx__play { transform: translate(-50%, -50%) scale(1.09); }
 .vpx__filmlabel {
   position: absolute; left: 0; right: 0; bottom: 0; padding: 1.8rem 1rem 0.85rem;
-  text-align: center; font-family: var(--font-serif); font-style: italic; font-size: 1rem;
+  text-align: left; font-family: var(--font-serif); font-style: italic; font-size: 1rem;
   color: #ffeab3; background: linear-gradient(transparent, rgba(12,5,22,0.85));
 }
 
 .vpx__quote {
   margin-top: clamp(2rem, 5vh, 3.2rem); padding: clamp(1.8rem, 5vw, 3rem);
-  border-radius: var(--radius); text-align: center; position: relative; overflow: hidden;
+  border-radius: var(--radius); text-align: left; position: relative; overflow: hidden;
   background:
     radial-gradient(70% 120% at 18% 12%, rgba(139,92,199,0.85), transparent 62%),
     radial-gradient(70% 120% at 84% 88%, rgba(212,90,138,0.6), transparent 60%),
@@ -1091,12 +1094,12 @@ body::before {
 @media (max-width: 960px) {
   .hero__stage {
     align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-start;
     padding-inline: var(--gutter);
     padding-bottom: 1.5rem;
   }
-  .hero__inner { text-align: center; max-width: 36rem; }
-  .hero__actions { justify-content: center; }
+  .hero__inner { text-align: left; max-width: 36rem; }
+  .hero__actions { justify-content: flex-start; }
   .hero__title .line--name { font-size: clamp(3rem, 13vw, 4.8rem); }
   .hero__slide { object-position: center 22%; }
   .hero__visual::after {
