@@ -502,6 +502,7 @@ body::before {
 .about__role { color: var(--gold); font-size: 0.95rem; letter-spacing: 0.05em; margin: 0.6rem 0 1.6rem; }
 .about__lead { font-family: var(--font-serif); font-size: 1.3rem; color: var(--cream); margin-bottom: 1.2rem; line-height: 1.5; }
 .about__lead em { color: var(--gold-soft); font-style: italic; }
+.about__content .section__title { margin-bottom: 1.65rem; }
 .about__text { color: var(--mist); margin-bottom: 2rem; }
 .about__facts { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
 .about__facts li {
