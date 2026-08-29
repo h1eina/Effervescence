@@ -503,7 +503,7 @@ body::before {
 .about__lead,
 .about__text {
   font-family: var(--font-serif);
-  font-size: 1.3rem;
+  font-size: 1.12rem;
   color: var(--cream);
   margin-bottom: 1.2rem;
   line-height: 1.5;
