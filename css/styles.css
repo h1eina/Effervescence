@@ -995,7 +995,7 @@ body::before {
   font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.1;
   margin-bottom: 1.2rem; max-width: 16ch;
 }
-.vpx__lead { font-family: var(--font-serif); font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--cream); line-height: 1.55; }
+.vpx__lead { font-family: var(--font-serif); font-size: 1.12rem; color: var(--cream); line-height: 1.55; }
 .vpx__text {
   font-family: var(--font-serif);
   color: var(--cream);
