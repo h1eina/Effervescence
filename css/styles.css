@@ -886,7 +886,8 @@ body::before {
 }
 .reflections__form { display: flex; flex-direction: column; gap: 0.65rem; margin: 0; }
 .reflections__form .btn { align-self: flex-start; --pad: 0.75rem 1.35rem; font-size: 0.9rem; }
-.comments .field--plain input { padding: 0.78rem 0.95rem; line-height: 1.25; }
+.field--plain input { padding: 0.9rem 1rem; line-height: 1.25; }
+.comments .field--plain input { padding: 0.78rem 0.95rem; }
 .comments .field--static textarea { min-height: 5.6rem; padding: 0.7rem 0.9rem; }
 .hp,
 .visually-hidden {
