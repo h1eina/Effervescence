@@ -886,9 +886,10 @@ body::before {
 }
 .reflections__form { display: flex; flex-direction: column; gap: 0.65rem; margin: 0; }
 .reflections__form .btn { align-self: flex-start; --pad: 0.75rem 1.35rem; font-size: 0.9rem; }
-.comments .field input { padding: 0.85rem 0.9rem 0.4rem; }
+.comments .field--plain input { padding: 0.78rem 0.95rem; line-height: 1.25; }
 .comments .field--static textarea { min-height: 5.6rem; padding: 0.7rem 0.9rem; }
-.hp {
+.hp,
+.visually-hidden {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
