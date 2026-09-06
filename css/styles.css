@@ -583,7 +583,7 @@ body::before {
 }
 .lightbox__close:hover { background: rgba(243,211,138,0.18); transform: rotate(90deg); }
 
-/* ---------- Back to top ---------- */
+/* ---------- Home ---------- */
 .to-top {
   position: fixed; bottom: 1.4rem; left: 1.2rem; z-index: 130;
   width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
