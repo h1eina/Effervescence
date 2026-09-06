@@ -500,26 +500,30 @@
         <div class="comments reveal" data-reveal id="comments">
           <div class="comments__head">
             <h3 class="comments__title">Leave Your Reflections</h3>
-            <p class="comments__sub">Share what a collection stirred in you. No account needed — write, like, and leave it with the rest of the conversation.</p>
+            <p class="comments__sub">No account needed — write, like, and leave it with the conversation.</p>
           </div>
-          <form class="reflections__form" id="reflectionForm" novalidate>
-            <label class="hp" aria-hidden="true">
-              <span>Website</span>
-              <input type="text" name="website" tabindex="-1" autocomplete="off" />
-            </label>
-            <div class="field">
-              <input type="text" id="rf-name" name="name" maxlength="60" autocomplete="name" placeholder=" " />
-              <label for="rf-name">Your name (optional)</label>
+          <div class="reflections__board">
+            <form class="reflections__form" id="reflectionForm" novalidate>
+              <label class="hp" aria-hidden="true">
+                <span>Website</span>
+                <input type="text" name="website" tabindex="-1" autocomplete="off" />
+              </label>
+              <div class="field">
+                <input type="text" id="rf-name" name="name" maxlength="60" autocomplete="name" placeholder=" " />
+                <label for="rf-name">Your name (optional)</label>
+              </div>
+              <div class="field field--static">
+                <label for="rf-body" class="field__label--static">Your reflection</label>
+                <textarea id="rf-body" name="body" rows="3" required maxlength="800" placeholder="What stayed with you…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--gold magnetic">Share reflection</button>
+              <p class="form__note" id="reflectionNote" role="status" aria-live="polite"></p>
+            </form>
+            <div class="reflections__feed">
+              <p class="reflections__count" id="reflectionCount"></p>
+              <ul class="reflections" id="reflectionList"></ul>
             </div>
-            <div class="field field--static">
-              <label for="rf-body" class="field__label--static">Your reflection</label>
-              <textarea id="rf-body" name="body" rows="4" required maxlength="800" placeholder="What stayed with you…"></textarea>
-            </div>
-            <button type="submit" class="btn btn--gold magnetic">Share reflection</button>
-            <p class="form__note" id="reflectionNote" role="status" aria-live="polite"></p>
-          </form>
-          <p class="reflections__count" id="reflectionCount"></p>
-          <ul class="reflections" id="reflectionList"></ul>
+          </div>
         </div>
       </div>
     </section>
