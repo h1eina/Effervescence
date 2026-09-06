@@ -689,8 +689,8 @@ body::before {
 
 /* ---------- Performance gallery (gold-framed films) ---------- */
 .perf-gallery {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
-  max-width: 900px; margin-inline: auto; margin-bottom: 1.8rem;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem;
+  margin-bottom: 1.8rem;
 }
 .perf-gallery__item {
   margin: 0; border-radius: 16px; overflow: hidden; position: relative;
@@ -1063,9 +1063,7 @@ body::before {
 .work__grid.work__grid--pair {
   display: flex;
   justify-content: center;
-  max-width: 900px;
-  margin-inline: auto;
-  gap: 1.4rem;
+  gap: 1.3rem;
 }
 .work__grid.work__grid--pair .card {
   flex: 1 1 0;
