@@ -872,19 +872,46 @@ body::before {
 }
 .productions__intro em { color: var(--gold-soft); font-style: italic; }
 
-/* ---------- Comments ---------- */
+/* ---------- Comments / guest reflections ---------- */
 .comments { margin-top: 3.2rem; padding: 2.2rem 1.8rem; border: 1px solid var(--card-line); border-radius: var(--radius-card); background: var(--card-wash); box-shadow: var(--shadow-card); text-align: left; }
 .comments__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.4rem, 3.4vw, 2rem); color: var(--gold-deep); }
 .comments__sub { color: var(--muted); font-family: var(--font-serif); font-size: 0.95rem; margin: 0.4rem 0 1.4rem; line-height: 1.5; }
-.comments__box { min-height: 60px; }
-.comments__box .gsc-comment-box, .comments__box iframe.giscus-frame { width: 100%; }
-.comments__fallback {
-  margin-top: 1.2rem; padding: 1.4rem 1.6rem; border-radius: 14px; text-align: left;
-  border: 1px dashed rgba(243,211,138,0.35); background: rgba(243,211,138,0.05);
+.reflections__form { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.6rem; }
+.reflections__form .btn { align-self: flex-start; }
+.hp {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
-.comments__fallback[hidden] { display: none !important; }
-.comments__fallback p { color: var(--mist); font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.1rem; }
-.comments.is-fallback .comments__box { display: none; }
+.reflections__count {
+  font-family: var(--font-sans); font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep);
+  margin: 0 0 1rem;
+}
+.reflections { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+.reflection {
+  padding: 1.15rem 1.25rem 1rem; border-radius: 16px; background: rgba(255,255,255,0.72);
+  border: 1px solid var(--card-line);
+}
+.reflection__meta {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.45rem 0.8rem;
+  margin-bottom: 0.45rem;
+}
+.reflection__name { font-family: var(--font-display); font-weight: 600; color: var(--cream); }
+.reflection__time { font-size: 0.85rem; color: var(--muted); }
+.reflection__body { font-family: var(--font-serif); color: var(--mist); line-height: 1.5; }
+.reflection__like {
+  margin-top: 0.75rem; display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.28rem 0.7rem 0.28rem 0.55rem; border-radius: 999px; cursor: pointer;
+  border: 1px solid rgba(143, 100, 16, 0.22); background: rgba(255,248,238,0.9);
+  color: var(--gold-deep); font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600;
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.reflection__like:hover { transform: translateY(-1px); border-color: var(--gold); }
+.reflection__like.is-on { background: linear-gradient(100deg, #ffeab3, #ffd76a 45%, #f7b62f); border-color: transparent; color: #2a1608; }
+.reflection__like svg { width: 14px; height: 14px; }
+.reflections__empty, .reflections__error {
+  font-family: var(--font-serif); color: var(--mist); font-size: 1.05rem;
+}
 
 /* ---------- Workshops ---------- */
 .workshops__intro { color: var(--mist); font-family: var(--font-serif); font-size: 1.2rem; max-width: 52ch; margin: 1rem 0 2.6rem; }

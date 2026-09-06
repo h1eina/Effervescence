@@ -482,34 +482,30 @@
           </button>
         </div>
 
-        <!-- Reader reflections, published alongside the projects -->
+        <!-- Reader reflections — guest comments, no login -->
         <div class="comments reveal" data-reveal id="comments">
           <div class="comments__head">
             <h3 class="comments__title">Leave Your Reflections</h3>
-            <p class="comments__sub">Open a collection, then add your thoughts below. Sign in with GitHub and your comment is published with the rest of the conversation.</p>
+            <p class="comments__sub">Share what a collection stirred in you. No account needed — write, like, and leave it with the rest of the conversation.</p>
           </div>
-          <div class="comments__box" id="giscusMount">
-            <script src="https://giscus.app/client.js"
-              data-repo="h1eina/Effervescence"
-              data-repo-id="R_kgDOTK2M9w"
-              data-category="General"
-              data-category-id="DIC_kwDOTK2M984DBaXj"
-              data-mapping="specific"
-              data-term="Black is Precious"
-              data-strict="0"
-              data-reactions-enabled="1"
-              data-emit-metadata="0"
-              data-input-position="top"
-              data-theme="light"
-              data-lang="en"
-              crossorigin="anonymous"
-              async>
-            </script>
-          </div>
-          <div class="comments__fallback" id="commentsFallback" hidden>
-            <p>Leave a reflection on the project discussion — it opens in a new tab and publishes with the rest of the conversation.</p>
-            <a class="btn btn--gold magnetic" href="https://github.com/h1eina/Effervescence/discussions/1" target="_blank" rel="noopener">Leave a reflection <span aria-hidden="true">→</span></a>
-          </div>
+          <form class="reflections__form" id="reflectionForm" novalidate>
+            <label class="hp" aria-hidden="true">
+              <span>Website</span>
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </label>
+            <div class="field">
+              <input type="text" id="rf-name" name="name" maxlength="60" autocomplete="name" placeholder=" " />
+              <label for="rf-name">Your name (optional)</label>
+            </div>
+            <div class="field field--static">
+              <label for="rf-body" class="field__label--static">Your reflection</label>
+              <textarea id="rf-body" name="body" rows="4" required maxlength="800" placeholder="What stayed with you…"></textarea>
+            </div>
+            <button type="submit" class="btn btn--gold magnetic">Share reflection</button>
+            <p class="form__note" id="reflectionNote" role="status" aria-live="polite"></p>
+          </form>
+          <p class="reflections__count" id="reflectionCount"></p>
+          <ul class="reflections" id="reflectionList"></ul>
         </div>
       </div>
     </section>

@@ -554,39 +554,149 @@
   if (lightbox) lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && lightbox && lightbox.classList.contains("is-open")) closeLightbox(); });
 
-  /* ---------- Giscus comments fallback ---------- */
-  const comments = $("#comments");
-  const giscusMount = $("#giscusMount");
-  const commentsFallback = $("#commentsFallback");
-  if (comments && giscusMount && commentsFallback) {
-    let giscusReady = false;
-    const showFallback = () => {
-      if (giscusReady) return;
-      comments.classList.add("is-fallback");
-      commentsFallback.hidden = false;
+  /* ---------- Guest reflections (no login) ---------- */
+  const reflectionForm = $("#reflectionForm");
+  const reflectionList = $("#reflectionList");
+  const reflectionCount = $("#reflectionCount");
+  const reflectionNote = $("#reflectionNote");
+  if (reflectionForm && reflectionList) {
+    const LIKED_KEY = "mp-liked-reflections";
+    const apiRoot = location.hostname.endsWith("github.io")
+      ? "https://mariepaul.ca/api/reflections"
+      : "/api/reflections";
+    const liked = (() => {
+      try { return new Set(JSON.parse(localStorage.getItem(LIKED_KEY) || "[]")); }
+      catch { return new Set(); }
+    })();
+    const saveLiked = () => {
+      try { localStorage.setItem(LIKED_KEY, JSON.stringify([...liked])); } catch (_) { /* private mode */ }
     };
-    const hideFallback = () => {
-      giscusReady = true;
-      comments.classList.remove("is-fallback");
-      commentsFallback.hidden = true;
+    const formatWhen = (value) => {
+      const d = new Date(/Z$|[+-]\d\d:\d\d$/.test(value) ? value : `${value}Z`);
+      if (Number.isNaN(d.getTime())) return "";
+      return d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
     };
-    window.addEventListener("message", (e) => {
-      if (e.origin !== "https://giscus.app") return;
+    const heartSvg = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 20.4s-7.2-4.5-9.3-8.4C1.2 9.3 2.4 6 5.7 6c1.9 0 3.1 1.1 3.8 2.2C10.2 7.1 11.4 6 13.3 6c3.3 0 4.5 3.3 3 6-2.1 3.9-9.3 8.4-9.3 8.4z"/></svg>`;
+    const setNote = (msg, isError) => {
+      if (!reflectionNote) return;
+      reflectionNote.textContent = msg || "";
+      reflectionNote.classList.toggle("is-error", !!isError);
+    };
+    const render = (items) => {
+      reflectionList.replaceChildren();
+      if (reflectionCount) {
+        const n = items.length;
+        reflectionCount.textContent = n === 0 ? "" : `${n} reflection${n === 1 ? "" : "s"}`;
+      }
+      if (!items.length) {
+        const empty = document.createElement("li");
+        empty.className = "reflections__empty";
+        empty.textContent = "Be the first to leave a reflection.";
+        reflectionList.appendChild(empty);
+        return;
+      }
+      items.forEach((item) => {
+        const li = document.createElement("li");
+        li.className = "reflection";
+        li.dataset.id = String(item.id);
+        const meta = document.createElement("div");
+        meta.className = "reflection__meta";
+        const name = document.createElement("span");
+        name.className = "reflection__name";
+        name.textContent = item.name || "A reader";
+        const time = document.createElement("time");
+        time.className = "reflection__time";
+        time.dateTime = item.created_at || "";
+        time.textContent = formatWhen(item.created_at);
+        meta.append(name, time);
+        const body = document.createElement("p");
+        body.className = "reflection__body";
+        body.textContent = item.body || "";
+        const likeBtn = document.createElement("button");
+        likeBtn.type = "button";
+        likeBtn.className = "reflection__like";
+        const isOn = liked.has(item.id);
+        likeBtn.classList.toggle("is-on", isOn);
+        likeBtn.setAttribute("aria-pressed", isOn ? "true" : "false");
+        likeBtn.setAttribute("aria-label", isOn ? "Remove like" : "Like this reflection");
+        const count = document.createElement("span");
+        count.textContent = String(item.likes || 0);
+        likeBtn.innerHTML = heartSvg;
+        likeBtn.appendChild(count);
+        likeBtn.addEventListener("click", async () => {
+          const turningOff = liked.has(item.id);
+          likeBtn.disabled = true;
+          try {
+            const res = await fetch(`${apiRoot}/${item.id}/like`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ action: turningOff ? "unlike" : "like" }),
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || "Could not like that just now.");
+            item.likes = data.likes;
+            count.textContent = String(data.likes);
+            if (turningOff) liked.delete(item.id);
+            else liked.add(item.id);
+            saveLiked();
+            const on = liked.has(item.id);
+            likeBtn.classList.toggle("is-on", on);
+            likeBtn.setAttribute("aria-pressed", on ? "true" : "false");
+            likeBtn.setAttribute("aria-label", on ? "Remove like" : "Like this reflection");
+          } catch (err) {
+            setNote(err.message || "Could not like that just now.", true);
+          } finally {
+            likeBtn.disabled = false;
+          }
+        });
+        li.append(meta, body, likeBtn);
+        reflectionList.appendChild(li);
+      });
+    };
+    const load = async () => {
       try {
-        const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
-        if (!data || !data.giscus) return;
-        if (data.giscus.error) showFallback();
-        // Successful resize / load messages mean the widget is alive.
-        if (data.giscus.resizeHeight || data.giscus.discussion) hideFallback();
-      } catch (_) { /* ignore */ }
+        const res = await fetch(apiRoot);
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Could not load reflections.");
+        render(data.reflections || []);
+      } catch {
+        reflectionList.replaceChildren();
+        const err = document.createElement("li");
+        err.className = "reflections__error";
+        err.textContent = "Reflections will appear here once this page is live.";
+        reflectionList.appendChild(err);
+      }
+    };
+    reflectionForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = $("#rf-name")?.value || "";
+      const body = $("#rf-body")?.value || "";
+      const website = reflectionForm.querySelector("[name=website]")?.value || "";
+      const btn = reflectionForm.querySelector("button[type=submit]");
+      setNote("");
+      if (body.trim().length < 2) {
+        setNote("A reflection needs a few words.", true);
+        return;
+      }
+      if (btn) btn.disabled = true;
+      try {
+        const res = await fetch(apiRoot, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, body, website }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Could not share that just now.");
+        reflectionForm.reset();
+        setNote("Thank you — your reflection is with the collection.");
+        await load();
+      } catch (err) {
+        setNote(err.message || "Could not share that just now.", true);
+      } finally {
+        if (btn) btn.disabled = false;
+      }
     });
-    // Only fall back if the iframe never appears and an error string is present.
-    setTimeout(() => {
-      const frame = giscusMount.querySelector("iframe");
-      if (frame) { hideFallback(); return; }
-      const errored = /giscus is not installed|An error occurred/i.test(giscusMount.textContent || "");
-      if (errored) showFallback();
-    }, 5000);
+    load();
   }
 
   /* ---------- Hero slideshow (moving images) ---------- */
