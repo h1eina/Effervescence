@@ -4,128 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#2a0b46" />
-
   <title>MARIE-PAUL — Award-Winning Poet. Performer. Artist.</title>
   <meta name="description" content="Marie-Paul is an award-winning poet and artist from Hamilton, Ontario, and the founder of Effervescence — a creative company inspiring individuals through poetry and art." />
   <meta name="author" content="Marie-Paul Duwai-Sowa" />
-  <meta name="keywords" content="Marie-Paul, Marie-Paul Duwai-Sowa, Effervescence, Live Your Effervescence, poetry, spoken word, visual poetry, Afrovescence, Black is Beautiful, Black is Presence, self-love, self-expression, authenticity, Hamilton poet, Sierra Leonean poet" />
-
-  <!-- Open Graph / social -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="MARIE-PAUL — Award-Winning Poet. Performer. Artist." />
-  <meta property="og:description" content="Award-winning poet and artist from Hamilton, Ontario. Founder of Effervescence — a poetry and arts movement." />
+  <meta property="og:description" content="Marie-Paul is an award-winning poet and artist from Hamilton, Ontario, and the founder of Effervescence — a creative company inspiring individuals through poetry and art." />
   <meta property="og:site_name" content="MARIE-PAUL" />
   <meta property="og:image" content="assets/og-image.svg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MARIE-PAUL — Award-Winning Poet. Performer. Artist." />
-  <meta name="twitter:description" content="Award-winning poet and artist. Founder of Effervescence — a poetry and arts movement." />
-  <meta name="twitter:image" content="assets/og-image.svg" />
-
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="canonical" href="https://liveyoureffervescence.com/" />
-
-  <!-- Fonts -->
+  <link rel="canonical" href="https://mariepaul.ca/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..700&family=Inter:wght@400..600&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Great+Vibes&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@400..600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Marie-Paul Duwai-Sowa",
-    "alternateName": "Marie-Paul",
-    "jobTitle": "Poet, Performer, Artist & Founder of Effervescence",
-    "email": "mariepaul.poet@gmail.com",
-    "description": "Award-winning poet and artist from Hamilton, Ontario, and human rights advocate. Founder of Effervescence, a creative company dedicated to inspiring individuals through poetry and art by creating opportunities for emerging creatives to be recognized and showcased.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Hamilton",
-      "addressRegion": "Ontario",
-      "addressCountry": "Canada"
-    },
-    "sameAs": [
-      "https://www.instagram.com/liveyoureffervescence/",
-      "https://www.youtube.com/@ms.marie-paul",
-      "https://issuu.com/liveyoureffervescence",
-      "https://linktr.ee/liveyoureffervescence"
-    ],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Effervescence",
-      "foundingDate": "2024",
-      "slogan": "A poetry and arts movement."
-    }
-  }
-  </script>
 </head>
-
 <body>
-  <!-- Scroll progress -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
   <div class="aurora" aria-hidden="true"></div>
-
-  <a class="skip-link" href="#hero">Skip to content</a>
-
-  <!-- Navigation -->
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="nav" id="nav">
-    <a href="#hero" class="nav__brand" aria-label="Marie-Paul — home">
+    <a href="index.html" class="nav__brand" aria-label="Marie-Paul — home">
       <span class="nav__mark" aria-hidden="true">
-        <svg viewBox="0 0 32 32" width="26" height="26" fill="none">
-          <circle cx="16" cy="16" r="9" stroke="currentColor" stroke-width="1.4"/>
-          <circle cx="23" cy="10" r="2.6" fill="currentColor"/>
-          <circle cx="9" cy="23" r="1.8" fill="currentColor"/>
-        </svg>
+        <img src="assets/butterfly.svg" alt="" width="30" height="30" />
       </span>
       <span class="nav__name">MARIE-PAUL</span>
     </a>
-
     <nav class="nav__links" aria-label="Primary">
-      <a href="#about">About the Artist</a>
-      <a href="#poems">The Poems</a>
-      <a href="#experiences">Live Experiences</a>
-      <a href="#workshops">Workshops</a>
-      <a href="#house">House of Effervescence</a>
-      <a href="#shop">Shop</a>
-      <a href="#connect">Connect</a>
+      <a href="index.html#about">About the Artist</a>
+      <a href="poems.html">The Poems</a>
+      <a href="index.html#performances">Live Experiences</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="house.html">Effervescence</a>
+      <a href="shop.html">Shop</a>
     </nav>
-
-    <a href="#connect" class="btn btn--gold nav__cta magnetic">Connect</a>
-
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
   </header>
-
-  <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <nav aria-label="Mobile">
-      <a href="#about">About the Artist</a>
-      <a href="#poems">The Poems</a>
-      <a href="#experiences">Live Experiences</a>
-      <a href="#workshops">Workshops</a>
-      <a href="#house">House of Effervescence</a>
-      <a href="#shop">Shop</a>
-      <a href="#connect">Connect</a>
+      <a href="index.html#about">About the Artist</a>
+      <a href="poems.html">The Poems</a>
+      <a href="index.html#performances">Live Experiences</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="house.html">Effervescence</a>
+      <a href="shop.html">Shop</a>
     </nav>
   </div>
-
-  <main class="deck" id="deck" tabindex="0" aria-label="Site pages — scroll a page, then keep going to move to the next">
-    <div class="deck__track" id="deckTrack">
-    <!-- ===================== HERO ===================== -->
-    <section class="panel hero" id="hero" aria-label="Home">
-      <div class="hero__visual" aria-hidden="false">
+  <main id="main">
+    <section class="hero" id="hero" aria-label="Home">
+      <div class="hero__visual">
         <div class="hero__slideshow" id="heroSlideshow">
           <img class="hero__slide is-active" src="assets/hero/hero-1.jpg" alt="Marie-Paul in a denim jacket and black turtleneck" width="1920" height="1280" />
           <img class="hero__slide hero__slide--two" src="assets/hero/hero-2.jpg" alt="Marie-Paul seated in a teal headwrap and flowing teal and orange gown" width="1333" height="2000" />
           <img class="hero__slide" src="assets/hero/hero-3.jpg" alt="Marie-Paul seated in a blue velvet chair in vibrant teal and orange attire" width="2000" height="3000" />
         </div>
       </div>
-
       <div class="hero__stage">
         <div class="hero__inner">
           <p class="hero__eyebrow reveal" data-reveal>Live Your Effervescence</p>
@@ -135,37 +71,30 @@
           <p class="hero__award reveal" data-reveal data-delay="120">Award-Winning</p>
           <p class="hero__roles reveal" data-reveal data-delay="220">Poet <span aria-hidden="true">·</span> Performer <span aria-hidden="true">·</span> Artist</p>
           <div class="hero__actions reveal" data-reveal data-delay="320">
-            <a href="#poems" class="btn btn--gold magnetic">Read the poems</a>
+            <a href="poems.html" class="btn btn--gold magnetic">Read the poems</a>
             <a href="#about" class="btn btn--ghost magnetic">Meet the artist</a>
           </div>
         </div>
       </div>
-
       <div class="marquee hero__marquee" aria-hidden="true">
         <div class="marquee__track">
-          <span class="marquee__group">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <span class="marquee__group" aria-hidden="true">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;visual&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee__group">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee__group" aria-hidden="true">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </div>
       </div>
     </section>
 
-    <!-- ===================== ABOUT ===================== -->
-    <section class="panel section about" id="about" aria-label="About the Artist">
+    <section class="section about" id="about" aria-label="Meet the Artist">
       <div class="container about__grid">
         <div class="about__portrait reveal" data-reveal>
           <div class="portrait">
             <div class="portrait__frame">
               <img class="portrait__img" src="assets/about-marie-paul.jpg" alt="Marie-Paul Duwai-Sowa, award-winning poet and artist, wearing a teal headwrap and gold jewelry" loading="lazy" />
-              <span class="portrait__caption">Marie-Paul<br/>Duwai-Sowa</span>
             </div>
-            <div class="portrait__ring" aria-hidden="true"></div>
           </div>
         </div>
-
         <div class="about__content">
-          <p class="section__kicker reveal" data-reveal>About the Artist</p>
           <h2 class="section__title reveal" data-reveal>Meet the Artist</h2>
-
           <p class="about__lead reveal" data-reveal>
             Marie-Paul is an award-winning poet, performer and artist from Hamilton, Ontario. Her work
             has been described as <em>“touching, powerful, and beautiful”</em>. As an aspiring human
@@ -184,7 +113,6 @@
             remains a rising international star whose work invites people to reclaim their
             authenticity – to live their effervescence.
           </p>
-
           <ul class="about__facts reveal" data-reveal>
             <li><strong>Award-winning</strong> Poet &amp; Artist</li>
             <li><strong>Founder</strong> Entrepreneur</li>
@@ -193,158 +121,64 @@
           </ul>
         </div>
       </div>
+    </section>
 
-    <!-- ===================== THE VISUAL POETRY EXPERIENCE ===================== -->
     <section class="chapter vpx" id="experience" aria-label="The Visual Poetry Experience">
-      <div class="poem__ambience" aria-hidden="true"></div>
       <div class="container">
         <div class="vpx__grid">
           <div class="vpx__intro">
-            <p class="section__kicker reveal" data-reveal>The Visual Poetry Experience</p>
-            <h2 class="vpx__title reveal" data-reveal>Effervescence:<br />The Visual Poetry Experience</h2>
+            <h2 class="vpx__title reveal" data-reveal>Effervescence: The Visual Poetry Experience</h2>
             <p class="vpx__lead reveal" data-reveal>
               <em>Effervescence</em> is an original poem by Marie-Paul, and her first award-winning poem.
               It served as the launch pad for her professional writing and performance career.
             </p>
             <p class="vpx__text reveal" data-reveal>
-              Watch the film and experience a cinematic visual reading of the award-winning original
-              poem — shot by
-              <a href="https://www.instagram.com/stynoshots_filmz/" target="_blank" rel="noopener">@stynoshots_filmz</a>.
+              Press play to watch the film and experience a cinematic visual reading of the
+              award-winning original poem shot by
+              <a href="https://www.instagram.com/stynoshots_filmz/" target="_blank" rel="noopener">stynoshots_filmz</a>.
             </p>
             <div class="vpx__actions reveal" data-reveal>
-              <a href="https://www.hpl.ca/sites/default/files/17p_1st_Effervescence.pdf" target="_blank" rel="noopener" class="btn btn--gold magnetic">Read at Hamilton Public Library</a>
+              <a href="poems.html" class="btn btn--gold magnetic">Read More Poems</a>
+              <a href="workshops.html" class="btn btn--gold magnetic">Discover Workshops</a>
             </div>
           </div>
-
           <a class="vpx__film reveal" data-reveal href="https://youtu.be/6tFfppjnRlQ" target="_blank" rel="noopener"
              data-video="6tFfppjnRlQ" data-video-title="Effervescence — The Visual Poetry Experience"
              aria-label="Play the film: Effervescence — The Visual Poetry Experience">
-            <img src="assets/poem/effervescence-still.jpg" alt="Still from the film Effervescence — Marie-Paul by the water" loading="lazy" />
+            <img src="assets/poem/effervescence-cover.jpg" alt="Official cover for the film Effervescence by Marie-Paul Duwai-Sowa" loading="lazy" />
             <span class="vpx__play" aria-hidden="true"></span>
             <span class="vpx__filmlabel">Watch the film</span>
           </a>
         </div>
-
-        <figure class="vpx__quote reveal" data-reveal>
-          <blockquote>
-            “I want to <span class="ink-underline is-drawn">restore my effervescence</span> — although it never
-            left. I believed it was taken, but I was the one that had
-            <span class="ink-underline is-drawn">let it drown</span>.”
-          </blockquote>
-          <figcaption>— Marie-Paul Duwai-Sowa, <span>‘Effervescence’</span></figcaption>
-        </figure>
       </div>
-    </section>
+      <figure class="vpx__quote reveal" data-reveal>
+        <blockquote>
+          “I want to <span class="ink-underline is-drawn">restore my effervescence</span> — although it never
+          left. I believed it was taken, but I was the one that had
+          <span class="ink-underline is-drawn">let it drown</span>.”
+        </blockquote>
+        <figcaption>— Marie-Paul Duwai-Sowa, <span>‘Effervescence’</span></figcaption>
+      </figure>
     </section>
 
-    <!-- ===================== POEMS (flip-book) ===================== -->
-    <section class="panel section poems" id="poems" aria-label="The Poems">
+    <section class="section house-teaser" id="effervescence" aria-label="Effervescence">
       <div class="container">
-        <p class="section__kicker reveal" data-reveal>Poems</p>
-        <h2 class="section__title reveal" data-reveal>The Collection</h2>
-        <p class="poems__intro reveal" data-reveal>Turn the pages of Marie-Paul’s collection — six poems, each in its own colour, and the stage or page that first held it.</p>
-
-        <div class="book reveal" data-reveal>
-          <div class="book__tabs" role="tablist" aria-label="Choose a poem">
-            <button class="book__tab is-active" data-page="0" role="tab" aria-selected="true">Effervescence</button>
-            <button class="book__tab" data-page="1" role="tab" aria-selected="false">Excellence Unveiled</button>
-            <button class="book__tab" data-page="2" role="tab" aria-selected="false">Reclaiming Our Wings</button>
-            <button class="book__tab" data-page="3" role="tab" aria-selected="false">‘In the face of’</button>
-            <button class="book__tab" data-page="4" role="tab" aria-selected="false">Afro Pick</button>
-            <button class="book__tab" data-page="5" role="tab" aria-selected="false">We are their prayers</button>
-          </div>
-
-          <div class="book__stage" id="bookStage">
-            <article class="page page--1 is-active" data-page="0" role="tabpanel">
-              <header class="page__head">
-                <h3 class="page__title">Effervescence</h3>
-                <span class="page__meta">as published in the HPL Power of the Pen Winning Entries, 2022</span>
-              </header>
-              <div class="page__text">
-                <p>Effervescent<br/>A captured essence<br/>Stuck in a bottle<br/>Sent off to sea<br/>I question everyday<br/>When will it be returned to me?</p>
-                <p>I was once effervescent<br/>When youth dripped off me<br/>Like gold so rare<br/>It could have been sold<br/>But dared not be</p>
-                <p>It was too precious<br/>It kept me free<br/>Then my freedom was taken,<br/>Stripped away from me<br/>I became a shell of what I used to be<br/>I became still<br/>I became recluse<br/>I had become everything I never wanted to be,<br/>But if only then I knew</p>
-                <p>Now I sit alone<br/>Staring longingly outside my window<br/>Reminiscing my youth<br/>I am not living it<br/>As I had always promised I would<br/>I promised myself that nothing would ever change me<br/>I would remain curious and carefree<br/>Adventurous and wild<br/>Tamed by no wind<br/>Docile by no mile<br/>But suddenly life changed<br/>Responsibilities came<br/>Ones I could not control<br/>Others I bothered not to<br/>Who else would take on the roles I was taught to?<br/>The more I sit back and think<br/>The more it hurts<br/>I worked and worked and worked<br/>Taking no time to discover myself<br/>To find out who I was<br/>To find out what I did best</p>
-                <p><em>I left no room for effervescence</em></p>
-                <p>So, when I sit alone and ask<br/>When will it be returned to me,<br/>I have realised, it is simply up to me</p>
-                <p>Do I want my life to be evergreen?<br/>Do I want it to drip with gold?<br/>With incomparable experiences new and old?</p>
-                <p class="page__accent">Yes, yes, yes</p>
-                <p>I want to feel free again<br/>I want to feel alive<br/>I want to be able to dance like the winged beings in the sky</p>
-                <p>I want to <span class="ink-underline is-drawn">restore my effervescence</span><br/>Although it never left<br/>I believed it was taken,<br/>but I was the one that had <span class="ink-underline is-drawn">let it drown</span>.</p>
-              </div>
-            </article>
-
-            <article class="page page--2" data-page="1" role="tabpanel" hidden>
-              <header class="page__head">
-                <h3 class="page__title">Excellence Unveiled</h3>
-                <span class="page__meta">as performed at the Lifting Stripes Initiative Scholarships and Awards Gala, 2025</span>
-              </header>
-              <div class="page__text page__text--placeholder">
-                <p class="page__soon">Full text coming soon.</p>
-                <p>“Excellence Unveiled” will be written out here in full — the poem as it was performed at the Lifting Stripes Initiative Scholarships and Awards Gala, 2025.</p>
-              </div>
-            </article>
-
-            <article class="page page--3" data-page="2" role="tabpanel" hidden>
-              <header class="page__head">
-                <h3 class="page__title">Reclaiming Our Wings</h3>
-                <span class="page__meta">as performed at the Hidden Gems Unveiling, 2025</span>
-              </header>
-              <div class="page__text page__text--placeholder">
-                <p class="page__soon">Full text coming soon.</p>
-                <p>“Reclaiming Our Wings” will live on this page in full — as performed at the Hidden Gems Unveiling, 2025.</p>
-              </div>
-            </article>
-
-            <article class="page page--4" data-page="3" role="tabpanel" hidden>
-              <header class="page__head">
-                <h3 class="page__title">‘In the face of’</h3>
-                <span class="page__meta">as written for the Rhophys Couture International Women’s Day feature</span>
-              </header>
-              <div class="page__text page__text--placeholder">
-                <p class="page__soon">Full text coming soon.</p>
-                <p>‘In the face of’ will be written out here in full — as written for the Rhophys Couture International Women’s Day feature.</p>
-              </div>
-            </article>
-
-            <article class="page page--5" data-page="4" role="tabpanel" hidden>
-              <header class="page__head">
-                <h3 class="page__title">Afro Pick</h3>
-                <span class="page__meta">as performed at the inaugural Excel in Style Community Day, 2025</span>
-              </header>
-              <div class="page__text page__text--placeholder">
-                <p class="page__soon">Full text coming soon.</p>
-                <p>“Afro Pick” will be written out here in full — as performed at the inaugural Excel in Style Community Day, 2025.</p>
-              </div>
-            </article>
-
-            <article class="page page--6" data-page="5" role="tabpanel" hidden>
-              <header class="page__head">
-                <h3 class="page__title">We are their prayers (Psalm 23)</h3>
-                <span class="page__meta">as featured in Volume 2, Issue 2 of the Afrovescence Visual and Poetry Collection, 2026</span>
-              </header>
-              <div class="page__text page__text--placeholder">
-                <p class="page__soon">Full text coming soon.</p>
-                <p>“We are their prayers (Psalm 23)” will be written out here in full — as featured in Volume 2, Issue 2 of the Afrovescence Visual and Poetry Collection, 2026.</p>
-              </div>
-            </article>
-          </div>
-
-          <div class="book__nav">
-            <button class="book__arrow" id="pagePrev" aria-label="Previous poem">&larr; Previous</button>
-            <span class="book__counter"><span id="pageNum">1</span> <span aria-hidden="true">/</span> 6</span>
-            <button class="book__arrow" id="pageNext" aria-label="Next poem">Next &rarr;</button>
-          </div>
+        <h2 class="house-teaser__title reveal" data-reveal>Effervescence</h2>
+        <p class="house-teaser__text reveal" data-reveal>
+          Inspired by the poem, Effervescence has grown into a creative company
+          producing unique poetry and artistic projects. It is dedicated to creating
+          opportunities for emerging creatives to be showcased and recognized.
+        </p>
+        <div class="house-teaser__actions reveal" data-reveal>
+          <a href="house.html#productions" class="btn btn--gold magnetic">See the Productions</a>
+          <a href="shop.html" class="btn btn--gold magnetic">Shop Effervescence</a>
         </div>
       </div>
     </section>
 
-    <!-- ===================== LIVE EXPERIENCES ===================== -->
-    <section class="panel section work" id="experiences" aria-label="Live Experiences">
+    <section class="section work" id="performances" aria-label="Live Performances">
       <div class="container">
-        <p class="section__kicker reveal" data-reveal>Live Experiences</p>
-        <h2 class="section__title reveal" data-reveal>Performances</h2>
-
+        <h2 class="section__title reveal" data-reveal>Live Performances</h2>
         <div class="perf-gallery reveal" data-reveal>
           <figure class="perf-gallery__item">
             <img src="assets/experiences/performance-lohifa.jpg" alt="Marie-Paul performing a poem at the LOHIFA campaign charge" loading="lazy" />
@@ -359,309 +193,30 @@
             <figcaption>Black Health Community</figcaption>
           </figure>
         </div>
-
         <div class="work__grid work__grid--pair">
-          <article class="card card--video card--sm reveal" data-reveal>
+          <article class="card card--video card--sm card--reading reveal" data-reveal>
             <span class="card__play" aria-hidden="true"></span>
             <div class="card__tag">First Reading · Film</div>
-            <h3 class="card__title">The First Official Reading</h3>
-            <p class="card__desc">Marie-Paul’s first official reading of her original poem “Effervescence” — where it all began.</p>
-            <a class="card__link" href="https://www.youtube.com/watch?v=Med_pWTau1c" target="_blank" rel="noopener" data-video="Med_pWTau1c" data-video-title="The First Official Reading of Effervescence">Watch the reading <span aria-hidden="true">→</span></a>
+            <h3 class="card__title">Marie-Paul’s first reading of “Effervescence” for the Hamilton Public Library</h3>
+            <p class="card__desc">Where it all began — the first official reading of the award-winning original poem.</p>
+            <a class="card__link" href="https://www.youtube.com/watch?v=Med_pWTau1c" target="_blank" rel="noopener" data-video="Med_pWTau1c" data-video-title="Marie-Paul’s first reading of Effervescence for the Hamilton Public Library">Watch the reading <span aria-hidden="true">→</span></a>
           </article>
-
           <article class="card card--video card--sm reveal" data-reveal data-delay="120">
             <span class="card__play" aria-hidden="true"></span>
             <div class="card__tag">Talk · Live</div>
             <h3 class="card__title">Harnessing Your Child’s Special Talent</h3>
-            <p class="card__desc">A live conversation on nurturing creativity and self-belief in young people.</p>
+            <p class="card__desc">An in-depth conversation on nurturing creativity, and self-belief in young people.</p>
             <a class="card__link" href="https://www.youtube.com/watch?v=P5CqF8RfmWo" target="_blank" rel="noopener" data-video="P5CqF8RfmWo" data-video-title="Harnessing Your Child’s Special Talent">Watch the talk <span aria-hidden="true">→</span></a>
           </article>
         </div>
       </div>
-
-    <!-- ===================== WORKSHOPS ===================== -->
-    <section class="chapter workshops" id="workshops" aria-label="Workshops">
-      <div class="container">
-        <p class="section__kicker reveal" data-reveal>Workshops</p>
-        <h2 class="section__title reveal" data-reveal>Workshops &amp; Creative Facilitation</h2>
-        <p class="workshops__intro reveal" data-reveal>Interactive sessions in poetry, performance, and self-expression led by Marie-Paul. Perfect for schools, organizations and community events. Each one is designed to help people find their voice and claim their effervescence.</p>
-
-        <div class="workshops__grid">
-          <article class="wcard reveal" data-reveal>
-            <span class="wcard__icon" aria-hidden="true">✎</span>
-            <h3 class="wcard__title">Finding Your Voice</h3>
-            <p class="wcard__desc">A writing and performance poetry workshop helping participants find their unique writing voice and craft a piece they can perform with confidence.</p>
-            <a class="card__link" href="#connect">Enquire &amp; Book <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article class="wcard reveal" data-reveal data-delay="120">
-            <span class="wcard__icon" aria-hidden="true">✦</span>
-            <h3 class="wcard__title">Using Your Talent To Build Your Online Presence</h3>
-            <p class="wcard__desc">Marie-Paul shares her experience as a poet turned founder and how participants can use the power of social media as a tool for community, connection and opportunity.</p>
-            <a class="card__link" href="#connect">Enquire &amp; Book <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article class="wcard reveal" data-reveal data-delay="240">
-            <span class="wcard__icon" aria-hidden="true">❋</span>
-            <h3 class="wcard__title">Poems to Empower</h3>
-            <p class="wcard__desc">Words hold the power to transform lives, reconstruct realities and expand imaginations. Through storytelling, teaching and performance Marie-Paul will inspire participants to weave together the necessary words so they too can become empowered writers and thinkers.</p>
-            <a class="card__link" href="#connect">Enquire &amp; Book <span aria-hidden="true">→</span></a>
-          </article>
-        </div>
-      </div>
-    </section>
     </section>
 
-    <!-- ===================== HOUSE OF EFFERVESCENCE ===================== -->
-    <section class="panel section house" id="house" aria-label="House of Effervescence">
-      <div class="house__ambience" aria-hidden="true"></div>
-      <div class="container house__inner">
-        <p class="house__founded reveal" data-reveal>Founded by Marie-Paul <span aria-hidden="true">·</span> <strong>EST. 2024</strong></p>
-        <p class="house__tagline reveal" data-reveal data-delay="80">Live Your <em>Effervescence</em></p>
-        <p class="house__movement reveal" data-reveal data-delay="140">A Poetry and Arts Movement</p>
-
-        <h2 class="house__title reveal" data-reveal data-delay="200">
-          Effervescence
-          <span class="house__sub grad-text">A mindset. A lifestyle. A movement.</span>
-        </h2>
-        <p class="house__text reveal" data-reveal data-delay="260">
-          Effervescence is a creative company dedicated to inspiring through poetry and art by
-          creating opportunities for emerging creatives to be recognized and showcased.
-        </p>
-
-        <h3 class="house__pillars-title reveal" data-reveal data-delay="320">Our Pillars</h3>
-        <div class="pillars">
-          <article class="pillar reveal" data-reveal tabindex="0">
-            <span class="pillar__num">01</span>
-            <h3>Authenticity</h3>
-            <p>The freedom to be exactly who you are — youth that drips like gold, dared not be sold, kept precious and free.</p>
-          </article>
-          <article class="pillar reveal" data-reveal data-delay="120" tabindex="0">
-            <span class="pillar__num">02</span>
-            <h3>Self-Love</h3>
-            <p>The quiet return to yourself. Restoring the effervescence that never left — you simply have to stop letting it drown.</p>
-          </article>
-          <article class="pillar reveal" data-reveal data-delay="240" tabindex="0">
-            <span class="pillar__num">03</span>
-            <h3>Self-Expression</h3>
-            <p>Poetry and visual art as living language — a way to feel free again, to feel alive, to dance like the winged beings in the sky.</p>
-          </article>
-        </div>
-
-        <div class="house__actions reveal" data-reveal>
-          <a href="#productions" class="btn btn--gold magnetic">See the Productions</a>
-          <a href="#shop" class="btn btn--ghost magnetic">Shop Effervescence</a>
-        </div>
-      </div>
-
-    <!-- ===================== OUR PRODUCTIONS ===================== -->
-    <section class="chapter productions-section" id="productions" aria-label="Our Productions">
-      <div class="container">
-        <p class="section__kicker reveal" data-reveal>House of Effervescence</p>
-        <h2 class="section__title reveal" data-reveal>Our Productions</h2>
-        <p class="house__est reveal" data-reveal>Founded by Marie-Paul <span aria-hidden="true">·</span> <strong>EST. 2024</strong></p>
-        <p class="productions__intro reveal" data-reveal>
-          <em>Afrovescence</em> is the visual arm of Effervescence — issue-by-issue collections that
-          pair Marie-Paul’s original poetry with photography celebrating Blackness in full colour.
-          Click a cover to open the spread.
-        </p>
-
-        <div class="productions">
-          <button type="button" class="spread reveal" data-reveal
-            data-spread-title="Black is Presence"
-            data-spread-meta="Afrovescence · Vol. 02 · Issue 02 · 2026"
-            data-spread-desc="A vibrant visual and poetry collection. Photography by Diego Mora · Poetry by Marie-Paul Duwai-Sowa."
-            data-spread-cover="assets/productions/black-is-presence.jpg"
-            data-spread-href="https://www.instagram.com/liveyoureffervescence/"
-            data-spread-cta="See the collection on Instagram">
-            <span class="spread__cover">
-              <img src="assets/productions/black-is-presence.jpg" alt="Afrovescence Vol. 02 cover — Black is Presence, photography by Diego Mora, poetry by Marie-Paul Duwai-Sowa" loading="lazy" />
-              <span class="spread__cta">Click to view full spread</span>
-            </span>
-            <span class="spread__title">Black is Presence</span>
-          </button>
-
-          <button type="button" class="spread reveal" data-reveal data-delay="120"
-            data-spread-title="Black is Beautiful"
-            data-spread-meta="Afrovescence · Vol. 01 · Issue 01 · 2025"
-            data-spread-desc="A stunning visual and poetry collection. Photography by Bachir Miloudi · Poetry by Marie-Paul Duwai-Sowa."
-            data-spread-cover="assets/productions/black-is-beautiful.png"
-            data-spread-href="https://issuu.com/liveyoureffervescence"
-            data-spread-cta="Read the full spread on Issuu">
-            <span class="spread__cover">
-              <img src="assets/productions/black-is-beautiful.png" alt="Afrovescence Vol. 01 cover — Black is Beautiful, photography by Bachir Miloudi, poetry by Marie-Paul Duwai-Sowa" loading="lazy" />
-              <span class="spread__cta">Click to view full spread</span>
-            </span>
-            <span class="spread__title">Black is Beautiful</span>
-          </button>
-        </div>
-
-        <!-- Reader reflections — guest comments, no login -->
-        <div class="comments reveal" data-reveal id="comments">
-          <div class="comments__head">
-            <h3 class="comments__title">Leave Your Reflections</h3>
-            <p class="comments__sub">If a poem, photograph or reflection stayed with you, leave that feeling here — a line, a thought, a like.</p>
-          </div>
-          <div class="reflections__board">
-            <form class="reflections__form" id="reflectionForm" novalidate>
-              <label class="hp" aria-hidden="true">
-                <span>Website</span>
-                <input type="text" name="website" tabindex="-1" autocomplete="off" />
-              </label>
-              <div class="field field--plain">
-                <label class="visually-hidden" for="rf-name">Your name (optional)</label>
-                <input type="text" id="rf-name" name="name" maxlength="60" autocomplete="name" placeholder="Your name (optional)" />
-              </div>
-              <div class="field field--static">
-                <label for="rf-body" class="field__label--static">Your reflection</label>
-                <textarea id="rf-body" name="body" rows="3" required maxlength="800" placeholder="What stayed with you…"></textarea>
-              </div>
-              <button type="submit" class="btn btn--gold magnetic">Share reflection</button>
-              <p class="form__note" id="reflectionNote" role="status" aria-live="polite"></p>
-            </form>
-            <div class="reflections__feed">
-              <p class="reflections__count" id="reflectionCount"></p>
-              <ul class="reflections" id="reflectionList"></ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    </section>
-
-    <!-- ===================== SHOP ===================== -->
-    <section class="panel section shop" id="shop" aria-label="Shop">
-      <div class="container">
-        <div class="shop__banner reveal" data-reveal>
-          <img src="assets/shop/shop-hero.jpg" alt="Three models wearing Effervescence tees outdoors — I am Effervescent, Never Lose Your Effervescence, and Adventurous and Wild" loading="lazy" />
-          <p class="shop__banner-title">Shop Effervescence</p>
-        </div>
-
-        <div class="shop__head">
-          <p class="section__kicker reveal" data-reveal>Shop</p>
-          <h2 class="section__title reveal" data-reveal>Embrace Your Effervescence</h2>
-          <p class="shop__join reveal" data-reveal>
-            <a href="#connect">Join Our Community <span aria-hidden="true">→</span></a>
-          </p>
-          <p class="shop__intro reveal" data-reveal>Wearable poetry from the House of Effervescence — each piece a line you can live in. Every design comes in black and white; hover or tap a tee to see both.</p>
-        </div>
-
-        <div class="shop__grid">
-          <article class="product reveal" data-reveal>
-            <div class="product__media">
-              <img class="product__img" src="assets/shop/never-lose-black.png" alt="Black t-shirt with Never Lose Your Effervescence design" loading="lazy" />
-              <img class="product__img product__img--alt" src="assets/shop/never-lose-white.png" alt="White t-shirt with Never Lose Your Effervescence design" loading="lazy" />
-            </div>
-            <div class="product__body">
-              <h3 class="product__title">Never Lose Your Effervescence</h3>
-              <p class="product__desc">A wearable reminder to keep what’s yours.</p>
-              <span class="product__meta">Black &amp; White</span>
-              <span class="product__badge">Coming soon</span>
-            </div>
-          </article>
-
-          <article class="product reveal" data-reveal data-delay="80">
-            <div class="product__media">
-              <img class="product__img" src="assets/shop/adventurous-wild-black.png" alt="Black t-shirt with Adventurous and Wild design" loading="lazy" />
-              <img class="product__img product__img--alt" src="assets/shop/adventurous-wild-white.png" alt="White t-shirt with Adventurous and Wild design" loading="lazy" />
-            </div>
-            <div class="product__body">
-              <h3 class="product__title">Adventurous &amp; Wild</h3>
-              <p class="product__desc">Tamed by no wind. Docile by no mile.</p>
-              <span class="product__meta">Black &amp; White</span>
-              <span class="product__badge">Coming soon</span>
-            </div>
-          </article>
-
-          <article class="product reveal" data-reveal data-delay="160">
-            <div class="product__media">
-              <img class="product__img" src="assets/shop/effervescent-black.png" alt="Black t-shirt with I am Effervescent design" loading="lazy" />
-              <img class="product__img product__img--alt" src="assets/shop/effervescent-white.png" alt="White t-shirt with I am Effervescent design" loading="lazy" />
-            </div>
-            <div class="product__body">
-              <h3 class="product__title">I am Effervescent</h3>
-              <p class="product__desc">A simple declaration — worn loud.</p>
-              <span class="product__meta">Black &amp; White</span>
-              <span class="product__badge">Coming soon</span>
-            </div>
-          </article>
-
-          <article class="product reveal" data-reveal>
-            <div class="product__media">
-              <img class="product__img" src="assets/shop/dance-sky-black.png" alt="Black t-shirt with Dance in the Sky design" loading="lazy" />
-              <img class="product__img product__img--alt" src="assets/shop/dance-sky-white.png" alt="White t-shirt with Dance in the Sky design" loading="lazy" />
-            </div>
-            <div class="product__body">
-              <h3 class="product__title">Dance in the Sky</h3>
-              <p class="product__desc">For the winged beings — and those becoming them.</p>
-              <span class="product__meta">Black &amp; White</span>
-              <span class="product__badge">Coming soon</span>
-            </div>
-          </article>
-
-          <article class="product reveal" data-reveal data-delay="80">
-            <div class="product__media">
-              <img class="product__img" src="assets/shop/wild-free-black.png" alt="Black t-shirt with Wild and Free design" loading="lazy" />
-              <img class="product__img product__img--alt" src="assets/shop/wild-free-white.png" alt="White t-shirt with Wild and Free design" loading="lazy" />
-            </div>
-            <div class="product__body">
-              <h3 class="product__title">Wild &amp; Free</h3>
-              <p class="product__desc">A piece of the poem, made to move with you.</p>
-              <span class="product__meta">Black &amp; White</span>
-              <span class="product__badge">Coming soon</span>
-            </div>
-          </article>
-
-          <article class="product reveal" data-reveal data-delay="160">
-            <div class="product__media">
-              <img class="product__img" src="assets/shop/dancing-birds-white.png" alt="White t-shirt with Dancing Birds design" loading="lazy" />
-            </div>
-            <div class="product__body">
-              <h3 class="product__title">Dancing Birds</h3>
-              <p class="product__desc">Light, lyrical, and ready to rise.</p>
-              <span class="product__meta">White</span>
-              <span class="product__badge">Coming soon</span>
-            </div>
-          </article>
-        </div>
-
-        <div class="shop__editorial">
-          <figure class="shop__lifestyle reveal" data-reveal>
-            <img src="assets/shop/adventurous-wild-worn.jpg" alt="A young model wearing the Adventurous and Wild tee outdoors" loading="lazy" />
-            <figcaption>Adventurous &amp; Wild, worn.</figcaption>
-          </figure>
-          <figure class="shop__lifestyle reveal" data-reveal data-delay="120">
-            <img src="assets/shop/lifestyle-bw.jpg" alt="Three models wearing Effervescence tees outdoors, in black and white" loading="lazy" />
-            <figcaption>Wear your effervescence. Photography by Stynoshots.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== CONNECT / CONTACT ===================== -->
-    <section class="panel section connect" id="connect" aria-label="Connect">
+    <section class="section connect" id="connect" aria-label="Connect">
       <div class="container connect__grid">
         <div class="connect__intro">
-          <p class="section__kicker reveal" data-reveal>Connect</p>
-          <h2 class="section__title reveal" data-reveal>Connect with<br /><span class="grad-text nowrap">Marie-Paul</span></h2>
-          <p class="connect__text reveal" data-reveal>
-            For readings, collaborations, commissions, workshops and speaking engagements — just
-            reach out. Marie-Paul would love to hear from you.
-          </p>
-
-          <!-- Newsletter -->
-          <div class="musings reveal" data-reveal>
-            <p class="musings__eyebrow">Newsletter</p>
-            <p class="musings__title">Marie-Paul’s <em>Musings</em></p>
-            <p class="musings__text">Sign up and receive new poems, prose and important updates before anyone else.</p>
-            <form class="community__form" id="communityForm" novalidate>
-              <input type="email" id="communityEmail" name="email" required autocomplete="email" placeholder="Your email address" aria-label="Your email address" />
-              <button type="submit" class="btn btn--gold magnetic">Subscribe to Marie-Paul’s Musings</button>
-            </form>
-            <p class="community__note" id="communityNote" role="status" aria-live="polite"></p>
-          </div>
-
-          <!-- Social -->
+          <h2 class="section__title reveal" data-reveal>Connect with <span class="nowrap">Marie-Paul</span></h2>
+          <p class="connect__invite reveal" data-reveal>Marie-Paul would love to hear from you!</p>
           <div class="follow reveal" data-reveal>
             <p class="follow__label">Follow for More</p>
             <ul class="follow__list">
@@ -682,14 +237,6 @@
                 </a>
               </li>
               <li>
-                <a href="https://www.tiktok.com/@ms.marie-paul" target="_blank" rel="noopener" aria-label="TikTok — @ms.marie-paul">
-                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <path d="M14 3v8.4a3.6 3.6 0 1 1-3.2-3.58" stroke-linecap="round"/><path d="M14 3c.5 2.6 2 4 4.5 4.2" stroke-linecap="round"/>
-                  </svg>
-                  <span>TikTok</span>
-                </a>
-              </li>
-              <li>
                 <a href="mailto:mariepaul.poet@gmail.com" aria-label="Email — mariepaul.poet@gmail.com">
                   <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
                     <rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6" stroke-linecap="round"/>
@@ -699,8 +246,17 @@
               </li>
             </ul>
           </div>
+          <div class="musings reveal" data-reveal>
+            <p class="musings__eyebrow">Newsletter</p>
+            <p class="musings__title">Subscribe to Marie-Paul’s Newsletter</p>
+            <p class="musings__text">Sign up and receive new poems, prose and important updates before anyone else.</p>
+            <form class="community__form" id="communityForm" novalidate>
+              <input type="email" id="communityEmail" name="email" required autocomplete="email" placeholder="Your email address" aria-label="Your email address" />
+              <button type="submit" class="btn btn--gold magnetic">Subscribe</button>
+            </form>
+            <p class="community__note" id="communityNote" role="status" aria-live="polite"></p>
+          </div>
         </div>
-
         <form class="connect__form reveal" data-reveal id="contactForm" novalidate>
           <div class="field field--plain">
             <label class="visually-hidden" for="cf-name">Your name</label>
@@ -720,6 +276,10 @@
               <option value="Just Saying Hello">Just Saying Hello</option>
             </select>
           </div>
+          <div class="field field--plain field--optional" id="setLengthField">
+            <label class="visually-hidden" for="cf-setlength">Length of set (optional)</label>
+            <input type="text" id="cf-setlength" name="setlength" placeholder="Length of set (optional)" />
+          </div>
           <div class="field field--static">
             <label for="cf-message" class="field__label--static">Your message</label>
             <textarea id="cf-message" name="message" rows="4" required placeholder="Write your message…"></textarea>
@@ -728,29 +288,25 @@
           <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
         </form>
       </div>
-
-      <!-- Footer lives on the final page -->
       <footer class="footer">
         <div class="container footer__grid">
           <div class="footer__brand">
             <span class="footer__logo">MARIE-PAUL</span>
-            <p>Award-winning poet, performer and artist. Founder of <em>Effervescence</em> — a poetry and arts movement.</p>
+            <p>Award-winning poet, performer and artist. Founder of Effervescence, a poetry and arts movement.</p>
           </div>
           <nav class="footer__nav" aria-label="Footer">
-            <a href="#about">About the Artist</a>
-            <a href="#experience">The Visual Poetry Experience</a>
-            <a href="#poems">The Poems</a>
-            <a href="#experiences">Live Experiences</a>
-            <a href="#workshops">Workshops</a>
-            <a href="#house">House of Effervescence</a>
-            <a href="#productions">Our Productions</a>
-            <a href="#shop">Shop</a>
-            <a href="#connect">Connect</a>
+            <a href="index.html#about">About the Artist</a>
+            <a href="index.html#experience">The Visual Poetry Experience</a>
+            <a href="poems.html">The Poems</a>
+            <a href="index.html#performances">Live Experiences</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="house.html">Effervescence</a>
+            <a href="house.html#productions">Our Productions</a>
+            <a href="shop.html">Shop</a>
           </nav>
           <div class="footer__social">
             <a href="https://www.instagram.com/liveyoureffervescence/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
             <a href="https://www.youtube.com/@marie-paulpoet" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
-            <a href="https://www.tiktok.com/@ms.marie-paul" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
             <a href="https://issuu.com/liveyoureffervescence" target="_blank" rel="noopener" aria-label="Issuu">Issuu</a>
             <a href="mailto:mariepaul.poet@gmail.com" aria-label="Email">Email</a>
           </div>
@@ -761,21 +317,7 @@
         </div>
       </footer>
     </section>
-    </div><!-- /.deck__track -->
   </main>
-
-  <!-- Horizontal page controls -->
-  <div class="deck-controls" aria-hidden="false">
-    <button class="deck-arrow deck-arrow--prev" id="deckPrev" aria-label="Previous section">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-    <button class="deck-arrow deck-arrow--next" id="deckNext" aria-label="Next section">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-  </div>
-  <div class="deck-dots" id="deckDots" aria-label="Section indicators"></div>
-
-  <!-- Video lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
     <button class="lightbox__close" id="lightboxClose" aria-label="Close video">&times;</button>
     <div class="lightbox__stage">
@@ -783,8 +325,6 @@
       <div class="lightbox__frame" id="lightboxFrame"></div>
     </div>
   </div>
-
-  <!-- Magazine spread viewer -->
   <div class="mag" id="mag" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Magazine spread">
     <button class="mag__close" id="magClose" aria-label="Close spread">&times;</button>
     <div class="mag__book" id="magBook">
@@ -800,16 +340,7 @@
       </div>
     </div>
   </div>
-
-  <!-- Home — first page -->
-  <button class="to-top" id="toTop" aria-label="Home">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
-      <path d="M4 11.2L12 4.5l8 6.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M6.4 10.8V19.2h11.2V10.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M10 19.2v-4.4h4v4.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-
+  <button class="to-top" id="toTop" aria-label="Top">Top</button>
   <script src="js/main.js"></script>
 </body>
 </html>
