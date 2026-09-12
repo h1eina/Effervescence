@@ -567,15 +567,15 @@ html { scroll-padding-top: 5.6rem; }
 
 /* ---------- Home ---------- */
 .to-top {
-  position: fixed; bottom: 1.4rem; left: 1.2rem; z-index: 130;
+  position: fixed; bottom: 1.4rem; right: 1.2rem; left: auto; z-index: 130;
   width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
-  background: linear-gradient(150deg, var(--gold), var(--gold-deep)); color: #2a1608; border: 0;
-  display: grid; place-items: center; box-shadow: 0 12px 30px -12px rgba(243,211,138,0.7);
+  background: linear-gradient(100deg, #ffeab3, #ffd76a 45%, #f7b62f); color: #2a1608; border: 0;
+  display: grid; place-items: center; box-shadow: 0 10px 30px -12px rgba(232,184,74,0.55);
   opacity: 0; visibility: hidden; transform: translateY(14px);
-  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0.4s;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0.4s, box-shadow 0.35s var(--ease);
 }
 .to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
-.to-top:hover { transform: translateY(-3px); }
+.to-top:hover { transform: translateY(-3px); box-shadow: 0 16px 40px -12px rgba(243,211,138,0.85); }
 .to-top:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
 
 /* Active nav link (scrollspy) */
