@@ -1236,8 +1236,8 @@ html { scroll-padding-top: 5.6rem; }
 /* =========================================================
    PDF edits — vertical site, white / gold / lilac
    ========================================================= */
-.nav__mark svg { display: block; width: 30px; height: 30px; }
-.nav__mark img { width: 30px; height: 30px; display: block; }
+.nav__mark svg { display: block; width: 34px; height: 46px; }
+.nav__mark img { width: 34px; height: 46px; object-fit: contain; display: block; }
 
 .to-top {
   width: auto; height: auto; min-width: 3.4rem;
