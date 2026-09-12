@@ -50,19 +50,38 @@
   });
 
   const currentFile = location.pathname.split("/").pop() || "index.html";
-  const currentHash = (location.hash || "").replace("#", "");
-  $$(".nav__links a, #mobileMenu a").forEach((a) => {
-    const href = a.getAttribute("href") || "";
-    const [file, hash] = href.split("#");
-    const dest = file || "index.html";
-    const samePage = dest === currentFile || ((currentFile === "" || currentFile === "/") && dest === "index.html");
-    if (!samePage) return;
-    if (hash) {
-      if (currentHash === hash) a.classList.add("is-active");
-    } else {
-      a.classList.add("is-active");
-    }
-  });
+  const isHome = currentFile === "index.html" || currentFile === "" || currentFile === "/";
+  const navLinks = $$(".nav__links a, #mobileMenu a, .nav__cta");
+  const markNav = (matchHref) => {
+    navLinks.forEach((a) => {
+      const href = a.getAttribute("href") || "";
+      const on = matchHref(href);
+      a.classList.toggle("is-active", on);
+      if (on) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+  };
+  if (!isHome) {
+    markNav((href) => {
+      const dest = href.split("#")[0];
+      return dest === currentFile;
+    });
+  } else {
+    const watched = ["about", "experience", "effervescence", "performances", "comments"]
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+    const spy = () => {
+      const line = window.scrollY + 140;
+      let current = watched[0] ? watched[0].id : "";
+      watched.forEach((section) => {
+        if (section.offsetTop <= line) current = section.id;
+      });
+      if (window.scrollY < window.innerHeight * 0.45) current = "";
+      markNav((href) => current && (href === "index.html#" + current || href === "#" + current));
+    };
+    window.addEventListener("scroll", spy, { passive: true });
+    spy();
+  }
 
   /* Horizontal deck removed — the site now scrolls vertically. */
 
