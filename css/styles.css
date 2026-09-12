@@ -352,9 +352,9 @@ html { scroll-padding-top: 5.6rem; }
 @keyframes shimmer { to { background-position: 200% center; } }
 .hero__award {
   font-family: var(--font-award); font-style: normal;
-  font-size: clamp(2.2rem, 4.4vw, 3.4rem); color: #cbb6f0;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem); color: #e6c8f8;
   margin-bottom: 0.45rem; text-align: left;
-  text-shadow: 0 2px 16px rgba(20, 8, 36, 0.35);
+  text-shadow: 0 2px 16px rgba(20, 8, 36, 0.28);
 }
 .hero__tagline {
   font-family: var(--font-serif);
