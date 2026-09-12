@@ -49,37 +49,57 @@
     });
   });
 
-  const currentFile = location.pathname.split("/").pop() || "index.html";
-  const isHome = currentFile === "index.html" || currentFile === "" || currentFile === "/";
+  const slug = (value) => {
+    const raw = String(value || "").split("/").pop().split("?")[0].split("#")[0];
+    if (!raw || raw === "index.html" || raw === "index") return "home";
+    return raw.replace(/\.html$/i, "");
+  };
+  const currentSlug = slug(location.pathname);
+  const isHome = currentSlug === "home";
   const navLinks = $$(".nav__links a, #mobileMenu a, .nav__cta");
-  const markNav = (matchHref) => {
+  const markNav = (keys) => {
+    const set = new Set(keys);
     navLinks.forEach((a) => {
       const href = a.getAttribute("href") || "";
-      const on = matchHref(href);
+      const on = set.has(href);
       a.classList.toggle("is-active", on);
       if (on) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
     });
   };
+
+  const PAGE_KEYS = {
+    poems: ["poems.html"],
+    workshops: ["workshops.html"],
+    house: ["house.html"],
+    shop: ["shop.html"],
+    connect: ["connect.html"],
+  };
+  const HOME_SECTION_KEYS = {
+    about: ["index.html#about", "#about"],
+    experience: ["index.html#experience", "#experience"],
+    performances: ["index.html#performances", "#performances"],
+    comments: ["index.html#comments", "#comments"],
+    connect: ["connect.html", "index.html#connect", "#connect"],
+  };
+
   if (!isHome) {
-    markNav((href) => {
-      const dest = href.split("#")[0];
-      return dest === currentFile;
-    });
+    markNav(PAGE_KEYS[currentSlug] || []);
   } else {
-    const watched = ["about", "experience", "effervescence", "performances", "comments"]
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
+    const watched = ["about", "experience", "performances", "comments", "connect"]
+      .map((id) => ({ id, el: document.getElementById(id) }))
+      .filter((item) => item.el);
     const spy = () => {
-      const line = window.scrollY + 140;
-      let current = watched[0] ? watched[0].id : "";
-      watched.forEach((section) => {
-        if (section.offsetTop <= line) current = section.id;
+      let current = "";
+      const line = 150;
+      watched.forEach((item) => {
+        const top = item.el.getBoundingClientRect().top;
+        if (top <= line) current = item.id;
       });
-      if (window.scrollY < window.innerHeight * 0.45) current = "";
-      markNav((href) => current && (href === "index.html#" + current || href === "#" + current));
+      markNav(HOME_SECTION_KEYS[current] || []);
     };
     window.addEventListener("scroll", spy, { passive: true });
+    window.addEventListener("hashchange", spy);
     spy();
   }
 
