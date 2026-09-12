@@ -454,10 +454,11 @@ html { scroll-padding-top: 5.6rem; }
 .poem__cta { margin-top: 3rem; display: flex; gap: 1rem; justify-content: flex-start; flex-wrap: wrap; }
 
 /* ---------- About ---------- */
-.about__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.about .container { max-width: 1320px; }
+.about__grid { display: grid; grid-template-columns: 1.15fr 0.95fr; gap: clamp(1.6rem, 4vw, 3.2rem); align-items: center; }
 .portrait {
   position: relative;
-  width: min(460px, 100%);
+  width: min(640px, 100%);
   aspect-ratio: 4/5;
   margin-inline: auto;
 }
