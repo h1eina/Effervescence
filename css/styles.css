@@ -243,15 +243,15 @@ body::before {
   letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
 }
 .nav__name em { font-style: italic; color: var(--gold-soft); }
-.nav__links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.65rem 0.8rem; max-width: min(72rem, 72vw); }
-.nav__links a { font-size: 0.8rem; font-weight: 500; color: var(--mist); position: relative; padding: 0.2rem 0; transition: color 0.3s var(--ease); white-space: nowrap; }
+.nav__links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.55rem 0.7rem; max-width: min(78rem, 74vw); }
+.nav__links a { font-size: 0.76rem; font-weight: 500; color: var(--mist); position: relative; padding: 0.2rem 0; transition: color 0.3s var(--ease); white-space: nowrap; }
 .nav__links a::after {
   content: ""; position: absolute; left: 0; bottom: -2px; height: 1px; width: 0;
   background: linear-gradient(90deg, var(--gold), var(--rose)); transition: width 0.35s var(--ease);
 }
 .nav__links a:hover { color: var(--cream); }
 .nav__links a:hover::after { width: 100%; }
-.nav__cta { display: none !important; }
+.nav__cta { padding: 0.55rem 1.1rem; font-size: 0.82rem; }
 
 .nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; }
 .nav__toggle span { width: 26px; height: 2px; background: var(--cream); border-radius: 2px; transition: transform 0.35s var(--ease), opacity 0.3s; }
@@ -1161,7 +1161,7 @@ html { scroll-padding-top: 5.6rem; }
 .mag__close:hover { background: rgba(232,184,74,0.3); transform: rotate(90deg); }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1180px) {
+@media (max-width: 1280px) {
   .nav__links, .nav__cta { display: none; }
   .nav__toggle { display: flex; }
 }

@@ -34,12 +34,15 @@
     <nav class="nav__links" aria-label="Primary">
       <a href="index.html#about">About the Artist</a>
       <a href="index.html#experience">Visual Poetry</a>
-      <a href="index.html#effervescence">Effervescence</a>
-      <a href="index.html#performances">Performances</a>
       <a href="poems.html">The Poems</a>
+      <a href="index.html#performances">Performances</a>
       <a href="workshops.html">Workshops</a>
+      <a href="house.html">Effervescence</a>
+      <a href="index.html#comments">Reflections</a>
       <a href="shop.html">Shop</a>
+      <a href="connect.html">Connect</a>
     </nav>
+    <a href="connect.html" class="btn btn--gold nav__cta magnetic">Connect</a>
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
@@ -48,11 +51,13 @@
     <nav aria-label="Mobile">
       <a href="index.html#about">About the Artist</a>
       <a href="index.html#experience">Visual Poetry</a>
-      <a href="index.html#effervescence">Effervescence</a>
-      <a href="index.html#performances">Performances</a>
       <a href="poems.html">The Poems</a>
+      <a href="index.html#performances">Performances</a>
       <a href="workshops.html">Workshops</a>
+      <a href="house.html">Effervescence</a>
+      <a href="index.html#comments">Reflections</a>
       <a href="shop.html">Shop</a>
+      <a href="connect.html">Connect</a>
     </nav>
   </div>
   <main id="main">
@@ -173,6 +178,7 @@
         </p>
         <div class="house-teaser__actions reveal" data-reveal>
           <a href="house.html#productions" class="btn btn--gold magnetic">See the Productions</a>
+          <a href="#comments" class="btn btn--gold magnetic">Leave a reflection</a>
           <a href="shop.html" class="btn btn--gold magnetic">Shop Effervescence</a>
         </div>
       </div>
@@ -210,6 +216,39 @@
             <p class="card__desc">An in-depth conversation on nurturing creativity, and self-belief in young people.</p>
             <a class="card__link" href="https://www.youtube.com/watch?v=P5CqF8RfmWo" target="_blank" rel="noopener" data-video="P5CqF8RfmWo" data-video-title="Harnessing Your Child’s Special Talent">Watch the talk <span aria-hidden="true">→</span></a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section comments-section" id="comments" aria-label="Leave Your Reflections">
+      <div class="container">
+        <div class="comments reveal" data-reveal>
+          <div class="comments__head">
+            <h2 class="section__title">Leave Your Reflections</h2>
+            <p class="comments__sub">If a poem, photograph or reflection stayed with you, leave your thoughts below!</p>
+          </div>
+          <div class="reflections__board">
+            <form class="reflections__form" id="reflectionForm" novalidate>
+              <label class="hp" aria-hidden="true">
+                <span>Website</span>
+                <input type="text" name="website" tabindex="-1" autocomplete="off" />
+              </label>
+              <div class="field field--plain">
+                <label class="visually-hidden" for="rf-name">Your name (optional)</label>
+                <input type="text" id="rf-name" name="name" maxlength="60" autocomplete="name" placeholder="Your name (optional)" />
+              </div>
+              <div class="field field--static">
+                <label for="rf-body" class="field__label--static">Your reflection</label>
+                <textarea id="rf-body" name="body" rows="3" required maxlength="800" placeholder="What stayed with you…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--gold magnetic">Share reflection</button>
+              <p class="form__note" id="reflectionNote" role="status" aria-live="polite"></p>
+            </form>
+            <div class="reflections__feed">
+              <p class="reflections__count" id="reflectionCount"></p>
+              <ul class="reflections" id="reflectionList"></ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -299,12 +338,13 @@
           <nav class="footer__nav" aria-label="Footer">
             <a href="index.html#about">About the Artist</a>
             <a href="index.html#experience">Visual Poetry</a>
-            <a href="index.html#effervescence">Effervescence</a>
-            <a href="index.html#performances">Performances</a>
             <a href="poems.html">The Poems</a>
+            <a href="index.html#performances">Performances</a>
             <a href="workshops.html">Workshops</a>
-            <a href="house.html">Our Productions</a>
+            <a href="house.html">Effervescence</a>
+            <a href="index.html#comments">Reflections</a>
             <a href="shop.html">Shop</a>
+            <a href="connect.html">Connect</a>
           </nav>
           <div class="footer__social">
             <a href="https://www.instagram.com/liveyoureffervescence/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
