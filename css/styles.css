@@ -920,6 +920,7 @@ html { scroll-padding-top: 5.6rem; }
 
 /* ---------- Workshops ---------- */
 .workshops__intro { color: var(--mist); font-family: var(--font-serif); font-size: 1.2rem; max-width: 52ch; margin: 1rem 0 2.6rem; }
+.workshops .container { max-width: 1320px; }
 .workshops__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
 .wcard {
   padding: 2.2rem 1.8rem; border-radius: var(--radius-card); text-align: left;
@@ -1335,7 +1336,12 @@ html { scroll-padding-top: 5.6rem; }
 
 .wcard { padding: 0 0 1.5rem; overflow: hidden; gap: 0; }
 .wcard__photo {
-  width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: min(22rem, 46vw);
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
   background: #ece4f5;
 }
 .wcard__title { padding: 1.2rem 1.45rem 0.45rem; }
