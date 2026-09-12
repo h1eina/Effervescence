@@ -38,7 +38,7 @@
   --radius-card: 22px;
 
   /* Typography — one serif for voice, one sans for the interface */
-  --font-display: "Abril Fatface", "Fraunces", Georgia, serif;
+  --font-display: "Fraunces", Georgia, serif;
   --font-name: "Abril Fatface", "Fraunces", Georgia, serif;
   --font-award: "Great Vibes", "Fraunces", cursive;
   --font-serif: "Inria Serif", "Fraunces", Georgia, serif;
@@ -229,11 +229,14 @@ body::before {
   position: fixed; top: 0; left: 0; right: 0; z-index: 120;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   padding: 1.1rem var(--gutter);
+  background: rgba(252,251,253,0.4);
+  backdrop-filter: blur(10px) saturate(130%);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
+  border-bottom: 1px solid rgba(255,255,255,0.35);
   transition: background 0.4s var(--ease), padding 0.4s var(--ease), border-color 0.4s var(--ease);
-  border-bottom: 1px solid transparent;
 }
 .nav.is-scrolled {
-  background: rgba(252,251,253,0.82); backdrop-filter: blur(14px) saturate(140%);
+  background: rgba(252,251,253,0.78);
   border-bottom-color: var(--line); padding-block: 0.75rem;
 }
 .nav__brand { display: flex; align-items: center; gap: 0.6rem; color: var(--cream); }
@@ -332,7 +335,15 @@ html { scroll-padding-top: 5.6rem; }
 .hero__inner {
   text-align: left;
   min-width: 0;
-  max-width: min(46rem, 100%);
+  width: fit-content;
+  max-width: min(54rem, 100%);
+  padding: 1.45rem 1.7rem 1.65rem;
+  border-radius: 28px;
+  background: rgba(252, 251, 253, 0.34);
+  backdrop-filter: blur(8px) saturate(130%);
+  -webkit-backdrop-filter: blur(8px) saturate(130%);
+  border: 1px solid rgba(255,255,255,0.42);
+  box-shadow: 0 18px 44px -26px rgba(42, 11, 70, 0.22);
 }
 .hero__eyebrow {
   font-size: clamp(0.85rem, 1.3vw, 1.05rem);
@@ -347,14 +358,15 @@ html { scroll-padding-top: 5.6rem; }
   color: var(--gold-bright);
   -webkit-text-fill-color: var(--gold-bright);
   background: none;
-  filter: drop-shadow(0 8px 28px rgba(0,0,0,0.45));
+  filter: none;
+  white-space: nowrap;
 }
 @keyframes shimmer { to { background-position: 200% center; } }
 .hero__award {
   font-family: var(--font-award); font-style: normal;
-  font-size: clamp(2.2rem, 4.4vw, 3.4rem); color: #e6c8f8;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem); color: #c4a3ea;
   margin-bottom: 0.45rem; text-align: left;
-  text-shadow: 0 2px 16px rgba(20, 8, 36, 0.28);
+  text-shadow: none;
 }
 .hero__tagline {
   font-family: var(--font-serif);
@@ -367,14 +379,14 @@ html { scroll-padding-top: 5.6rem; }
   padding: 1.1rem 2.15rem;
 }
 .hero__actions .btn--ghost {
-  background: rgba(255,255,255,0.08);
-  color: #fff6ef;
-  border-color: rgba(255,246,239,0.45);
+  background: rgba(255,255,255,0.72);
+  color: var(--cream);
+  border-color: rgba(42, 11, 70, 0.16);
 }
 .hero__actions .btn--ghost:hover {
-  border-color: #ffd76a;
-  color: #ffeab3;
-  background: rgba(255,255,255,0.14);
+  border-color: var(--gold);
+  color: var(--gold-deep);
+  background: #fff;
 }
 
 /* ---------- Marquee ---------- */
@@ -661,8 +673,8 @@ html { scroll-padding-top: 5.6rem; }
   font-size: clamp(1.05rem, 1.9vw, 1.5rem);
   font-weight: 700;
   letter-spacing: 0.26em; text-transform: uppercase;
-  color: #fff6ef; margin-bottom: 2rem; text-align: left;
-  text-shadow: 0 2px 18px rgba(0,0,0,0.45);
+  color: var(--ink); margin-bottom: 2rem; text-align: left;
+  text-shadow: none;
 }
 .hero__roles span { color: var(--gold-bright); margin: 0 0.5rem; font-weight: 400; }
 
@@ -1174,7 +1186,7 @@ html { scroll-padding-top: 5.6rem; }
     padding-inline: var(--gutter);
     padding-bottom: 1.5rem;
   }
-  .hero__inner { text-align: left; max-width: 36rem; }
+  .hero__inner { text-align: left; max-width: 36rem; padding: 1.25rem 1.2rem 1.4rem; }
   .hero__actions { justify-content: flex-start; }
   .hero__title .line--name { font-size: clamp(3rem, 13vw, 4.8rem); }
   .hero__slide { object-position: center 22%; }
@@ -1259,7 +1271,7 @@ html { scroll-padding-top: 5.6rem; }
   padding-block: clamp(4rem, 9vh, 6.4rem);
 }
 .house-teaser__title {
-  font-family: var(--font-name); font-weight: 400;
+  font-family: var(--font-display); font-weight: 500;
   font-size: clamp(2.4rem, 6vw, 4.2rem); color: var(--gold);
   letter-spacing: 0.01em; margin-bottom: 1.1rem;
 }
@@ -1366,9 +1378,9 @@ html { scroll-padding-top: 5.6rem; }
 }
 .poems__cta { margin-top: 2rem; }
 
-.connect .section__title { margin-bottom: 0.4rem; }
+.connect .section__title { margin-bottom: 0.4rem; color: #c4a3ea; }
 .connect__invite {
-  font-family: var(--font-serif); font-size: 1.25rem; color: var(--cream);
+  font-family: var(--font-serif); font-size: 1.25rem; color: #b892dc;
   margin: 0.6rem 0 1.6rem;
 }
 .connect .follow { margin-top: 0.4rem; margin-bottom: 1.6rem; }
