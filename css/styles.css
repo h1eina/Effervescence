@@ -247,7 +247,7 @@ body::before {
 }
 .nav__name em { font-style: italic; color: var(--gold-soft); }
 .nav__links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.55rem 0.7rem; max-width: min(78rem, 74vw); }
-.nav__links a { font-size: 0.76rem; font-weight: 500; color: var(--mist); position: relative; padding: 0.2rem 0; transition: color 0.3s var(--ease); white-space: nowrap; }
+.nav__links a { font-size: 0.88rem; font-weight: 500; color: var(--mist); position: relative; padding: 0.2rem 0; transition: color 0.3s var(--ease); white-space: nowrap; }
 .nav__links a::after {
   content: ""; position: absolute; left: 0; bottom: -2px; height: 1px; width: 0;
   background: linear-gradient(90deg, var(--gold), var(--rose)); transition: width 0.35s var(--ease);
@@ -310,7 +310,10 @@ html { scroll-padding-top: 5.6rem; }
   overflow: hidden;
   background: #1a0a28;
 }
-.hero__visual::after { display: none; }
+.hero__visual::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(183,160,222,0.22), rgba(183,160,222,0.08) 55%, rgba(183,160,222,0.18));
+}
 .hero__slideshow { position: absolute; inset: 0; }
 .hero__slide {
   position: absolute; inset: 0; width: 100%; height: 100%;
@@ -347,10 +350,10 @@ html { scroll-padding-top: 5.6rem; }
 .hero__title .line--name {
   font-family: var(--font-name);
   font-size: clamp(3.8rem, 10vw, 7.4rem); font-weight: 400; letter-spacing: 0.01em;
-  color: var(--gold-bright);
-  -webkit-text-fill-color: var(--gold-bright);
-  background: none;
-  filter: none;
+  background: linear-gradient(100deg, #ffeab3, #ffd76a 42%, #f7b62f);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.28));
   white-space: nowrap;
 }
 @keyframes shimmer { to { background-position: 200% center; } }
@@ -465,7 +468,7 @@ html { scroll-padding-top: 5.6rem; }
 .portrait__frame {
   position: absolute; inset: 0; border-radius: 220px 220px 24px 24px; overflow: hidden;
   background: var(--card-wash);
-  border: 5px solid var(--gold-bright);
+  border: 10px solid var(--gold-bright);
   display: grid; place-items: center; text-align: center;
   box-shadow: 0 18px 40px -20px rgba(42, 11, 70, 0.28);
 }
@@ -665,8 +668,8 @@ html { scroll-padding-top: 5.6rem; }
   font-size: clamp(1.05rem, 1.9vw, 1.5rem);
   font-weight: 700;
   letter-spacing: 0.26em; text-transform: uppercase;
-  color: var(--ink); margin-bottom: 2rem; text-align: left;
-  text-shadow: none;
+  color: #fff; margin-bottom: 2rem; text-align: left;
+  text-shadow: 0 2px 14px rgba(20, 8, 36, 0.55);
 }
 .hero__roles span { color: var(--gold-bright); margin: 0 0.5rem; font-weight: 400; }
 
@@ -677,7 +680,7 @@ html { scroll-padding-top: 5.6rem; }
 }
 .perf-gallery__item {
   margin: 0; border-radius: 16px; overflow: hidden; position: relative;
-  border: 3px solid var(--gold);
+  border: 4px solid var(--gold-bright);
   background: rgba(255,255,255,0.03);
   box-shadow: 0 18px 44px -26px rgba(212,146,31,0.6);
   transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
@@ -1036,10 +1039,10 @@ html { scroll-padding-top: 5.6rem; }
   margin-inline: auto;
 }
 .vpx__title {
-  font-family: var(--font-display); font-weight: 400; letter-spacing: 0.01em;
-  font-size: clamp(1.2rem, 2.6vw, 2.15rem); line-height: 1.2;
+  font-family: var(--font-display); font-weight: 700; letter-spacing: 0.01em;
+  font-size: clamp(1.55rem, 3.2vw, 2.55rem); line-height: 1.15;
   color: var(--ink); text-align: center;
-  margin: 0 0 1.5rem; max-width: none;
+  margin: 0 0 1.5rem; max-width: none; white-space: nowrap;
 }
 .vpx__film {
   position: relative; display: block; width: 100%; min-width: 0;
@@ -1092,11 +1095,12 @@ html { scroll-padding-top: 5.6rem; }
 .vpx__text a:hover { color: var(--ink); }
 .vpx__actions { margin-top: 1.4rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
 .vpx__quote {
-  margin: 0; padding: 1.35rem 1.45rem 1.4rem;
+  margin: 0 auto; padding: 1.35rem 1.45rem 1.4rem;
   border: 2px solid #c9b4e4;
   border-radius: 12px;
   background: rgba(255,255,255,0.55);
-  text-align: left;
+  text-align: center;
+  max-width: 36rem;
 }
 .vpx__quote blockquote {
   font-family: var(--font-display); font-style: italic; font-weight: 300;
@@ -1108,7 +1112,24 @@ html { scroll-padding-top: 5.6rem; }
   margin-top: 1rem; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--muted);
 }
-.vpx__quote figcaption span { color: var(--gold-bright); }
+.vpx__quote figcaption span { color: var(--gold-deep); }
+
+.vpx__banner {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 2.4rem 0 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-block: 8px solid #8b6cc9;
+  overflow: hidden;
+  line-height: 0;
+}
+.vpx__banner img {
+  width: 100%; height: auto; aspect-ratio: 21 / 8;
+  object-fit: cover; object-position: center 40%;
+  display: block;
+}
 
 /* Two smaller cards under the performance films */
 .work__grid.work__grid--pair {
@@ -1266,7 +1287,12 @@ html { scroll-padding-top: 5.6rem; }
 .house-teaser__title {
   font-family: var(--font-display); font-weight: 500;
   font-size: clamp(2.4rem, 6vw, 4.2rem); color: var(--gold);
-  letter-spacing: 0.01em; margin-bottom: 1.1rem;
+  letter-spacing: 0.01em; margin-bottom: 0.35rem;
+}
+.house-teaser__movement {
+  font-family: var(--font-serif); font-style: italic;
+  color: var(--lilac-deep); font-size: clamp(1.05rem, 2vw, 1.4rem);
+  letter-spacing: 0.04em; margin-bottom: 1.1rem;
 }
 .house-teaser__text {
   font-family: var(--font-serif); color: var(--cream);
@@ -1275,16 +1301,31 @@ html { scroll-padding-top: 5.6rem; }
 }
 .house-teaser__actions { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; }
 
+.page-teaser {
+  text-align: center;
+  padding-block: clamp(3.4rem, 8vh, 5.2rem);
+}
+.page-teaser__title {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(2rem, 5vw, 3.2rem); color: var(--ink);
+  margin-bottom: 0.85rem;
+}
+.page-teaser__text {
+  font-family: var(--font-serif); color: var(--cream);
+  font-size: clamp(1.05rem, 2vw, 1.22rem); line-height: 1.6;
+  max-width: 44ch; margin: 0 auto 1.5rem;
+}
+
 .work .section__title { color: var(--ink); }
 .card--reading {
-  background: linear-gradient(160deg, #4a1d78, #2a0b46);
-  border-color: transparent; color: #fff;
+  background: linear-gradient(160deg, #fff6d8, #ffeab3);
+  border-color: rgba(247, 182, 47, 0.35); color: var(--cream);
 }
-.card--reading .card__title { color: #fff; }
+.card--reading .card__title { color: var(--ink); }
 .card--reading .card__desc,
-.card--reading .card__tag { color: rgba(255,246,239,0.82); }
-.card--reading .card__link { color: #ffeab3; }
-.card--reading .card__play { background: rgba(255,255,255,0.1); border-color: rgba(255,234,179,0.55); }
+.card--reading .card__tag { color: var(--mist); }
+.card--reading .card__link { color: var(--gold-deep); }
+.card--reading .card__play { background: rgba(255,255,255,0.55); border-color: rgba(143, 100, 16, 0.35); }
 
 .house__tagline {
   font-size: clamp(2.2rem, 6.4vw, 4.4rem);
@@ -1315,8 +1356,15 @@ html { scroll-padding-top: 5.6rem; }
   color: var(--lilac-deep);
   font-size: clamp(1.15rem, 2.5vw, 1.7rem);
 }
-.house__sub { display: none; }
-.house__text--after { margin-top: 1.8rem; }
+.house__founded { display: none; }
+.house__title { display: none; }
+.house__sub {
+  display: block;
+  font-family: var(--font-serif); font-style: italic; font-weight: 400;
+  font-size: clamp(1.15rem, 2.6vw, 1.75rem); letter-spacing: 0.01em; margin-top: 0.7rem;
+  color: var(--lilac-deep); text-align: center;
+}
+.house__text--after { margin-top: 1rem; margin-bottom: 0.4rem; }
 .pillar__num {
   font-size: clamp(1.85rem, 4vw, 2.7rem);
   letter-spacing: 0.04em;
@@ -1365,10 +1413,7 @@ html { scroll-padding-top: 5.6rem; }
 .shop__head .section__title { white-space: nowrap; }
 .shop__join { margin-top: 0; }
 
-.poems__kicker {
-  font-family: var(--font-serif); font-style: italic; color: var(--lilac-deep);
-  font-size: 1.2rem; margin-bottom: 0.35rem;
-}
+.poems__kicker { display: none; }
 .poems__cta { margin-top: 2rem; }
 
 .section.connect {
@@ -1408,6 +1453,7 @@ html { scroll-padding-top: 5.6rem; }
 
 @media (max-width: 900px) {
   .workshops__title,
-  .shop__head .section__title { white-space: normal; }
+  .shop__head .section__title,
+  .vpx__title { white-space: normal; }
   .comments__sub { white-space: normal; }
 }
