@@ -533,6 +533,27 @@
     tabs.forEach((t, n) => t.addEventListener("click", () => show(n)));
     if (prev) prev.addEventListener("click", () => show(idx - 1));
     if (next) next.addEventListener("click", () => show(idx + 1));
+    $$(".lang-switch", book).forEach((group) => {
+      const buttons = $$(".lang-switch__btn", group);
+      const page = group.closest(".page");
+      const panels = $$("[data-lang-panel]", page);
+      const setLang = (lang) => {
+        buttons.forEach((button) => {
+          const on = button.dataset.lang === lang;
+          button.classList.toggle("is-active", on);
+          button.setAttribute("aria-pressed", String(on));
+        });
+        panels.forEach((panel) => {
+          const on = panel.dataset.langPanel === lang;
+          if (on) panel.removeAttribute("hidden");
+          else panel.setAttribute("hidden", "");
+        });
+        if (page) page.lang = lang === "fr" ? "fr" : "en";
+      };
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => setLang(button.dataset.lang));
+      });
+    });
     show(0);
   }
 

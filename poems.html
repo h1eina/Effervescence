@@ -74,7 +74,7 @@
             <button class="book__tab is-active" data-page="0" role="tab" aria-selected="true">Excellence Unveiled</button>
             <button class="book__tab" data-page="1" role="tab" aria-selected="false">Effervescence</button>
             <button class="book__tab" data-page="2" role="tab" aria-selected="false">Reclaiming Our Wings</button>
-            <button class="book__tab" data-page="3" role="tab" aria-selected="false">‘In the face of’</button>
+            <button class="book__tab" data-page="3" role="tab" aria-selected="false">‘In the face of’ <span class="book__langs">EN · FR</span></button>
             <button class="book__tab" data-page="4" role="tab" aria-selected="false">Afro Pick</button>
             <button class="book__tab" data-page="5" role="tab" aria-selected="false">We are their prayers</button>
           </div>
@@ -136,13 +136,19 @@
                 <p class="page__note"><sup>1</sup> From the poem, You Are. And you are all women. By Gucci Erasmus</p>
               </div>
             </article>
-            <article class="page page--4" data-page="3" role="tabpanel" hidden>
+            <article class="page page--4" data-page="3" role="tabpanel" hidden lang="en">
               <header class="page__head">
                 <h3 class="page__title">‘In the face of’</h3>
                 <span class="page__meta">as written for the Rhophys Couture International Women’s Day feature</span>
               </header>
-              <div class="page__text">
-                <p class="page__lang">(English Version)</p>
+              <div class="lang-switch" role="group" aria-label="Choose a language for this poem">
+                <span class="lang-switch__label">Read in</span>
+                <div class="lang-switch__group">
+                  <button type="button" class="lang-switch__btn is-active" data-lang="en" aria-pressed="true">English</button>
+                  <button type="button" class="lang-switch__btn" data-lang="fr" aria-pressed="false" lang="fr">Français</button>
+                </div>
+              </div>
+              <div class="page__text" data-lang-panel="en" lang="en">
                 <p>We are closer to liberation<br/>Than previous generations,<br/>Though a movement of suppression<br/>Dares to threaten<br/>The progress intended.</p>
                 <p>These perceptions of women<br/>Marred by misconceptions,<br/>Blurs our futures<br/>And dampens our spirits<br/>Distracting from our purpose.</p>
                 <p>The illusion of power<br/>Is only designed to empower<br/>What was once hid,<br/>Because feeling intimidated<br/>Was too much to bear.</p>
@@ -151,7 +157,8 @@
                 <p>Let us eradicate the notion of reversibility,<br/>The world should be awakened by our audacity.<br/>The right side of history must unfold unselfishly.</p>
                 <p>So let us march on,<br/>As one beat, together,</p>
                 <p class="page__accent">In unison.</p>
-                <p class="page__lang">(French Translation)</p>
+              </div>
+              <div class="page__text" data-lang-panel="fr" lang="fr" hidden>
                 <p>Nous sommes plus proche à la liberation<br/>Que les generations précédentes,<br/>Mais un mouvement de répression<br/>Ose menacer<br/>Le progrès desirer.</p>
                 <p>Ces perceptions des femmes<br/>Défigurer par des idées fausses,<br/>Brouillent notre futur<br/>Et nous laissons découragé<br/>Distrayant de notre objectif.</p>
                 <p>L’illusion du pouvoir<br/>Est seule conçu pour habiliter<br/>Ce qui était autrefois cacher,<br/>Parce que se sentir intimider<br/>Était trop difficile à endurer.</p>
