@@ -1054,7 +1054,7 @@ html { scroll-padding-top: 5.6rem; }
 .vpx__film:hover { transform: translateY(-4px); box-shadow: 0 36px 80px -28px rgba(0,0,0,0.6); }
 .vpx__film img {
   width: 100%; height: auto; aspect-ratio: 16 / 9;
-  object-fit: cover; object-position: center 40%;
+  object-fit: cover; object-position: center;
   display: block;
 }
 .vpx__play {
@@ -1074,8 +1074,6 @@ html { scroll-padding-top: 5.6rem; }
   color: #ffeab3; background: linear-gradient(transparent, rgba(12,5,22,0.78));
 }
 .vpx__below {
-  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: clamp(1.4rem, 3vw, 2.4rem); align-items: start;
   margin-top: 1.8rem;
   padding-bottom: clamp(2.4rem, 5vh, 3.6rem);
 }
@@ -1096,38 +1094,34 @@ html { scroll-padding-top: 5.6rem; }
 .vpx__text a:hover { color: var(--ink); }
 .vpx__actions { margin-top: 1.4rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
 .vpx__quote {
-  margin: 0 auto; padding: 1.35rem 1.45rem 1.4rem;
-  border: 2px solid #c9b4e4;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.55);
+  width: 100%;
+  margin: 0;
+  padding: clamp(2.8rem, 8vw, 4.6rem) var(--gutter);
+  border: 0;
+  border-block: 8px solid #8b6cc9;
+  border-radius: 0;
+  max-width: none;
   text-align: center;
-  max-width: 36rem;
+  background:
+    radial-gradient(circle at 8% 28%, rgba(255,255,255,0.22) 0 1.4rem, transparent 1.55rem),
+    radial-gradient(circle at 18% 72%, rgba(232,184,255,0.2) 0 2.6rem, transparent 2.8rem),
+    radial-gradient(circle at 78% 22%, rgba(255,255,255,0.16) 0 2.1rem, transparent 2.3rem),
+    radial-gradient(circle at 92% 68%, rgba(255,210,255,0.18) 0 3.2rem, transparent 3.4rem),
+    radial-gradient(circle at 48% 88%, rgba(180,140,255,0.22) 0 2.4rem, transparent 2.6rem),
+    linear-gradient(160deg, #6a3298 0%, #3b1760 48%, #5c2d8f 100%);
 }
 .vpx__quote blockquote {
   font-family: var(--font-display); font-style: italic; font-weight: 300;
-  font-size: clamp(1.15rem, 2.2vw, 1.55rem); line-height: 1.4; color: var(--ink);
-  max-width: none;
+  font-size: clamp(1.25rem, 2.6vw, 1.85rem); line-height: 1.4; color: #fff;
+  max-width: 42rem;
+  margin-inline: auto;
 }
-.vpx__quote .ink-underline { color: var(--gold-deep); background-image: linear-gradient(var(--gold), var(--gold)); }
+.vpx__quote .ink-underline { color: #fff; background-image: linear-gradient(#fff, #fff); }
 .vpx__quote figcaption {
-  margin-top: 1rem; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--muted);
+  margin-top: 1.15rem; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,234,179,0.82);
 }
-.vpx__quote figcaption span { color: var(--gold-deep); }
-
-.vpx__banner {
-  width: 100%;
-  margin: 0;
-  border: 0;
-  border-block: 8px solid #8b6cc9;
-  overflow: hidden;
-  line-height: 0;
-}
-.vpx__banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+.vpx__quote figcaption span { color: #ffeab3; }
 
 /* Two smaller cards under the performance films */
 .work__grid.work__grid--pair {
@@ -1218,7 +1212,6 @@ html { scroll-padding-top: 5.6rem; }
   .reflections { max-height: 14rem; }
   .comments__sub { white-space: normal; }
   .footer__grid { grid-template-columns: 1fr; }
-  .vpx__below { grid-template-columns: 1fr; }
   .shop__editorial { grid-template-columns: 1fr; }
   .mag__book { grid-template-columns: 1fr; grid-template-rows: auto auto; max-height: 86vh; overflow-y: auto; }
   .mag__spine { display: none; }
