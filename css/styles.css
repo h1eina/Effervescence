@@ -791,6 +791,20 @@ html { scroll-padding-top: 5.6rem; }
 .page__text p { margin-bottom: 1.4rem; }
 .page__text em { color: var(--page-accent, var(--gold-soft)); font-style: italic; }
 .page__accent { font-family: var(--font-display); font-style: italic; font-size: clamp(1.6rem, 4vw, 2.6rem); color: var(--page-accent, var(--gold)); }
+.page__lang {
+  margin: 2.4rem 0 1.2rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--page-accent, var(--gold));
+}
+.page__note {
+  margin-top: 2.2rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-width: 46ch;
+}
+.page__text sup { font-size: 0.65em; line-height: 0; }
 .page__text--placeholder { color: var(--mist); }
 .page__soon { display: inline-block; font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--page-accent, var(--gold)); border: 1px dashed color-mix(in srgb, var(--page-accent, var(--gold)) 55%, transparent); padding: 0.4rem 0.9rem; border-radius: 999px; margin-bottom: 1.2rem; }
 /* colour per page */
