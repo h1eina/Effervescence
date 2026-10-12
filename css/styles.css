@@ -980,7 +980,7 @@ html { scroll-padding-top: 5.6rem; }
   border: 1px solid var(--line); margin-bottom: 2.4rem;
   box-shadow: 0 26px 60px -34px rgba(42,11,70,0.5);
 }
-.shop__banner img { width: 100%; aspect-ratio: 16/7; object-fit: cover; display: block; }
+.shop__banner img { width: 100%; aspect-ratio: 16/7; object-fit: cover; object-position: center 62%; display: block; }
 .shop__banner::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(14,6,26,0.28) 0%, rgba(14,6,26,0.42) 55%, rgba(14,6,26,0.5) 100%);
@@ -1346,7 +1346,7 @@ html { scroll-padding-top: 5.6rem; }
 }
 
 .lifestyle { background: #fff; }
-.lifestyle__head { max-width: 40rem; margin-bottom: 0.4rem; }
+.lifestyle .shop__banner { margin-bottom: 1.6rem; }
 .lifestyle .page-teaser__text { margin-bottom: 0; }
 .lifestyle__row {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
