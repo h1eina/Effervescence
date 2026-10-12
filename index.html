@@ -79,10 +79,11 @@
           <p class="hero__roles reveal" data-reveal data-delay="220">Poet <span aria-hidden="true">·</span> Performer <span aria-hidden="true">·</span> Artist</p>
           <div class="hero__actions reveal" data-reveal data-delay="320">
             <a href="#about" class="btn btn--gold magnetic">Meet the artist</a>
-            <a href="#experience" class="btn btn--ghost magnetic">Watch the film</a>
+            <a href="#experience" class="link-arrow link-arrow--light">Watch the film</a>
           </div>
         </div>
       </div>
+      <a class="hero__cue" href="#about" aria-label="Continue to Meet the Artist"><span aria-hidden="true">↓</span></a>
       <div class="marquee hero__marquee" aria-hidden="true">
         <div class="marquee__track">
           <span class="marquee__group">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -128,7 +129,7 @@
           </ul>
           <div class="section-next reveal" data-reveal>
             <a href="#experience" class="btn btn--gold magnetic">Watch the film</a>
-            <a href="poems.html" class="btn btn--ghost magnetic">Read the poems</a>
+            <a href="poems.html" class="link-arrow">Read the poems</a>
           </div>
         </div>
       </div>
@@ -157,7 +158,7 @@
             </p>
             <div class="vpx__actions reveal" data-reveal>
               <a href="poems.html" class="btn btn--gold magnetic">Read More Poems</a>
-              <a href="workshops.html" class="btn btn--gold magnetic">Discover Workshops</a>
+              <a href="workshops.html" class="link-arrow">Discover Workshops</a>
             </div>
           </div>
         </div>
@@ -173,29 +174,52 @@
     </section>
 
     <section class="section house-teaser" id="effervescence" aria-label="Effervescence">
-      <div class="container">
-        <h2 class="house-teaser__title reveal" data-reveal>Effervescence</h2>
-        <p class="house-teaser__movement reveal" data-reveal>A poetry and arts movement</p>
-        <p class="house-teaser__text reveal" data-reveal>
-          Inspired by the poem, Effervescence has grown into a creative company
-          producing unique poetry and artistic projects. It is dedicated to creating
-          opportunities for emerging creatives to be showcased and recognized.
-        </p>
-        <div class="house-teaser__actions reveal" data-reveal>
-          <a href="house.html#productions" class="btn btn--gold magnetic">See the Productions</a>
-          <a href="shop.html" class="btn btn--gold magnetic">Shop Effervescence</a>
-          <a href="#comments" class="btn btn--ghost magnetic">Leave a reflection</a>
+      <div class="container house-teaser__grid">
+        <div>
+          <h2 class="house-teaser__title reveal" data-reveal>Effervescence</h2>
+          <p class="house-teaser__movement reveal" data-reveal>A poetry and arts movement</p>
+        </div>
+        <div>
+          <p class="house-teaser__text reveal" data-reveal>
+            Inspired by the poem, Effervescence has grown into a creative company
+            producing unique poetry and artistic projects. It is dedicated to creating
+            opportunities for emerging creatives to be showcased and recognized.
+          </p>
+          <div class="house-teaser__actions reveal" data-reveal>
+            <a href="house.html#productions" class="btn btn--gold magnetic">See the Productions</a>
+            <a href="shop.html" class="btn btn--gold magnetic">Shop Effervescence</a>
+            <a href="#comments" class="link-arrow">Leave a reflection</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section page-teaser" id="shop-teaser" aria-label="Shop">
+    <section class="section lifestyle" id="shop-teaser" aria-label="Shop">
       <div class="container">
-        <h2 class="page-teaser__title reveal" data-reveal>Shop Effervescence</h2>
-        <p class="page-teaser__text reveal" data-reveal>
-          Our pieces are physical poetry and a representation of our community.
-          Let each item be a line you can live in.
-        </p>
+        <div class="lifestyle__head">
+          <h2 class="page-teaser__title reveal" data-reveal>Shop Effervescence</h2>
+          <p class="page-teaser__text reveal" data-reveal>
+            Our pieces are physical poetry and a representation of our community.
+            Let each item be a line you can live in.
+          </p>
+        </div>
+        <div class="lifestyle__row reveal" data-reveal>
+          <a class="lifestyle__card" href="shop.html">
+            <img src="assets/shop/effervescent-white.png" alt="White t-shirt with I am Effervescent design" />
+            <strong>I am Effervescent</strong>
+            <span>A simple declaration — worn loud.</span>
+          </a>
+          <a class="lifestyle__card" href="shop.html">
+            <img src="assets/shop/adventurous-wild-white.png" alt="White t-shirt with Adventurous and Wild design" />
+            <strong>Adventurous &amp; Wild</strong>
+            <span>Tamed by no wind. Docile by no mile.</span>
+          </a>
+          <a class="lifestyle__card" href="shop.html">
+            <img src="assets/shop/dance-sky-white.png" alt="White t-shirt with Dance in the Sky design" />
+            <strong>Dance in the Sky</strong>
+            <span>For the winged beings — and those becoming them.</span>
+          </a>
+        </div>
         <a href="shop.html" class="btn btn--gold magnetic">Shop</a>
       </div>
     </section>
@@ -236,14 +260,19 @@
       </div>
     </section>
 
-    <section class="section page-teaser" id="workshops-teaser" aria-label="Workshops">
-      <div class="container">
-        <h2 class="page-teaser__title reveal" data-reveal>Workshops &amp; Creative Facilitation</h2>
-        <p class="page-teaser__text reveal" data-reveal>
-          Interactive sessions in poetry, performance, and self-expression led by Marie-Paul.
-          Perfect for schools, organizations and community events.
-        </p>
-        <a href="workshops.html" class="btn btn--gold magnetic">Discover Workshops</a>
+    <section class="section feature" id="workshops-teaser" aria-label="Workshops">
+      <div class="container feature__grid">
+        <figure class="feature__photo reveal" data-reveal>
+          <img src="assets/workshops/poems-to-empower.jpg" alt="Marie-Paul performing a poem on stage" width="1200" height="1500" />
+        </figure>
+        <div class="feature__copy">
+          <h2 class="page-teaser__title reveal" data-reveal>Workshops &amp; Creative Facilitation</h2>
+          <p class="page-teaser__text reveal" data-reveal>
+            Interactive sessions in poetry, performance, and self-expression led by Marie-Paul.
+            Perfect for schools, organizations and community events.
+          </p>
+          <a href="workshops.html" class="btn btn--gold magnetic">Discover Workshops</a>
+        </div>
       </div>
     </section>
 
