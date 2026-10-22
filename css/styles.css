@@ -1370,16 +1370,35 @@ html { scroll-padding-top: 5.6rem; }
 .lifestyle__card span { color: var(--mist); font-family: var(--font-serif); font-size: 0.98rem; }
 
 .feature__grid {
-  display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-  gap: clamp(1.4rem, 4vw, 3.2rem); align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: clamp(1.8rem, 4vw, 3.6rem);
+  align-items: center;
 }
 .feature__photo {
-  margin: 0; border-radius: 18px; overflow: hidden;
-  border: 8px solid var(--gold-bright);
+  margin: 0;
+  min-width: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 4px solid var(--gold-bright);
   box-shadow: var(--shadow-card);
+  background: #f6f1e8;
 }
-.feature__photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
-.feature__copy .page-teaser__title { max-width: 16ch; }
+.feature__photo img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+.feature__copy { min-width: 0; }
+.feature__copy .page-teaser__title {
+  max-width: 16em;
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  line-height: 1.08;
+}
+.feature__copy .page-teaser__text { max-width: 38ch; }
 
 .work .section__title { color: var(--ink); }
 .card--reading {
