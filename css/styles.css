@@ -681,32 +681,28 @@ html { scroll-padding-top: 5.6rem; }
 .footer { border-top: 1px solid var(--line); padding-top: 1.15rem; margin-top: 0.6rem; }
 .footer__grid {
   display: grid;
-  grid-template-columns: minmax(14rem, 1.3fr) minmax(0, 1.6fr) auto;
-  gap: 1rem 2rem;
-  align-items: start;
+  grid-template-columns: minmax(14rem, 1.15fr) minmax(0, 2fr);
+  gap: 0.45rem 2rem;
+  align-items: center;
   text-align: left;
-  padding-bottom: 1rem;
+  padding-bottom: 0.85rem;
 }
+.footer__brand { grid-row: 1 / span 2; }
 .footer__logo { font-family: var(--font-display); font-size: 1.15rem; }
 .footer__logo em { font-style: italic; color: var(--gold-soft); }
 .footer__brand p { color: var(--mist); margin: 0.4rem 0 0; max-width: 32ch; font-size: 0.88rem; line-height: 1.45; }
-.footer__nav {
+.footer__nav, .footer__social {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-end;
-  align-content: flex-start;
+  align-items: center;
   gap: 0.45rem 1.15rem;
   max-width: none;
-  padding-top: 0.2rem;
+  padding-top: 0;
 }
-.footer__social {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.45rem;
-  max-width: none;
-  padding-top: 0.2rem;
-}
+.footer__nav { grid-column: 2; grid-row: 1; }
+.footer__social { grid-column: 2; grid-row: 2; }
 .footer__nav a, .footer__social a { color: var(--mist); font-size: 0.88rem; font-weight: 500; transition: color 0.3s; width: auto; }
 .footer__nav a:hover, .footer__social a:hover { color: var(--gold-deep); }
 .footer__base { display: flex; justify-content: space-between; align-items: center; padding-block: 0.7rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.82rem; flex-wrap: wrap; gap: 0.4rem; }
@@ -1284,9 +1280,9 @@ html { scroll-padding-top: 5.6rem; }
   .reflections__feed { padding-left: 0; padding-top: 1rem; border-left: 0; border-top: 1px solid var(--card-line); }
   .reflections { max-height: 14rem; }
   .comments__sub { white-space: normal; }
-  .footer__grid { grid-template-columns: 1fr; text-align: left; }
-  .footer__nav, .footer__social { justify-content: flex-start; }
-  .footer__social { flex-direction: row; flex-wrap: wrap; }
+  .footer__grid { grid-template-columns: 1fr; }
+  .footer__brand { grid-row: auto; }
+  .footer__nav, .footer__social { grid-column: auto; grid-row: auto; justify-content: flex-start; }
   .shop__editorial { grid-template-columns: 1fr; }
   .mag__book { grid-template-columns: 1fr; grid-template-rows: auto auto; max-height: 86vh; overflow-y: auto; }
   .mag__spine { display: none; }
