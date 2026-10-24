@@ -176,6 +176,19 @@
     });
   }
 
+  /* ---------- Meet the Artist: read more ---------- */
+  const aboutMore = $("#aboutMore");
+  const aboutMorePanel = $("#aboutMorePanel");
+  if (aboutMore && aboutMorePanel) {
+    aboutMore.addEventListener("click", () => {
+      const open = aboutMorePanel.hasAttribute("hidden");
+      if (open) aboutMorePanel.removeAttribute("hidden");
+      else aboutMorePanel.setAttribute("hidden", "");
+      aboutMore.setAttribute("aria-expanded", String(open));
+      aboutMore.textContent = open ? "Show less" : "Read more";
+    });
+  }
+
   /* ---------- Contact form (client-side, no backend) ---------- */
   const CONTACT_EMAIL = "mariepaul.poet@gmail.com";
 
@@ -187,7 +200,7 @@
     "Collaboration / Publication":
       "Hello Marie-Paul,\n\nI have a collaboration in mind and would love to work with you.\n\nProject: \nMy role / organisation: \nTimeline: \n",
     "Press / Speaking Engagement":
-      "Hello Marie-Paul,\n\nI would like to invite you to speak or feature your work.\n\nOutlet or event: \nDate: \nTopic: \n",
+      "Hello Marie-Paul,\n\nI would like to invite you to speak or feature your work.\n\nOutlet or event: \nDate: \nTopic: \nLength of conversation: \n",
     "Workshop":
       "Hello Marie-Paul,\n\nI would like to enquire about a workshop.\n\nGroup or school: \nAge range: \nNumber of participants: \nPreferred dates: \n",
     "Just Saying Hello":
@@ -202,8 +215,16 @@
     const setLengthField = $("#setLengthField");
     const setLengthInput = $("#cf-setlength");
     const toggleSetLength = () => {
-      const show = reason && reason.value === "Booking / Performance";
-      if (setLengthField) setLengthField.classList.toggle("is-on", !!show);
+      const value = reason ? reason.value : "";
+      const showBooking = value === "Booking / Performance";
+      const showPress = value === "Press / Speaking Engagement";
+      if (setLengthField) setLengthField.classList.toggle("is-on", showBooking || showPress);
+      if (setLengthInput) {
+        const label = showPress ? "Length of conversation (optional)" : "Length of set (optional)";
+        setLengthInput.placeholder = label;
+        const lab = setLengthField && setLengthField.querySelector("label");
+        if (lab) lab.textContent = label;
+      }
     };
 
     if (reason && messageField) {
@@ -233,10 +254,13 @@
         return;
       }
       note.classList.remove("is-error");
-      const setLength = setLengthInput && subject === "Booking / Performance"
+      const setLength = setLengthInput && (subject === "Booking / Performance" || subject === "Press / Speaking Engagement")
         ? setLengthInput.value.trim()
         : "";
-      const extra = setLength ? `\nLength of set (optional): ${setLength}` : "";
+      const lengthLabel = subject === "Press / Speaking Engagement"
+        ? "Length of conversation (optional)"
+        : "Length of set (optional)";
+      const extra = setLength ? `\n${lengthLabel}: ${setLength}` : "";
       const body = encodeURIComponent(`${message}${extra}\n\n— ${name} (${email})\nSent from marie-paul.com · ${subject}`);
       const mailSubject = encodeURIComponent(`${subject} — ${name}`);
       window.location.href = `mailto:${CONTACT_EMAIL}?subject=${mailSubject}&body=${body}`;
@@ -266,6 +290,12 @@
       magDesc.textContent = el.dataset.spreadDesc || "";
       magCta.href = el.dataset.spreadHref || "#";
       magCta.textContent = el.dataset.spreadCta || "Read the full spread";
+      const magShare = mag.querySelector(".mag__share");
+      if (magShare) {
+        magShare.dataset.shareTitle = el.dataset.spreadTitle || document.title;
+        magShare.dataset.shareText = el.dataset.spreadDesc || "";
+        magShare.dataset.shareUrl = el.dataset.spreadHref || location.href;
+      }
       mag.classList.add("is-open");
       mag.setAttribute("aria-hidden", "false");
       magClose.focus();

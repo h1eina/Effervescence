@@ -67,6 +67,8 @@
           <img class="hero__slide is-active" src="assets/hero/hero-1.jpg" alt="Marie-Paul in a denim jacket and black turtleneck" width="1920" height="1280" />
           <img class="hero__slide hero__slide--two" src="assets/hero/hero-2.jpg" alt="Marie-Paul seated in a teal headwrap and flowing teal and orange gown" width="1333" height="2000" />
           <img class="hero__slide" src="assets/hero/hero-3.jpg" alt="Marie-Paul seated in a blue velvet chair in vibrant teal and orange attire" width="2000" height="3000" />
+          <img class="hero__slide hero__slide--portrait" src="assets/hero/img_8182.jpg" alt="Marie-Paul writing in a notebook" width="1500" height="2000" />
+          <img class="hero__slide hero__slide--portrait" src="assets/hero/img_8184.jpg" alt="Marie-Paul seated at a table" width="1893" height="2000" />
         </div>
       </div>
       <div class="hero__stage">
@@ -83,7 +85,6 @@
           </div>
         </div>
       </div>
-      <a class="hero__cue" href="#about" aria-label="Continue to Meet the Artist"><span aria-hidden="true">↓</span></a>
       <div class="marquee hero__marquee" aria-hidden="true">
         <div class="marquee__track">
           <span class="marquee__group">authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;authenticity&nbsp;✦&nbsp;self-love&nbsp;✦&nbsp;self-expression&nbsp;✦&nbsp;poetry&nbsp;✦&nbsp;art&nbsp;✦&nbsp;effervescence&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -111,25 +112,24 @@
             self-expression into unique poetic and artistic experiences that inspire, uplift and
             empower.
           </p>
-          <p class="about__lead reveal" data-reveal>
-            She is also the founder of <em>House of Effervescence</em>, a creative platform and
-            production company dedicated to inspiring individuals through poetry and art by creating
-            opportunities for emerging creatives to be recognized and showcased.
-          </p>
-          <p class="about__text reveal" data-reveal>
-            She travels between Canada and the UK, and is proud of her Sierra Leonean heritage but
-            remains a rising international star whose work invites people to reclaim their
-            authenticity – to live their effervescence.
-          </p>
-          <ul class="about__facts reveal" data-reveal>
-            <li><strong>Award-winning</strong> Poet &amp; Artist</li>
-            <li><strong>Founder</strong> Entrepreneur</li>
-            <li><strong>Human Rights</strong> Advocate</li>
-            <li><strong>Canada / United Kingdom</strong> Sierra Leonean Heritage</li>
-          </ul>
-          <div class="section-next reveal" data-reveal>
-            <a href="#experience" class="btn btn--gold magnetic">Watch the film</a>
-            <a href="poems.html" class="link-arrow">Read the poems</a>
+          <button type="button" class="about__more-btn" id="aboutMore" aria-expanded="false" aria-controls="aboutMorePanel">Read more</button>
+          <div class="about__more" id="aboutMorePanel" hidden>
+            <p class="about__lead">
+              She is also the founder of <em>House of Effervescence</em>, a creative platform and
+              production company dedicated to inspiring individuals through poetry and art by creating
+              opportunities for emerging creatives to be recognized and showcased.
+            </p>
+            <p class="about__text">
+              She travels between Canada and the UK, and is proud of her Sierra Leonean heritage but
+              remains a rising international star whose work invites people to reclaim their
+              authenticity – to live their effervescence.
+            </p>
+            <ul class="about__facts">
+              <li><strong>Award-winning</strong> Poet &amp; Artist</li>
+              <li><strong>Founder</strong> Entrepreneur</li>
+              <li><strong>Human Rights</strong> Advocate</li>
+              <li><strong>Canada / United Kingdom</strong> Sierra Leonean Heritage</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -188,7 +188,7 @@
           <div class="house-teaser__actions reveal" data-reveal>
             <a href="house.html#productions" class="btn btn--gold magnetic">See the Productions</a>
             <a href="shop.html" class="btn btn--gold magnetic">Shop Effervescence</a>
-            <a href="#comments" class="link-arrow">Leave a reflection</a>
+            <a href="#comments" class="btn btn--ghost magnetic">Leave a reflection</a>
           </div>
         </div>
       </div>
@@ -252,7 +252,7 @@
             <p class="card__desc">Marie-Paul’s first reading of “Effervescence” for the Hamilton Public Library. Where it all began.</p>
             <a class="card__link" href="https://www.youtube.com/watch?v=Med_pWTau1c" target="_blank" rel="noopener" data-video="Med_pWTau1c" data-video-title="Marie-Paul’s first reading of Effervescence for the Hamilton Public Library">Watch the reading <span aria-hidden="true">→</span></a>
           </article>
-          <article class="card card--video card--sm reveal" data-reveal data-delay="120">
+          <article class="card card--video card--sm card--reading reveal" data-reveal data-delay="120">
             <span class="card__play" aria-hidden="true"></span>
             <div class="card__tag">Talk · Live</div>
             <h3 class="card__title">Harnessing Your Child’s Special Talent</h3>
@@ -272,7 +272,8 @@
           <h2 class="page-teaser__title reveal" data-reveal>Workshops &amp; Creative Facilitation</h2>
           <p class="page-teaser__text reveal" data-reveal>
             Interactive sessions in poetry, performance, and self-expression led by Marie-Paul.
-            Perfect for schools, organizations and community events.
+            Perfect for schools, organizations and community events. Each one is designed to help
+            people find their voice and claim their effervescence.
           </p>
           <a href="workshops.html" class="btn btn--gold magnetic">Discover Workshops</a>
         </div>
@@ -438,6 +439,7 @@
         <h3 class="mag__title" id="magTitle"></h3>
         <p class="mag__desc" id="magDesc"></p>
         <a class="btn btn--gold magnetic mag__cta" id="magCta" href="#" target="_blank" rel="noopener">Read the full spread</a>
+        <button type="button" class="btn btn--ghost mag__share" data-share>Share with others!</button>
       </div>
     </div>
   </div>

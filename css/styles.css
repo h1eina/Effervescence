@@ -368,15 +368,18 @@ html { scroll-padding-top: 5.6rem; }
   max-width: 28ch; margin: 0 0 2rem; font-style: italic; line-height: 1.35;
 }
 .hero__actions { display: flex; gap: 1.1rem; justify-content: flex-start; align-items: center; flex-wrap: wrap; }
-.hero__cue {
-  position: relative; z-index: 2; align-self: center;
-  width: 46px; height: 46px; margin: 0 0 0.85rem;
-  border-radius: 50%; border: 1px solid rgba(255,255,255,0.6);
-  color: #fff; display: grid; place-items: center; font-size: 1.25rem;
-  background: rgba(20, 8, 36, 0.28);
-  backdrop-filter: blur(8px);
+.hero__slide--portrait { object-position: center 28%; }
+.about__more-btn {
+  margin-top: 0.85rem;
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font-family: var(--font-sans); font-weight: 600; font-size: 0.98rem;
+  color: var(--gold-deep);
 }
-.hero__cue:hover { background: rgba(255,255,255,0.22); }
+.about__more-btn::after { content: " →"; }
+.about__more-btn:hover { color: var(--ink); }
+.about__more { margin-top: 1rem; }
+.about__more .about__lead { margin-top: 0.85rem; }
+.about__more .about__facts { margin-top: 1.2rem; }
 .link-arrow {
   display: inline-flex; align-items: center; gap: 0.35rem;
   font-family: var(--font-sans); font-weight: 600; font-size: 0.98rem;
@@ -573,7 +576,7 @@ html { scroll-padding-top: 5.6rem; }
 .lightbox.is-open { opacity: 1; visibility: visible; }
 .lightbox__stage { width: min(1000px, 100%); transform: translateY(16px) scale(0.98); transition: transform 0.5s var(--ease); }
 .lightbox.is-open .lightbox__stage { transform: none; }
-.lightbox__title { font-family: var(--font-display); font-style: italic; font-size: 1.3rem; color: var(--gold-soft); margin-bottom: 0.9rem; text-align: center; }
+.lightbox__title { font-family: var(--font-display); font-style: italic; font-size: 1.3rem; color: #ffeab3; margin-bottom: 0.9rem; text-align: center; }
 .lightbox__frame {
   position: relative; aspect-ratio: 16/9; border-radius: 14px; overflow: hidden;
   border: 1px solid var(--line); box-shadow: 0 40px 120px -40px rgba(0,0,0,0.9);
@@ -832,6 +835,7 @@ html { scroll-padding-top: 5.6rem; }
 .page--4 { --page-accent: var(--teal); }
 .page--5 { --page-accent: var(--coral); }
 .page--6 { --page-accent: var(--plum); }
+.page--roses { --page-accent: var(--rose-deep); }
 .book__nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 1.2rem; border-top: 1px solid var(--line); }
 .book__arrow { background: var(--paper); border: 1px solid var(--card-line); color: var(--cream); padding: 0.6rem 1.2rem; border-radius: 999px; cursor: pointer; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 500; transition: border-color 0.3s var(--ease), transform 0.3s var(--ease); }
 .book__arrow:hover { border-color: var(--gold); transform: translateY(-2px); }
@@ -882,7 +886,7 @@ html { scroll-padding-top: 5.6rem; }
 }
 .house__pillars-title {
   font-family: var(--font-display); font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.85rem);
-  color: var(--cream); margin: clamp(1.2rem, 2.6vh, 1.9rem) 0 1rem;
+  color: var(--lilac-deep); margin: clamp(1.2rem, 2.6vh, 1.9rem) 0 1rem;
 }
 .house .pillars { text-align: left; width: 100%; gap: 1.3rem; }
 .house__actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1.6rem; }
@@ -1205,6 +1209,7 @@ html { scroll-padding-top: 5.6rem; }
 .mag__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.1; color: var(--cream); }
 .mag__desc { color: var(--mist); font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.5; }
 .mag__cta { align-self: flex-start; margin-top: 0.8rem; }
+.mag__share { align-self: flex-start; margin-top: 0.35rem; }
 .mag__close {
   position: absolute; top: 1.2rem; right: 1.4rem; z-index: 2; width: 48px; height: 48px; border-radius: 50%;
   background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3); color: #fff;
@@ -1440,7 +1445,7 @@ html { scroll-padding-top: 5.6rem; }
   color: var(--lilac-deep);
   font-size: clamp(1.15rem, 2.5vw, 1.7rem);
 }
-.house__founded { display: none; }
+.house__founded { display: block; margin-top: 0.45rem; }
 .house__title { display: none; }
 .house__sub {
   display: block;
