@@ -368,7 +368,8 @@ html { scroll-padding-top: 5.6rem; }
   max-width: 28ch; margin: 0 0 2rem; font-style: italic; line-height: 1.35;
 }
 .hero__actions { display: flex; gap: 1.1rem; justify-content: flex-start; align-items: center; flex-wrap: wrap; }
-.hero__slide--portrait { object-position: center 28%; }
+.hero__slide--speak { object-position: center 36%; }
+.hero__slide--pink { object-position: 82% center; }
 .about__more-btn {
   margin-top: 0.85rem;
   background: none; border: 0; padding: 0; cursor: pointer;
@@ -1233,6 +1234,8 @@ html { scroll-padding-top: 5.6rem; }
   .hero__actions { justify-content: flex-start; }
   .hero__title .line--name { font-size: clamp(3rem, 13vw, 4.8rem); }
   .hero__slide { object-position: center 22%; }
+  .hero__slide--speak { object-position: center 32%; }
+  .hero__slide--pink { object-position: 78% center; }
   .pillars { grid-template-columns: 1fr; }
   .about__grid, .house-teaser__grid, .feature__grid { grid-template-columns: 1fr; }
   .lifestyle__row { grid-template-columns: 1fr 1fr; }
