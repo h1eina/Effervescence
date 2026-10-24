@@ -1327,7 +1327,9 @@ html { scroll-padding-top: 5.6rem; }
 
 .page-shell { padding-top: calc(6.4rem + env(safe-area-inset-top, 0px)); }
 
-.section--page { padding-top: calc(5.5rem + env(safe-area-inset-top, 0px)); }
+.section.section--page {
+  padding-top: calc(7.4rem + env(safe-area-inset-top, 0px));
+}
 
 .about__lead,
 .about__text { font-family: var(--font-serif); }

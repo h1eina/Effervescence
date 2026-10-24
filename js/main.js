@@ -288,13 +288,14 @@
       magMeta.textContent = el.dataset.spreadMeta || "";
       magTitle.textContent = el.dataset.spreadTitle || "";
       magDesc.textContent = el.dataset.spreadDesc || "";
-      magCta.href = el.dataset.spreadHref || "#";
+      const href = el.dataset.spreadHref || "#";
+      magCta.href = href;
       magCta.textContent = el.dataset.spreadCta || "Read the full spread";
       const magShare = mag.querySelector(".mag__share");
       if (magShare) {
         magShare.dataset.shareTitle = el.dataset.spreadTitle || document.title;
         magShare.dataset.shareText = el.dataset.spreadDesc || "";
-        magShare.dataset.shareUrl = el.dataset.spreadHref || location.href;
+        magShare.dataset.shareUrl = new URL(href, location.href).href;
       }
       mag.classList.add("is-open");
       mag.setAttribute("aria-hidden", "false");
