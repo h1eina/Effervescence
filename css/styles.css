@@ -678,15 +678,23 @@ html { scroll-padding-top: 5.6rem; }
 .form__note.is-error { color: var(--rose-deep); }
 
 /* ---------- Footer ---------- */
-.footer { border-top: 1px solid var(--line); padding-top: 2.2rem; margin-top: 1.2rem; }
-.footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 1.4rem; padding-bottom: 1.6rem; }
-.footer__logo { font-family: var(--font-display); font-size: 1.4rem; }
+.footer { border-top: 1px solid var(--line); padding-top: 1.15rem; margin-top: 0.6rem; }
+.footer__grid {
+  display: grid;
+  grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr);
+  gap: 0.7rem 2rem;
+  align-items: center;
+  padding-bottom: 0.85rem;
+}
+.footer__logo { font-family: var(--font-display); font-size: 1.15rem; }
 .footer__logo em { font-style: italic; color: var(--gold-soft); }
-.footer__brand p { color: var(--mist); margin-top: 0.8rem; max-width: 34ch; font-size: 0.95rem; }
-.footer__nav, .footer__social { display: flex; flex-direction: column; gap: 0.7rem; }
-.footer__nav a, .footer__social a { color: var(--mist); font-size: 0.95rem; font-weight: 500; transition: color 0.3s; width: fit-content; }
+.footer__brand p { color: var(--mist); margin-top: 0.3rem; max-width: 32ch; font-size: 0.86rem; line-height: 1.4; }
+.footer__nav, .footer__social { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; }
+.footer__nav { justify-content: flex-end; }
+.footer__social { grid-column: 2; justify-content: flex-end; }
+.footer__nav a, .footer__social a { color: var(--mist); font-size: 0.88rem; font-weight: 500; transition: color 0.3s; width: auto; }
 .footer__nav a:hover, .footer__social a:hover { color: var(--gold-deep); }
-.footer__base { display: flex; justify-content: space-between; align-items: center; padding-block: 1.8rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; flex-wrap: wrap; gap: 0.6rem; }
+.footer__base { display: flex; justify-content: space-between; align-items: center; padding-block: 0.7rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.82rem; flex-wrap: wrap; gap: 0.4rem; }
 .footer__made { color: var(--gold); }
 
 /* ---------- Reveal animation ---------- */
@@ -1262,6 +1270,8 @@ html { scroll-padding-top: 5.6rem; }
   .reflections { max-height: 14rem; }
   .comments__sub { white-space: normal; }
   .footer__grid { grid-template-columns: 1fr; }
+  .footer__nav, .footer__social { justify-content: flex-start; }
+  .footer__social { grid-column: auto; }
   .shop__editorial { grid-template-columns: 1fr; }
   .mag__book { grid-template-columns: 1fr; grid-template-rows: auto auto; max-height: 86vh; overflow-y: auto; }
   .mag__spine { display: none; }
