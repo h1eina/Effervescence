@@ -377,7 +377,7 @@ html { scroll-padding-top: 5.6rem; }
   color: rgba(255, 246, 239, 0.9);
   text-shadow: 0 2px 14px rgba(20, 8, 36, 0.4);
 }
-.hero__slide--speak { object-position: center 36%; }
+.hero__slide--speak { object-position: center 10%; }
 .hero__slide--pink { object-position: 82% center; }
 .about__more-btn {
   margin-top: 0.85rem;
@@ -1262,7 +1262,7 @@ html { scroll-padding-top: 5.6rem; }
   .hero__actions { justify-content: flex-start; }
   .hero__title .line--name { font-size: clamp(3rem, 13vw, 4.8rem); }
   .hero__slide { object-position: center 22%; }
-  .hero__slide--speak { object-position: center 32%; }
+  .hero__slide--speak { object-position: center 8%; }
   .hero__slide--pink { object-position: 78% center; }
   .pillars { grid-template-columns: 1fr; }
   .about__grid, .house-teaser__grid, .feature__grid { grid-template-columns: 1fr; }
