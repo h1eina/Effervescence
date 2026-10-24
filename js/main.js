@@ -190,7 +190,7 @@
   }
 
   /* ---------- Contact form (client-side, no backend) ---------- */
-  const CONTACT_EMAIL = "mariepaul.poet@gmail.com";
+  const CONTACT_EMAIL = "connect@mariepaul.ca";
 
   // Each reason pre-fills its own prompt so the message arrives with the details
   // Marie-Paul needs to reply straight away.
@@ -261,7 +261,7 @@
         ? "Length of conversation (optional)"
         : "Length of set (optional)";
       const extra = setLength ? `\n${lengthLabel}: ${setLength}` : "";
-      const body = encodeURIComponent(`${message}${extra}\n\n— ${name} (${email})\nSent from marie-paul.com · ${subject}`);
+      const body = encodeURIComponent(`${message}${extra}\n\n— ${name} (${email})\nSent from mariepaul.ca · ${subject}`);
       const mailSubject = encodeURIComponent(`${subject} — ${name}`);
       window.location.href = `mailto:${CONTACT_EMAIL}?subject=${mailSubject}&body=${body}`;
       note.textContent = "Opening your email app… thank you for reaching out ✦";

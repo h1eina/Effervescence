@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Great+Vibes&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@400..600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=20261024b" />
 </head>
 <body>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -32,15 +32,11 @@
       <span class="nav__name">MARIE-PAUL</span>
     </a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="index.html#about">About the Artist</a>
-      <a href="index.html#experience">Visual Poetry</a>
-      <a href="poems.html">The Poems</a>
-      <a href="index.html#performances">Performances</a>
+      <a href="index.html#about">About</a>
+      <a href="poems.html">Poems</a>
       <a href="workshops.html">Workshops</a>
       <a href="house.html">Effervescence</a>
-      <a href="index.html#comments">Reflections</a>
       <a href="shop.html">Shop</a>
-      <a href="connect.html">Connect</a>
     </nav>
     <a href="connect.html" class="btn btn--gold nav__cta magnetic">Connect</a>
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -49,13 +45,10 @@
   </header>
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <nav aria-label="Mobile">
-      <a href="index.html#about">About the Artist</a>
-      <a href="index.html#experience">Visual Poetry</a>
-      <a href="poems.html">The Poems</a>
-      <a href="index.html#performances">Performances</a>
+      <a href="index.html#about">About</a>
+      <a href="poems.html">Poems</a>
       <a href="workshops.html">Workshops</a>
       <a href="house.html">Effervescence</a>
-      <a href="index.html#comments">Reflections</a>
       <a href="shop.html">Shop</a>
       <a href="connect.html">Connect</a>
     </nav>
@@ -75,7 +68,7 @@
           <h2 class="section__title reveal" data-reveal>Embrace Your Effervescence</h2>
           <p class="shop__intro reveal" data-reveal>Our pieces are physical poetry and a representation of our community. Let each item be a line you can live in.</p>
           <p class="shop__join reveal" data-reveal>
-            <a href="#connect" class="btn btn--gold magnetic">Join Our Community</a>
+            <a href="connect.html" class="btn btn--gold magnetic">Join Our Community</a>
           </p>
         </div>
         <div class="shop__grid">
@@ -164,81 +157,13 @@
       </div>
     </section>
 
-    <section class="section connect" id="connect" aria-label="Connect">
-      <div class="container connect__grid">
-        <div class="connect__intro">
-          <h2 class="section__title reveal" data-reveal>Connect with <span class="nowrap">Marie-Paul</span></h2>
-          <p class="connect__invite reveal" data-reveal>Marie-Paul would love to hear from you!</p>
-          <div class="follow reveal" data-reveal>
-            <p class="follow__label">Follow for More</p>
-            <ul class="follow__list">
-              <li>
-                <a href="https://www.instagram.com/liveyoureffervescence/" target="_blank" rel="noopener" aria-label="Instagram — @liveyoureffervescence">
-                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
-                  </svg>
-                  <span>Instagram</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.youtube.com/@marie-paulpoet" target="_blank" rel="noopener" aria-label="YouTube — Marie-Paul The Poet">
-                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/>
-                  </svg>
-                  <span>YouTube</span>
-                </a>
-              </li>
-              <li>
-                <a href="mailto:mariepaul.poet@gmail.com" aria-label="Email — mariepaul.poet@gmail.com">
-                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6" stroke-linecap="round"/>
-                  </svg>
-                  <span>mariepaul.poet@gmail.com</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="musings reveal" data-reveal>
-            <p class="musings__eyebrow">Newsletter</p>
-            <p class="musings__title">Subscribe to Marie-Paul’s Newsletter</p>
-            <p class="musings__text">Sign up and receive new poems, prose and important updates before anyone else.</p>
-            <form class="community__form" id="communityForm" novalidate>
-              <input type="email" id="communityEmail" name="email" required autocomplete="email" placeholder="Your email address" aria-label="Your email address" />
-              <button type="submit" class="btn btn--gold magnetic">Subscribe</button>
-            </form>
-            <p class="community__note" id="communityNote" role="status" aria-live="polite"></p>
-          </div>
-        </div>
-        <form class="connect__form reveal" data-reveal id="contactForm" novalidate>
-          <div class="field field--plain">
-            <label class="visually-hidden" for="cf-name">Your name</label>
-            <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Your name" />
-          </div>
-          <div class="field field--plain">
-            <label class="visually-hidden" for="cf-email">Your email</label>
-            <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="Your email" />
-          </div>
-          <div class="field field--select">
-            <label for="cf-subject" class="field__label--static">Reason for reaching out</label>
-            <select id="cf-subject" name="subject">
-              <option value="Booking / Performance">Booking / Performance</option>
-              <option value="Collaboration / Publication">Collaboration / Publication</option>
-              <option value="Press / Speaking Engagement">Press / Speaking Engagement</option>
-              <option value="Workshop">Workshop</option>
-              <option value="Just Saying Hello">Just Saying Hello</option>
-            </select>
-          </div>
-          <div class="field field--plain field--optional" id="setLengthField">
-            <label class="visually-hidden" for="cf-setlength">Length of set (optional)</label>
-            <input type="text" id="cf-setlength" name="setlength" placeholder="Length of set (optional)" />
-          </div>
-          <div class="field field--static">
-            <label for="cf-message" class="field__label--static">Your message</label>
-            <textarea id="cf-message" name="message" rows="4" required placeholder="Write your message…"></textarea>
-          </div>
-          <button type="submit" class="btn btn--gold btn--block magnetic">Send message</button>
-          <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
-        </form>
+    <section class="closer" aria-label="Connect">
+      <div class="container closer__inner">
+        <p class="kicker">Say hello</p>
+        <h2 class="closer__title">Let’s<br>live it<br>together.</h2>
+        <p class="closer__lede">Bookings, workshops, collaborations, or just a hello. She would love to hear from you.</p>
+        <a href="connect.html" class="btn btn--gold magnetic">Connect with Marie-Paul</a>
+        <a class="closer__mail" href="mailto:connect@mariepaul.ca">connect@mariepaul.ca</a>
       </div>
       <footer class="footer">
         <div class="container footer__grid">
@@ -261,7 +186,7 @@
             <a href="https://www.instagram.com/liveyoureffervescence/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
             <a href="https://www.youtube.com/@marie-paulpoet" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
             <a href="https://issuu.com/liveyoureffervescence" target="_blank" rel="noopener" aria-label="Issuu">Issuu</a>
-            <a href="mailto:mariepaul.poet@gmail.com" aria-label="Email">Email</a>
+            <a href="mailto:connect@mariepaul.ca" aria-label="Email">Email</a>
           </div>
         </div>
         <div class="footer__base container">

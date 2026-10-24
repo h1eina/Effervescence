@@ -48,8 +48,7 @@ python3 -m http.server 5173
 
 ## 🛠 Make it yours
 
-- **Email**: the contact form and links use a placeholder — `liveyoureffervescence@gmail.com`.
-  Search/replace it in `index.html` and `js/main.js` with the real inbox.
+- **Email**: the contact form and links use `connect@mariepaul.ca`.
 - **Photos**: the About section uses a styled "MP" monogram frame as a placeholder. Drop
   Marie-Paul's real portrait in `assets/` and swap `.portrait__frame` for an `<img>`.
 - **Production links**: cards now point to the real destinations pulled from her Linktree —
